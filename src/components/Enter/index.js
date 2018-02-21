@@ -2,26 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { BrowserRouter as Route, Switch } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-
-const fadeDuration = 4
+import './style.css'
 
 class Enter extends Component {
-  state = {
-    fadeOut: false,
-    visibility: 'visible',
-    eth_value: '',
-    eth_copied: false,
-    btc_value: '',
-    btc_copied: false,
-  }
-
-  componentDidUpdate(nextProps, { fadeOut }) {
-    if (fadeOut) {
-      setTimeout( () => {
-        this.setState({
-          visibility: 'hidden'
-        })
-      }, fadeDuration)
+  constructor () {
+    super()
+    this.state = {
+      visibility: 'visible',
+      eth_value: '0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB',
+      eth_copied: false,
+      btc_value: '1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby',
+      btc_copied: false
     }
   }
 
@@ -68,22 +59,20 @@ class Enter extends Component {
                     💝 Support to our cause is always welcome
                   </li>
                   <li className='donations displace'>
-                    <CopyToClipboard text={this.state.eth_value} onCopy={ () => this.setState({'eth_copied':true, 'btc_copied': false})}>
+                    <CopyToClipboard text={this.state.eth_value} onCopy={() => this.setState({'eth_copied': true, 'btc_copied': false})}>
                       <button>
-                        ETH: <span onClick={() => this.setState({ 'eth_value': '0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB'})}>0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB</span>
+                        ETH: <span onClick={() => this.setState({'eth_copied': true})}>0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB</span>
                       </button>
                     </CopyToClipboard>
-                    {this.state.eth_copied ? <span id='copied-text-eth' className='copied-tag' >Copied!</span> : null}
-
-
+                    {this.state.eth_copied ? <span id='copied-text-eth' className='copied-tag-eth' >Copied!</span> : null}
                   </li>
                   <li className='donations'>
-                    <CopyToClipboard text={this.state.btc_value} onCopy={ () => this.setState({'btc_copied':true, 'etc_copied': false})}>
+                    <CopyToClipboard text={this.state.btc_value} onCopy={() => this.setState({'btc_copied': true, 'eth_copied': false})}>
                       <button>
-                        BTC: <span onClick={ () => this.setState({ 'btc_value': '1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby', 'btc_copied': true})}>1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby</span>
+                        BTC: <span onClick={() => this.setState({'btc_copied': true})}>1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby</span>
                       </button>
                     </CopyToClipboard>
-                    {this.state.btc_copied ? <span id='copied-text-btc' className='copied-tag' >Copied!</span> : null}
+                    {this.state.btc_copied ? <span id='copied-text-btc' className='copied-tag-btc' >Copied!</span> : null}
 
                   </li>
                 </ul>

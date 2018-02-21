@@ -1,0 +1,91 @@
+.Button-button-i8EXy {
+  position: relative;
+  border: 1px solid hsla(0, 0%, 100%, .6);
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 200;
+  background-color: transparent;
+  line-height: 1;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.Button-button-i8EXy:hover {
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 1.0)
+}
+
+.Button-button-i8EXy>span, .Button-button-i8EXy a {
+  -webkit-transition: all .35s ease-in;
+  transition: all .35s ease-in
+}
+
+.Button-button-i8EXy.Button-white-1S9lg {
+  -webkit-box-shadow: 0 2px 20px 12px hsla(0, 0%, 100%, .05), inset 0 2px 20px 13px hsla(0, 0%, 100%, .02);
+  box-shadow: 0 2px 20px 12px hsla(0, 0%, 100%, .05), inset 0 2px 20px 13px hsla(0, 0%, 100%, .02)
+}
+
+.Benefits-button-2bgsq {
+  padding: 10px 20px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center
+}
+
+.Button-button-i8EXy::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 120%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  background: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg)
+}
+
+.no-link-style {
+  text-decoration: none
+}
+
+.donations {
+  margin-bottom: 0;
+  line-height: 0
+}
+
+.copied-tag-eth {
+  float: left;
+  display: inline-block;
+  font-size: 15px;
+  left: 50%;
+  bottom: -7%;
+  position: absolute;
+  z-index: 20;
+  line-height: 20px;
+  width: 100px;
+  font-family: "Nothing you could do", Cursive;
+  color: #009fe3;
+  text-align: center;
+  transform: rotate(-5deg)
+}
+
+.copied-tag-btc {
+  float: left;
+  display: inline-block;
+  font-size: 15px;
+  left: 71%;
+  bottom: -7%;
+  position: absolute;
+  z-index: 20;
+  line-height: 20px;
+  width: 100px;
+  font-family: "Nothing you could do", Cursive;
+  color: #009fe3;
+  text-align: center;
+  transform: rotate(-5deg)
+}

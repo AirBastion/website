@@ -387,34 +387,33 @@ footer a:hover {
   --fg: var(--fg-color);
   background: var(--bg);
   color: var(--fg);
-  padding: 100px 25px
-  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  padding: 100px 25px -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
 }
 
 .Content:before, .Content:after {
- content:"";
- z-index:-1;
- -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
- -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
- box-shadow:0 0 20px rgba(0,0,0,0.8);
- top:50%;
- bottom:0;
- left:10px;
- right:10px;
- -moz-border-radius:100px / 10px;
- border-radius:100px / 10px;
+  content: "";
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 50%;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px
 }
-.Content:after
-{
-right:10px;
- left:auto;
- -webkit-transform:skew(8deg) rotate(3deg);
-    -moz-transform:skew(8deg) rotate(3deg);
-     -ms-transform:skew(8deg) rotate(3deg);
-      -o-transform:skew(8deg) rotate(3deg);
-         transform:skew(8deg) rotate(3deg);
+
+.Content:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg)
 }
 
 .Content.center {
@@ -1181,77 +1180,6 @@ body.over-dark #Menu {
   font-size: 1.8em!important
 }
 
-.Button-button-i8EXy {
-  position: relative;
-  border: 1px solid hsla(0, 0%, 100%, .6);
-  border-radius: 2px;
-  font-size: 16px;
-  font-weight: 200;
-  background-color: transparent;
-  -webkit-transition: background-color .2s ease-in-out;
-  transition: background-color .2s ease-in-out;
-  line-height: 1;
-  overflow: hidden;
-  z-index: 1;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-}
-
-.Button-button-i8EXy > span,
-.Button-button-i8EXy a {
-  -webkit-transition: all .35s ease-in;
-transition: all .35s ease-in;
-}
-
-.Button-button-i8EXy.Button-white-1S9lg {
-  -webkit-box-shadow: 0 2px 20px 12px hsla(0, 0%, 100%, .05), inset 0 2px 20px 13px hsla(0, 0%, 100%, .02);
-  box-shadow: 0 2px 20px 12px hsla(0, 0%, 100%, .05), inset 0 2px 20px 13px hsla(0, 0%, 100%, .02)
-}
-
-.Benefits-button-2bgsq {
-  padding: 10px 20px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center
-}
-
-.Button-button-i8EXy::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 120%;
-  height: 0;
-  top: 50%;
-  left: 50%;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  background: #fff;
-  opacity: 0;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  transform: translateX(-50%) translateY(-50%) rotate(45deg)
-}
-
-.no-link-style {
-  text-decoration: none;
-}
-
-.donations {
-  margin-bottom: 0;
-  line-height: 0;
-}
-
-.copied-tag {
-  float: left;
-  display: inline-block;
-  font-size: 15px;
-  left: 0;
-  right: 70%;
-  bottom: -7%;
-  position: absolute;
-  z-index: 20;
-  line-height: 20px;
-  width: 100px;
-  font-family: "Nothing you could do", Cursive;
-  color: #009fe3;
-  text-align: center;
-  transform: rotate(-5deg);
+.nav {
+  padding-right:1rem;
 }

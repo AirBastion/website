@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './extra/ico.css'
 
 class Ico extends Component {
   render () {
