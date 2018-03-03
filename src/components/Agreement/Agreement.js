@@ -85,7 +85,7 @@ class Agreement extends Component {
                             </ul>
                         </div>
                         <div class="sections">
-                            <h4 align="center">ARTICLE ONE: ACCEPTANCE OF AGREEMENT <br> AND PURCHASE OF EOS TOKENS</h4>
+                            <h4 align="center">ARTICLE ONE: ACCEPTANCE OF AGREEMENT <br /> AND PURCHASE OF EOS TOKENS</h4>
                             <p align="justify"><strong>1.1.&nbsp;<a name="_GoBack"></a> This Agreement shall be effective and binding on the Parties when Buyer: (a) clicks the check box on the official <a href="https://eos.io/">https://eos.io/</a> website (the “<u>Website</u>”) to indicate that Buyer has read, understands and agrees to the terms of this Agreement; or, if earlier (b) upon Company’s receipt of payment from Buyer. Buyer agrees to be bound on this basis, and confirms that Buyer has read in full and understands this Agreement and the terms on which Buyer is bound.</strong></p>
                             <p align="justify"><strong>1.2. <u>Website Terms of Use</u>. Company has established Terms of Use, as may be amended from time to time, for the Website located at <a href="/terms-of-use.html">Terms of Use</a>, which are hereby incorporated by reference. Buyer has read, understands and agrees to those terms.</strong></p>
                             <p align="justify"><strong>1.3. <u>White Paper</u>. Company has prepared the White Paper, which is available at https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md, describing matters relating to the EOS.IO Software. The White Paper, as it may be amended from time to time, is hereby incorporated by reference. Buyer has read and understands the White Paper and its contents.</strong></p>
@@ -266,12 +266,12 @@ class Agreement extends Component {
 
                             <table cellspacing="0" cellpadding="7">
                                 <colgroup>
-                                    <col width="608">
+                                    <col width="608" />
                                 </colgroup>
                                 <tbody>
                                 <tr>
                                     <td width="608">
-                                        <div style="text-align:center"><img class="formula-img no-margin" src="https://d340lr3764rrcr.cloudfront.net/Images/img_formula@2x.png" alt=""></div>
+                                        <div style="text-align:center"><img class="formula-img no-margin" src="https://d340lr3764rrcr.cloudfront.net/Images/img_formula@2x.png" alt="" /></div>
                                         <p>Where:</p>
                                         <p>a = Total ETH contributed by an authorized purchaser during the period.</p>
                                         <p>b = Total number of EOS Tokens available for distribution in the period.</p>
@@ -306,13 +306,13 @@ class Agreement extends Component {
             <div class="token-check-condition">
                 <div class="row clearfix">
                     <div class="col">
-                        <input id="a" class="accept" type="checkbox" name="vehicle" value="a">
+                        <input id="a" class="accept" type="checkbox" name="vehicle" value="a" />
                         <label for="a"> <span> Check here to confirm that you are NOT a U.S. citizen, resident or entity (each a “U.S. Person”) nor are you purchasing EOS Tokens or signing on behalf of a U.S. Person.
                         </span> </label>
 
                     </div>
                     <div class="col">
-                        <input id="b" class="accept" type="checkbox" name="vehicle" value="b">
+                        <input id="b" class="accept" type="checkbox" name="vehicle" value="b" />
                         <label for="b"> <span> Check here to confirm that you are NOT a citizen of or resident of the People's Republic of China or an entity formed under the laws of the People's Republic of China (each a "Chinese Person") nor are you purchasing EOS Tokens or signing on behalf of a Chinese Person.
                         </span> </label>
 
@@ -321,12 +321,12 @@ class Agreement extends Component {
                 </div>
                 <div class="row clearfix">
                     <div class="col">
-                        <input id="c" class="accept" type="checkbox" name="vehicle" value="c">
+                        <input id="c" class="accept" type="checkbox" name="vehicle" value="c" />
                         <label for="c"> <span> Check here to confirm that you have read, understand and agree to the terms of the <a href="/purchase_agreement" target="_blank"> EOS Token Purchase Agreement</a>.
                         </span> </label>
                     </div>
                     <div class="col">
-                        <input id="d" class="accept" type="checkbox" name="vehicle" value="d">
+                        <input id="d" class="accept" type="checkbox" name="vehicle" value="d" />
                         <label for="d"> <span> Check here to confirm that you have read, understand and agree to the <a href="/terms-of-use.html" target="_blank">Terms of Use</a>.
                         </span> </label>
                     </div>
@@ -334,7 +334,7 @@ class Agreement extends Component {
                 </div>
                 <div class="row clearfix">
                     <div class="col">
-                        <input id="e" class="accept" type="checkbox" name="vehicle" value="e">
+                        <input id="e" class="accept" type="checkbox" name="vehicle" value="e" />
                         <label for="e"> <span> Check here to indicate that you have read the <a href="https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md" target="_blank">EOS.IO Technical Whitepaper</a>.
                         </span> </label>
                     </div>
