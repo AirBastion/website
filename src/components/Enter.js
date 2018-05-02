@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { BrowserRouter as Route, Switch } from 'react-router-dom'
+import injectSheet from 'react-jss';
+import style from './EnterStyles.js';
+import { BrowserRouter as Route, Switch, Link } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const fadeDuration = 4
 
 class Enter extends Component {
-  state = {
-    fadeOut: false,
-    visibility: 'visible',
-    eth_value: '',
-    eth_copied: false,
-    btc_value: '',
-    btc_copied: false,
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      fadeOut: false,
+      visibility: 'visible',
+      eth_value: '',
+      eth_copied: false,
+      btc_value: '',
+      btc_copied: false,
+    }
+
+    this.handleClick = this.handleClick.bind(this);
   }
+
 
   componentDidUpdate(nextProps, { fadeOut }) {
     if (fadeOut) {
@@ -23,6 +33,10 @@ class Enter extends Component {
         })
       }, fadeDuration)
     }
+  }
+
+  handleClick(e) {
+
   }
 
   render () {
@@ -44,9 +58,11 @@ class Enter extends Component {
               <a href='/login'>Login</a>
               <div className='Button-button-i8EXy Button-white-1S9lg Benefits-button-2bgsq Button-big-WLVWX margin-left' style={{'margin-left': '2%'}}>
                 <span>
-                  <a href='' className='no-link-style'>
-                    <span>Upcoming ICO</span>
-                  </a>
+
+                    <a href='/ico' className='no-link-style' onClick={this.handleClick}>
+                      <span>Upcoming ICO</span>
+                    </a>
+
                 </span>
               </div>
             </div>
@@ -70,7 +86,7 @@ class Enter extends Component {
                   <li className='donations displace'>
                     <CopyToClipboard text={this.state.eth_value} onCopy={ () => this.setState({'eth_copied':true, 'btc_copied': false})}>
                       <button>
-                        ETH: <span onClick={() => this.setState({ 'eth_value': '0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB'})}>0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB</span>
+                        ETH: <span onClick={() => this.setState({'eth_value': '0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB'})}>0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB</span>
                       </button>
                     </CopyToClipboard>
                     {this.state.eth_copied ? <span id='copied-text-eth' className='copied-tag' >Copied!</span> : null}
@@ -80,7 +96,7 @@ class Enter extends Component {
                   <li className='donations'>
                     <CopyToClipboard text={this.state.btc_value} onCopy={ () => this.setState({'btc_copied':true, 'etc_copied': false})}>
                       <button>
-                        BTC: <span onClick={ () => this.setState({ 'btc_value': '1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby', 'btc_copied': true})}>1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby</span>
+                        BTC: <span onClick={() => this.setState({'btc_value': '1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby', 'btc_copied': true})}>1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby</span>
                       </button>
                     </CopyToClipboard>
                     {this.state.btc_copied ? <span id='copied-text-btc' className='copied-tag' >Copied!</span> : null}
@@ -100,4 +116,4 @@ Enter.PropTypes = {
   fade: PropTypes.object.isRequired
 }
 
-export default Enter
+export default injectSheet(style)(Enter);

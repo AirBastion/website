@@ -1045,12 +1045,6 @@ body.over-dark #Social .icon svg {
   z-index: 2
 }
 
-body.over-dark #Menu {
-  background: transparent;
-  box-shadow: none;
-  --color: var(--bg-color)
-}
-
 #Menu .left {
   left: 0
 }
@@ -1254,4 +1248,10 @@ transition: all .35s ease-in;
   color: #009fe3;
   text-align: center;
   transform: rotate(-5deg);
+}
+
+.Example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
