@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss';
-import style from './EnterStyles.js';
+import './EnterStyles.css';
 import { BrowserRouter as Route, Switch, Link } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
@@ -116,4 +116,4 @@ Enter.PropTypes = {
   fade: PropTypes.object.isRequired
 }
 
-export default injectSheet(style)(Enter);
+export default Enter;

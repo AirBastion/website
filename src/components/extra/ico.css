@@ -9512,7 +9512,7 @@ h2.title {
 }
 
 .white {
-  color: #fff!important
+  color: #fff !important
 }
 
 .wrap {
@@ -10738,6 +10738,6 @@ ul#countdown {
   }
 }
 
-.white {
-  background-color: white;
+.black {
+  background-color: black !important;
 }

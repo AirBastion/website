@@ -1,8 +1,14 @@
+import image from './cool-background.png';
+
 export default {
   // Prevent page scrolling when modal is open
   '@global': {
     'body': {
       overflow: 'hidden',
+      bacgroundColor: 'blue',
+      minHeigth: '1400px',
+      height: '1400px',
+
     },
   },
 
@@ -17,7 +23,7 @@ export default {
     left: 0,
     bottom: 0,
     padding: '1rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundImage: 'rgba(0, 0, 0, 0.7)',
     zIndex: '9999',
     opacity: 1,
     animation: 'show .5s ease',
@@ -42,6 +48,11 @@ export default {
   childCard: {
     alignItem: 'center',
     flexBasis: 'auto'
+  },
+  black: {
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    // backgroundImage: 'url("img/cool-background.png")'
+
   }
 
 }

@@ -425,15 +425,15 @@ right:10px;
 
 .Content.full {
   width: 100%;
-  min-height: 100vh
+  min-height: 1080px
 }
 
 .Content.medium {
-  min-height: 650px
+  min-height: 1050px
 }
 
 .Content.small {
-  min-height: 500px
+  min-height: 1050px
 }
 
 .Content.border {
@@ -468,7 +468,7 @@ right:10px;
 }
 
 .Content.bg-image {
-  --tint: rgba(0, 0, 0, .65);
+  --tint: rgba(0, 0, 0, .05);
   background-image: linear-gradient(var(--tint), var(--tint)), url(https://apex-inc.imgix.net/images/backgrounds/2.jpg?q=50&w=1500);
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -1254,4 +1254,17 @@ transition: all .35s ease-in;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.root {
+  min-height: 1080px;
+}
+
+.copyright {
+  position: absolute;
+  text-align: center;
+  left: 50em;
+  font-weight: 600;
+  color: white;
+  bottom: 2rem;
 }
