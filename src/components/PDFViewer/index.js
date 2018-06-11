@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { Document, Page } from 'react-pdf';
-// import { Document } from 'react-pdf/dist/entry.webpack';
+//import { Document, Page } from 'react-pdf';
+import { Document, Page } from 'react-pdf/dist/entry.webpack';
 
-import pdfFile from '../Archives/Who.pdf';
 
 const options = {
   cMapUrl: 'cmaps/',
   cMapPacked: true,
 };
 
-export default class PDFViewer extends Component {
+class PDFViewer extends Component {
   state = {
-    file: pdfFile,
+    file: '',
     numPages: null,
   }
 
@@ -27,8 +26,10 @@ export default class PDFViewer extends Component {
     })
 
   render() {
-    const { file, numPages } = this.state;
+    const { numPages } = this.state;
     const { title, filePath } = this.props;
+    console.log(title);
+    console.log(filePath);
     return (
       <div className="Example">
         <header>
@@ -37,7 +38,7 @@ export default class PDFViewer extends Component {
         <div className="Example__container">
           <div className="Example__container__document">
             <Document
-              file={file}
+              file={filePath}
               onLoadSuccess={this.onDocumentLoadSuccess}
               options={options}
             >
@@ -61,4 +62,4 @@ export default class PDFViewer extends Component {
 }
 
 
-// export default PDFViewer;
+export default PDFViewer;

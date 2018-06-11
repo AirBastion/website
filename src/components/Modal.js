@@ -58,6 +58,7 @@ class Modal extends Component {
       children,
       classes,
     } = this.props;
+    console.log(children);
 
     return (
       <div className={classes.modalOverlay}>
@@ -84,7 +85,7 @@ Modal.propTypes = {
   onCloseRequest: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
+    PropTypes.node
   ]),
   sheet: PropTypes.object,
   classes: PropTypes.object,

@@ -11,19 +11,31 @@ import Copyright from './Copyright';
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};
 
-const docs = {
+var docs = {
   missionPath: './components/Archives/Who.pdf',
   whoPath: './components/Archives/Who.pdf',
   risksPath: './components/Archives/Who.pdf',
   contractsPath: './components/Archives/Who.pdf',
   valuesPath: './components/Archives/Who.pdf',
-  rolesPath: './components/Archives/Who.pdf'
-}
+  rolesPath: './components/Archives/Who.pdf',
+};
 
 /* Helper functions */
 function generatePDFWith(path) {
   // this should be the children :D :D
-  return <PDFViewer file={path} />
+  console.log(path);
+  return <PDFViewer filePath={path} />
+}
+
+function generateDocView(path, state){
+  var obj = generatePDFWith(path);
+  console.log('registered event')
+  this.setState((prevState, props) => {
+    return {
+      children: obj,
+      showModal: !state.showModal
+    }
+  });
 }
 
 function getFromLS(key) {
@@ -61,17 +73,6 @@ function Card(props){
   )
 }
 
-function generateDocView(id, state){
-  var obj = generatePDFWith(id);
-  console.log('registered event')
-  this.setState((prevState, props) => {
-    return {
-      children: obj,
-      showModal: !state.showModal
-    }
-  });
-}
-
 
 class ResponsiveLocalStorageLayout extends React.PureComponent {
   constructor(props) {
@@ -98,28 +99,29 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
     console.log(nextProps);
   }
 
-  handleToggleModal = () => {
+  handleToggleModal = (event) => {
     this.setState({ showModal: !this.state.showModal });
   }
 
   handleClick = (event, id) => {
-    console.log('received event')
-    console.log('the id is: ', id)
+    console.log('cAlled');
+
     switch (id) {
       case 'contracts':
-        var obj = generatePDFWith(docs['contractPath']);
-        console.log('registered event')
+        try{
+          var obj = generatePDFWith(docs.contractsPath);
+        } catch (err) {
+          console.log(err.name + 'error when calling ' + err.message)
+        }
         this.setState((prevState, props) => {
           return {
             children: obj,
             showModal: true
           }
         });
-        console.log(this.state.children);
         break;
       case 'who':
-        var obj = generatePDFWith(docs['whoPath']);
-        console.log(obj)
+        var obj = generatePDFWith(docs.whoPath);
         this.setState((prevState, props) => {
           return {
             children: obj,
@@ -128,7 +130,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
         });
         break;
       case 'role':
-        var obj = generatePDFWith(docs['rolePath']);
+        var obj = generatePDFWith(docs.rolesPath);
         this.setState((prevState, props) => {
           return {
             children: obj,
@@ -137,7 +139,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
         });
         break;
       case 'mission':
-        var obj = generatePDFWith(docs['missionPath']);
+        var obj = generatePDFWith(docs.missionPath);
         this.setState((prevState, props) => {
           return {
             children: obj,
@@ -146,7 +148,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
         });
         break;
       case 'values':
-        var obj = generatePDFWith(docs['valuesPath']);
+        var obj = generatePDFWith(docs.valuesPath);
         this.setState((prevState, props) => {
           return {
             children: obj,
@@ -155,7 +157,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
         });
         break;
       case 'risks':
-        var obj = generatePDFWith(docs['risksPath']);
+        var obj = generatePDFWith(docs.risksPath);
         this.setState((prevState, props) => {
           return {
             children: obj,
