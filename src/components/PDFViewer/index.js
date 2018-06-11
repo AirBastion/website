@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import { Document, Page } from 'react-pdf';
+// import { Document, Page } from 'react-pdf';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
-
+import sizeMe from 'react-sizeme';
 
 const options = {
   cMapUrl: 'cmaps/',
@@ -25,11 +25,16 @@ class PDFViewer extends Component {
       numPages,
     })
 
+  displayError = () => {
+
+  }
+
   render() {
     const { numPages } = this.state;
-    const { title, filePath } = this.props;
-    console.log(title);
-    console.log(filePath);
+    //const { title, filePath } = this.props;
+    const { title, filePath, size } = this.props;
+  
+    //this.props.onUpdateHeight(size);
     return (
       <div className="Example">
         <header>
@@ -49,6 +54,7 @@ class PDFViewer extends Component {
                     <Page
                       key={`page_${index + 1}`}
                       pageNumber={index + 1}
+                      scale={1.5}
                     />
                   ),
                 )
@@ -62,4 +68,4 @@ class PDFViewer extends Component {
 }
 
 
-export default PDFViewer;
+export default sizeMe()(PDFViewer);

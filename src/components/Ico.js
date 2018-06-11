@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import { WidthProvider, Responsive } from "react-grid-layout";
 import injectSheet, { ThemeProvider } from 'react-jss';
 
+// archives
+import Who from './Archives/Who.pdf';
+import What from './Archives/What.pdf';
+import Mission from './Archives/Mission.pdf';
+import Relationship from './Archives/Relationship.pdf';
+import Role from './Archives/Role.pdf';
+import Values from './Archives/Values.pdf';
+import Contracts from './Archives/Contracts.pdf';
+// import Risks from './Archives/Risks.pdf';
+
 import styles from './IcoStyles';
 import Modal from './Modal';
 import PDFViewer from './PDFViewer';
@@ -12,31 +22,13 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};
 
 var docs = {
-  missionPath: './components/Archives/Who.pdf',
-  whoPath: './components/Archives/Who.pdf',
-  risksPath: './components/Archives/Who.pdf',
-  contractsPath: './components/Archives/Who.pdf',
-  valuesPath: './components/Archives/Who.pdf',
-  rolesPath: './components/Archives/Who.pdf',
+  missionPath: Mission,
+  whoPath: Relationship,
+  risksPath: What,
+  contractsPath: Contracts,
+  valuesPath: Values,
+  rolesPath: Role,
 };
-
-/* Helper functions */
-function generatePDFWith(path) {
-  // this should be the children :D :D
-  console.log(path);
-  return <PDFViewer filePath={path} />
-}
-
-function generateDocView(path, state){
-  var obj = generatePDFWith(path);
-  console.log('registered event')
-  this.setState((prevState, props) => {
-    return {
-      children: obj,
-      showModal: !state.showModal
-    }
-  });
-}
 
 function getFromLS(key) {
   let ls = {};
@@ -61,6 +53,10 @@ function saveToLS(key, value) {
   }
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 /* Functional components */
 
 function Card(props){
@@ -82,7 +78,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
       layouts: JSON.parse(JSON.stringify(originalLayouts)),
       showModal: false,
       docPath: '',
-      children: null
+      title: ''
     };
   }
 
@@ -104,63 +100,60 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
   }
 
   handleClick = (event, id) => {
-    console.log('cAlled');
-
     switch (id) {
       case 'contracts':
-        try{
-          var obj = generatePDFWith(docs.contractsPath);
-        } catch (err) {
-          console.log(err.name + 'error when calling ' + err.message)
-        }
         this.setState((prevState, props) => {
           return {
-            children: obj,
+            docPath: docs.contractsPath,
+            title: capitalizeFirstLetter(id),
             showModal: true
           }
         });
         break;
       case 'who':
-        var obj = generatePDFWith(docs.whoPath);
+        id = capitalizeFirstLetter(id) + " We Are";
         this.setState((prevState, props) => {
           return {
-            children: obj,
+            docPath: docs.whoPath,
+            title: id,
             showModal: true
           }
         });
         break;
       case 'role':
-        var obj = generatePDFWith(docs.rolesPath);
+        id = "Your " + capitalizeFirstLetter(id);
         this.setState((prevState, props) => {
           return {
-            children: obj,
+            docPath: docs.rolesPath,
+            title: id,
             showModal: true
           }
         });
         break;
       case 'mission':
-        var obj = generatePDFWith(docs.missionPath);
+        id = "Our " + capitalizeFirstLetter(id);
         this.setState((prevState, props) => {
           return {
-            children: obj,
+            docPath: docs.missionPath,
+            title: id,
             showModal: true
           }
         });
         break;
       case 'values':
-        var obj = generatePDFWith(docs.valuesPath);
         this.setState((prevState, props) => {
           return {
-            children: obj,
+            docPath: docs.valuesPath,
+            title: capitalizeFirstLetter(id),
             showModal: true
           }
         });
         break;
       case 'risks':
-        var obj = generatePDFWith(docs.risksPath);
         this.setState((prevState, props) => {
           return {
-            children: obj,
+            docPath: docs.risksPath,
+            title: capitalizeFirstLetter(id),
             showModal: true
           }
         });
@@ -173,8 +166,8 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
   }
 
   render() {
-    const { classes, children } = this.props;
-    var {showModal, obj } = this.state;
+    const { classes } = this.props;
+    var {showModal, title, docPath } = this.state;
     return (
         <React.Fragment>
             <ResponsiveReactGridLayout
@@ -217,8 +210,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
               </div>
             </ResponsiveReactGridLayout>
             {showModal &&
-              <Modal onCloseRequest={() => this.handleToggleModal()}>
-                {obj}
+              <Modal onCloseRequest={() => this.handleToggleModal()} title={title} docPath={docPath}>
               </Modal>}
 
           <Copyright />

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import isNil from 'lodash/fp/isNil';
 import styles from './ModalStyles';
+import PDFViewer from './PDFViewer';
 
 
 class Modal extends Component {
@@ -12,9 +13,6 @@ class Modal extends Component {
     this.state = {
       image: null,
     }
-
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +25,7 @@ class Modal extends Component {
     document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
-  handleKeyUp(e) {
+  handleKeyUp = (e) => {
     const { onCloseRequest } = this.props;
     const keys = {
       27: () => {
@@ -40,7 +38,7 @@ class Modal extends Component {
     if (keys[e.keyCode]) { keys[e.keyCode](); }
   }
 
-  handleOutsideClick(e) {
+  handleOutsideClick = (e) => {
     const { onCloseRequest } = this.props;
 
     if (!isNil(this.modal)) {
@@ -51,14 +49,19 @@ class Modal extends Component {
     }
   }
 
+  onUpdateHeight = (size) => {
+    alert('updating');
+  }
+
 
   render () {
     const {
       onCloseRequest,
-      children,
+      docPath,
+      title,
       classes,
     } = this.props;
-    console.log(children);
+
 
     return (
       <div className={classes.modalOverlay}>
@@ -67,7 +70,7 @@ class Modal extends Component {
           ref={node => (this.modal = node)}
         >
           <div className={classes.modalContent}>
-            {children}
+            <PDFViewer filePath={docPath} title={title} onUpdateHeight={this.updateHeight} />
           </div>
         </div>
 
