@@ -33,8 +33,9 @@ class PDFViewer extends Component {
     const { numPages } = this.state;
     //const { title, filePath } = this.props;
     const { title, filePath, size } = this.props;
-  
-    //this.props.onUpdateHeight(size);
+    console.log(this.props);
+
+    this.props.updateHeight(size);
     return (
       <div className="Example">
         <header>
@@ -54,7 +55,7 @@ class PDFViewer extends Component {
                     <Page
                       key={`page_${index + 1}`}
                       pageNumber={index + 1}
-                      scale={1.5}
+                      scale={1.7}
                     />
                   ),
                 )
@@ -67,5 +68,4 @@ class PDFViewer extends Component {
   }
 }
 
-
-export default sizeMe()(PDFViewer);
+export default sizeMe({ monitorHeight: true })(PDFViewer);

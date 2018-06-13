@@ -4,7 +4,13 @@ import injectSheet from 'react-jss';
 import isNil from 'lodash/fp/isNil';
 import styles from './ModalStyles';
 import PDFViewer from './PDFViewer';
+import sizeMe from 'react-sizeme';
 
+const heightStyle = {
+  default: {
+    height: '1400px'
+  }
+}
 
 class Modal extends Component {
   constructor(props) {
@@ -12,10 +18,11 @@ class Modal extends Component {
 
     this.state = {
       image: null,
+      height: '1400',
     }
   }
 
-  componentDidMount() {
+  componentDidMount(size) {
     window.addEventListener('keyup', this.handleKeyUp, false);
     document.addEventListener('click', this.handleOutsideClick, false);
   }
@@ -50,9 +57,8 @@ class Modal extends Component {
   }
 
   onUpdateHeight = (size) => {
-    alert('updating');
+    //this.setState({ height: this.state.height + size.height })
   }
-
 
   render () {
     const {
@@ -64,14 +70,13 @@ class Modal extends Component {
 
 
     return (
-      <div className={classes.modalOverlay}>
+      <div className={classes.modalOverlay} >
         <div
           className={classes.modal}
           ref={node => (this.modal = node)}
+          height={this.state.height}
         >
-          <div className={classes.modalContent}>
-            <PDFViewer filePath={docPath} title={title} onUpdateHeight={this.updateHeight} />
-          </div>
+            <PDFViewer filePath={docPath} title={title} updateHeight={this.onUpdateHeight} />
         </div>
 
         <button
@@ -94,4 +99,4 @@ Modal.propTypes = {
   classes: PropTypes.object,
 };
 
-export default injectSheet(styles)(Modal);
+export default sizeMe({ monitorHeight: true })(injectSheet(styles)(Modal));

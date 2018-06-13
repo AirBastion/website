@@ -2,7 +2,7 @@ export default {
   // Prevent page scrolling when modal is open
   '@global': {
     'body': {
-      
+
     },
   },
 
@@ -44,9 +44,7 @@ export default {
   modal: {
     width: '80% !important',
     height: '40rem',
-    backgroundColor: '#fff',
     boxShadow: [0, 0, '0.625rem', 'rgba(0, 0, 0, 0.2)'],
-
     '@media (min-width: 576px)': {
       width: '32rem',
     },

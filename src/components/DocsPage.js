@@ -13,7 +13,7 @@ import Values from './Archives/Values.pdf';
 import Contracts from './Archives/Contracts.pdf';
 // import Risks from './Archives/Risks.pdf';
 
-import styles from './IcoStyles';
+import styles from './DocsStyles';
 import Modal from './Modal';
 import PDFViewer from './PDFViewer';
 import Copyright from './Copyright';

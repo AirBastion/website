@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator } from 'mdbreact';
 import './CarouselStyles.css';
 import injectSheet from 'react-jss';
-import ResponsiveLocalStorageLayout from './ico';
+import BoxesSlide from './DocsPage';
 
 
 const styles = {
@@ -66,7 +66,7 @@ class CarouselPage extends Component {
                 <CarouselItem itemId="1">
                   <div className="fullPage video1">
                     <h1>Hi there</h1>
-                    <ResponsiveLocalStorageLayout />
+                    <BoxesSlide />
                   </div>
                 </CarouselItem>
                 <CarouselItem itemId="2">
