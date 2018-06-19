@@ -4,6 +4,10 @@ import './CarouselStyles.css';
 import injectSheet from 'react-jss';
 import BoxesSlide from './DocsPage';
 
+import FirstSlide from './FirstSlide';
+import SecondSlide from './SecondSlide';
+import ThirdSlide from './ThirdSlide';
+import FourthSlide from './FourthSlide';
 
 const styles = {
   fullWidth: {
