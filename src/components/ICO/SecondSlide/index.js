@@ -1,5 +1,5 @@
 import React from 'react';
-import Chart from './Chart';
+import Chart from '../../Chart';
 
 class ContinuousToken extends React.Component {
 
@@ -10,4 +10,9 @@ class ContinuousToken extends React.Component {
   }
 }
 
-export default ContinuousToken;
+
+export const SecondSlide = () => {
+  return (
+    <Chart />
+  )
+}

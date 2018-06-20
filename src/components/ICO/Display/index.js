@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator } from 'mdbreact';
 import './CarouselStyles.css';
 import injectSheet from 'react-jss';
-import BoxesSlide from './DocsPage';
 
-import FirstSlide from './FirstSlide';
-import SecondSlide from './SecondSlide';
-import ThirdSlide from './ThirdSlide';
-import FourthSlide from './FourthSlide';
+import FirstSlide from '../FirstSlide';
+import SecondSlide from '../SecondSlide';
+import ThirdSlide from '../ThirdSlide';
+import FourthSlide from '../FourthSlide';
 
 const styles = {
   fullWidth: {
@@ -16,7 +15,7 @@ const styles = {
   },
 }
 
-class CarouselPage extends Component {
+class Display extends Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -70,7 +69,7 @@ class CarouselPage extends Component {
                 <CarouselItem itemId="1">
                   <div className="fullPage video1">
                     <h1>Hi there</h1>
-                    <BoxesSlide />
+                    <ThirdSlide />
                   </div>
                 </CarouselItem>
                 <CarouselItem itemId="2">
@@ -98,4 +97,5 @@ class CarouselPage extends Component {
   }
 }
 
-export default injectSheet(styles)(CarouselPage);
+// Former CarouselPage
+export default injectSheet(styles)(Display);

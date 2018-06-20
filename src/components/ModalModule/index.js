@@ -12,7 +12,7 @@ const heightStyle = {
   }
 }
 
-class Modal extends Component {
+class ModalModule extends Component {
   constructor(props) {
     super(props);
 
@@ -88,7 +88,7 @@ class Modal extends Component {
   }
 }
 
-Modal.propTypes = {
+ModalModule.propTypes = {
   onCloseRequest: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
@@ -98,4 +98,4 @@ Modal.propTypes = {
   classes: PropTypes.object,
 };
 
-export default sizeMe({ monitorHeight: true })(injectSheet(styles)(Modal));
+export default sizeMe({ monitorHeight: true })(injectSheet(styles)(ModalModule));

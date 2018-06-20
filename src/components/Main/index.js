@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import './EnterStyles.css';
-import { BrowserRouter as Route, Switch, Link } from 'react-router-dom'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { BrowserRouter as Route, Switch, Link } from 'react-router-dom';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+import './styles.css';
+
 
 const fadeDuration = 4
 
-class Enter extends Component {
+class Main extends Component {
 
   constructor(props) {
     super(props);
@@ -112,8 +114,8 @@ class Enter extends Component {
   }
 }
 
-Enter.PropTypes = {
+Main.PropTypes = {
   fade: PropTypes.object.isRequired
 }
 
-export default Enter;
+export default Main;
