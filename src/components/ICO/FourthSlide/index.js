@@ -1,10 +1,10 @@
 // BUYING PROCESS
 import React from 'react';
 
-
-
-export const FourthSlide = () => {
+const FourthSlide = () => {
   return (
     <div>Fourth</div>
   )
 };
+
+export default FourthSlide;

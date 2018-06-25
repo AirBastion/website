@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="main.css">
 
-    <script src="https://npmcdn.com/particlesjs@2.2.2/dist/particles.min.js"></script>
+
     <script src="./js/base.js"></script>
     <script src="./js.bootstrap.min.js"></script>
     <script src="./js/jquery-3.2.1.min.js"></script>
@@ -51,13 +51,33 @@
       });
     </script>
     <script type="text/javascript">
-      if (window.location.href.indexOf('ico') > -1){
-        var addParticles = document.createElement('script'); addParticles.type = 'text/javascript';
-        addParticles.src = './js/particles.js';
-        document.getElementsByTagName('body')[0].appendChild(addParticles);
+      var background = Math.floor((Math.random() * 6) + 1);
+
+      function getRandomBackground(bkg) {
+        console.log('called')
+        switch (bkg) {
+          case 1:
+
+            console.log('yes the first')
+            return (
+              var addParticleLibrary = document.createElement('script'); addParticles.type = 'text/javascript';
+              addParticleLibrary.src = "https://npmcdn.com/particlesjs@2.2.2/dist/particles.min.js";
+              document.getElementsByTagName('head')[0].appendChild(addParticleLibrary);
+
+              var addParticles = document.createElement('script'); addParticles.type = 'text/javascript';
+              addParticles.src = './js/particles.js';
+              document.getElementsByTagName('body')[0].appendChild(addParticles);
+            )
+            break;
+          default:
+            break;
+        }
       }
 
-
+      if (window.location.href.indexOf('ico') > -1){
+        console.log('right place')
+        this.getRandomBackground(1);
+      }
     </script>
 
   </body>

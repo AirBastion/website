@@ -1,18 +1,13 @@
 import React from 'react';
-import Chart from '../../Chart';
-
-class ContinuousToken extends React.Component {
-
-  render(){
-    return(
-      <Chart />
-    )
-  }
-}
+import Chart from '../BuildingBlocks/Chart';
+import Explanation from '../BuildingBlocks/Explanation';
 
 
 export const SecondSlide = () => {
   return (
-    <Chart />
+    <React.Fragment>
+      <Chart />
+      <Explanation title="" text=""/>
+    </React.Fragment>
   )
 }

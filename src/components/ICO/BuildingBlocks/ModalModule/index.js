@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import isNil from 'lodash/fp/isNil';
-import styles from './ModalStyles';
-import PDFViewer from './PDFViewer';
+import styles from './styles';
 import sizeMe from 'react-sizeme';
 
-const heightStyle = {
-  default: {
-    height: '1400px'
-  }
-}
 
 class ModalModule extends Component {
   constructor(props) {
@@ -18,7 +12,6 @@ class ModalModule extends Component {
 
     this.state = {
       image: null,
-      height: '1400',
     }
   }
 
@@ -73,7 +66,6 @@ class ModalModule extends Component {
         <div
           className={classes.modal}
           ref={node => (this.modal = node)}
-          height={this.state.height}
         >
             {children}
         </div>

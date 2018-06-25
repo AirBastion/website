@@ -67,9 +67,8 @@ class Display extends Component {
               >
               <CarouselInner>
                 <CarouselItem itemId="1">
-                  <div className="fullPage video1">
-                    <h1>Hi there</h1>
-                    <ThirdSlide />
+                  <div className="fullPage video1 d-block w-100">
+                    <FirstSlide />
                   </div>
                 </CarouselItem>
                 <CarouselItem itemId="2">
@@ -78,9 +77,17 @@ class Display extends Component {
                   </video>
                 </CarouselItem>
                 <CarouselItem itemId="3">
-                  <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" alt="Third slide" />
+                    <div className="fullPage video1 d-block w-100">
+                  <ThirdSlide />
+              </div>
+                </CarouselItem>
+                <CarouselItem itemId="4">
+                    <div className="fullPage video1 d-block w-100">
+                  <FourthSlide />
+              </div>
                 </CarouselItem>
               </CarouselInner>
+
               <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
               <CarouselControl direction="next" role="button" onClick={() => { this.next(); }} />
 
@@ -88,6 +95,7 @@ class Display extends Component {
                 <CarouselIndicator active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
                 <CarouselIndicator active={activeItem=== 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
                 <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
+                <CarouselIndicator active={activeItem === 4 ? true : false} onClick={() => { this.goToIndex(4); }}></CarouselIndicator>
               </CarouselIndicators>
             </Carousel>
           </div>
