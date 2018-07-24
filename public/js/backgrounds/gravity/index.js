@@ -438,7 +438,7 @@ Particle.prototype = (function(o) {
 
     // Init
 
-    canvas  = document.getElementById('c');
+    canvas  = document.getElementById('header__background');
     bufferCvs = document.createElement('canvas');
 
     window.addEventListener('resize', resize, false);

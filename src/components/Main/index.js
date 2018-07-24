@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { BrowserRouter as Route, Switch, Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-
+import Tooltip from '../Tooltip'
 import './styles.css';
 
 
@@ -87,7 +87,7 @@ class Main extends Component {
                   </li>
                   <li className='donations displace'>
                     <CopyToClipboard text={this.state.eth_value} onCopy={ () => this.setState({'eth_copied':true, 'btc_copied': false})}>
-                      <button>
+                      <button className="Button-button-i8EXy Button-white-1S9lg Benefits-button-2bgsq Button-big-WLVWX" style={{padding: '5px', borderColor: 'black', fontSize: '13px'}}>
                         ETH: <span onClick={() => this.setState({'eth_value': '0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB'})}>0x76eDB18e9b2E110905F7eC2469133Cf8609f0ffB</span>
                       </button>
                     </CopyToClipboard>
@@ -97,12 +97,15 @@ class Main extends Component {
                   </li>
                   <li className='donations'>
                     <CopyToClipboard text={this.state.btc_value} onCopy={ () => this.setState({'btc_copied':true, 'etc_copied': false})}>
-                      <button>
-                        BTC: <span onClick={() => this.setState({'btc_value': '1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby', 'btc_copied': true})}>1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby</span>
-                      </button>
-                    </CopyToClipboard>
-                    {this.state.btc_copied ? <span id='copied-text-btc' className='copied-tag' >Copied!</span> : null}
 
+                        <button className="Button-button-i8EXy Button-white-1S9lg Benefits-button-2bgsq Button-big-WLVWX" style={{padding: '5px', borderColor: 'black', fontSize: '13px'}}>
+                          BTC: <span onClick={() => this.setState({'btc_value': '1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby', 'btc_copied': true})}>1DwrCAkCdre9jC5oY71V1NXWZZ4Ay1qfby</span>
+                        </button>
+
+                    </CopyToClipboard>
+                  </li>
+                  <li>
+                    <Tooltip message={'Click to copy'} position={'top'}>Press to copy</Tooltip>
                   </li>
                 </ul>
               </nav>

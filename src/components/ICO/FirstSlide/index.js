@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Youtube from 'react-youtube';
 
 import ModalModule from '../BuildingBlocks/ModalModule';
+import WhitePaper from '../BuildingBlocks/Whitepaper';
 import Copyright from '../../Copyright';
 //img import here
 import whitepaper from '../../whitepaper.png';
@@ -22,11 +23,11 @@ import './styles.css';
 
 const RespLayout = WidthProvider(Responsive);
 const otherLangLinks = [
-  ['https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Ru).pdf', 'Russian version', 'ru'],
-  ['https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Ar).pdf', 'Arabic version', 'ar'],
-  ['https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Fr).pdf', 'French version', 'fr'],
-  ['https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(It).pdf', 'Italian version', 'it'],
-  ['https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(My).pdf', 'Malay', 'My'],
+  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Ru).pdf', "language": 'Russian version', 'representation': 'ru'},
+  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Ar).pdf', "language": 'Arabic version', 'representation': 'ar'},
+  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Fr).pdf', "language": 'French version', 'representation': 'fr'},
+  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(It).pdf', "language": 'Italian version', 'representation': 'it'},
+  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(My).pdf', "language": 'Malay', 'representation': 'my'},
 ]
 
 const Title = ({className, children}) => {
@@ -44,6 +45,7 @@ const StyledTitle = styled(Title) `
   font-size: 3.3em;
   text-align: center;
   line-height: 1.4em;
+  font-weight: 600;
 `;
 
 const Titled = styled.h1`
@@ -89,36 +91,6 @@ const StyledCard = styled(Card)`
   color: #f7f7ff;
 `;
 
-const WhitePaper = (props, {className}) => {
-  console.log(className)
-  console.log(props);
-  if (props.otherLangLinks) {
-    var links = props.otherLangLinks.map(id => {
-      return (id.map((link, desc, id) => (
-        <a href={link} key={id} noopener noreferrer>{desc}</a>
-      )))
-    });
-    return (
-      <div className="">
-        <img src={props.image} alt="Air bastion's white paper image - click to read" />
-      <Link push to={props.url}>
-          <p>English Version</p>
-        </Link>
-        {props.otherLangLinks &&
-          links}
-      </div>
-    )
-  }
-
-  return (
-    <React.Fragment>
-      <a href={props.url} target="_blank" noopener noreferrer>
-      <img src={props.image} alt="Air bastion's white paper image - click to read" />
-      </a>
-      <p>{props.description}</p>
-    </React.Fragment>
-  );
-}
 
 const VideoImage = (props, styles) => {
     return (
@@ -178,6 +150,15 @@ class FirstSlide extends React.PureComponent {
     );
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', ({target}) =>
+      this.setState({
+        width: target.innerWidth,
+        height: target.innerHeight
+      })
+    );
+  }
+
   handleClick = (event) => {
     this.setState({playVideo: !this.state.playVideo})
   }
@@ -200,7 +181,7 @@ class FirstSlide extends React.PureComponent {
           <div key="1" data-grid={{h: 200,w: 200, x: 1, y:1}}>
           <Subtitle title="visitor" />
           <VideoImage image={videoImage} />
-          <WhitePaper url="" image={whitepaper} />
+          <WhitePaper image={whitepaper} otherLangLinks={otherLangLinks} />
           </div>
         </GridLayout>
       );
@@ -231,7 +212,7 @@ class FirstSlide extends React.PureComponent {
               isResizable={false}
               >
             <div key="a" data-grid={{x:2, y:0, w:12, h: 1}}>
-              <StyledSubtitle>And this is our plan</StyledSubtitle>
+              <StyledSubtitle>And this is how we are going to do it</StyledSubtitle>
             </div>
             <div key="b" data-grid={{x:4, y:2, w:12, h: 5}} >
             <WhitePaper
@@ -239,6 +220,7 @@ class FirstSlide extends React.PureComponent {
               image={whitepaper}
               description="Whitepaper - English version"
               otherLangLinks={otherLangLinks}
+              requestUrl="void"
             />
         </div>
           </RespLayout>

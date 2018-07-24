@@ -2,18 +2,36 @@ import React, { Component } from 'react';
 import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator } from 'mdbreact';
 import './CarouselStyles.css';
 import injectSheet from 'react-jss';
+import sizeMe from 'react-sizeme';
+
 
 import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
 import ThirdSlide from '../ThirdSlide';
 import FourthSlide from '../FourthSlide';
 
+
 const styles = {
+  '@global' : {
+    body: {
+      background: 'black',
+    }
+  },
   fullWidth: {
     width: '100%',
-    maxWidth: '100%'
+    maxWidth: '100%',
+    height: '100%'
   },
+
 }
+
+const slides = [
+  {"id": "1", "component": <FirstSlide />},
+  {"id": "2", "component": <SecondSlide isMobile={false} />},
+  {"id": "3", "component": <ThirdSlide />},
+  {"id": "4", "component": <FourthSlide />}
+];
+
 
 class Display extends Component {
   constructor(props) {
@@ -22,8 +40,18 @@ class Display extends Component {
     this.prev = this.prev.bind(this);
     this.state = {
       activeItem: 1,
-      maxLength: 10
+      maxLength: 10,
+      height: '1200px',
+      width: '1100px'
     };
+  }
+
+  componentWillMount() {
+    //window.addEventListener('resize', ge)
+  }
+
+  componentWillUnmount () {
+    //window.removeEventListener('resize', )
   }
 
   next() {
@@ -36,8 +64,9 @@ class Display extends Component {
   }
 
   prev() {
+    console.log(this.state.activeItem)
     const prevItem = this.state.activeItem - 1;
-    if(prevItem < 1) {
+    if (prevItem < 1) {
       this.setState({ activeItem: this.state.maxLength });
     } else {
       this.setState({ activeItem: prevItem });
@@ -52,9 +81,22 @@ class Display extends Component {
     }
   }
 
+  generateSlides = () => {
+    var ob = slides.map(slide => {
+      <CarouselItem itemId={slide.id}>
+        <div className="fullPage video1 d-block w-100">
+          {slide.component}
+        </div>
+      </CarouselItem>
+    })
+
+    return ob;
+  }
+
   render(){
     const { activeItem } = this.state;
     const { classes } = this.props;
+    const generated = this.generateSlides();
     return(
       <div className="container fullWidth" >
         <div className="row">
@@ -71,16 +113,18 @@ class Display extends Component {
                     <FirstSlide />
                   </div>
                 </CarouselItem>
+
                 <CarouselItem itemId="2">
-                  <video className="video-fluid d-block" autoPlay loop>
-                    <source src="https://mdbootstrap.com/img/video/forest.mp4" type="video/mp4" />
-                  </video>
+                  <div className="fullPage video1 d-block w-100">
+                    <SecondSlide isMobile={false} />
+                  </div>
                 </CarouselItem>
+
                 <CarouselItem itemId="3">
-                    <div className="fullPage video1 d-block w-100">
-                  <ThirdSlide />
-              </div>
-                </CarouselItem>
+                  <div className="fullPage video1 d-block w-100">
+                    <ThirdSlide />
+                  </div>
+              </CarouselItem>
               </CarouselInner>
 
               <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
@@ -100,4 +144,4 @@ class Display extends Component {
 }
 
 // Former CarouselPage
-export default injectSheet(styles)(Display);
+export default sizeMe({monitorHeight: true})(injectSheet(styles)(Display));
