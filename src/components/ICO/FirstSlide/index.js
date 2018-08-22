@@ -12,6 +12,7 @@ import WhitePaper from '../BuildingBlocks/Whitepaper';
 import Copyright from '../../Copyright';
 //img import here
 import whitepaper from '../../whitepaper.png';
+import fileImage from '../../file_search.svg';
 //import videoPlayer from '../../videoPlayer.png';
 import videoImage from '../../videoImage.png';
 //imf import here
@@ -19,6 +20,31 @@ import videoImage from '../../videoImage.png';
 // general styling
 import './styles.css';
 
+const StyledLink = styled.a`
+  text-shadow: 0 1px 3px rgba(36,180,126,.4);
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  background: #fff;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  text-decoration: none;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+  color: #fff;
+  background: #00bfff;
+  padding: 0 0.4em;
+  margin-top: 2em;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+`;
 
 
 const RespLayout = WidthProvider(Responsive);
@@ -27,7 +53,7 @@ const otherLangLinks = [
   {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Ar).pdf', "language": 'Arabic version', 'representation': 'ar'},
   {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(Fr).pdf', "language": 'French version', 'representation': 'fr'},
   {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(It).pdf', "language": 'Italian version', 'representation': 'it'},
-  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(My).pdf', "language": 'Malay', 'representation': 'my'},
+  {"url": 'https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/Whitepaper(My).pdf', "language": 'Malay version', 'representation': 'my'},
 ]
 
 const Title = ({className, children}) => {
@@ -39,6 +65,22 @@ const Title = ({className, children}) => {
   )
 ;}
 
+// const Footer = styled.a`
+//   color: #4cadc9;
+//   text-decoration: none;
+//   transition: all 0.2s;
+//
+//   &:hover {
+//   border-bottom: 1px dotted;
+//   }
+//   &:before {
+//   content: "[| ";
+//   color: #eee;
+//   }
+//   &:after {
+//   content: " |]";
+//
+// `;
 
 const StyledTitle = styled(Title) `
   color: white;
@@ -56,19 +98,12 @@ const Titled = styled.h1`
 `;
 
 
-const Subtitle = ({className, children}) => {
-  if (className) {
-    return (<h4 className={className}>{children}</h4>)
-  }
-  return (
-    <h4>{children}</h4>
-  )
-;}
-
-const StyledSubtitle = styled(Subtitle)`
+const StyledSubtitle = styled.h3`
   color: black;
   font-family: 'Helvetica';
   font-weight: 600;
+  font-size: 1.8em;
+  width: 100%;
   padding: 3% 0 0 3%;
 `;
 
@@ -148,6 +183,12 @@ class FirstSlide extends React.PureComponent {
         }
       )
     );
+
+    // handles intercom init
+    window.Intercom("boot", {
+      app_id: "ioae21aq"
+    });
+
   }
 
   componentWillUnmount() {
@@ -164,76 +205,65 @@ class FirstSlide extends React.PureComponent {
   }
 
   genContent = (isMobile) => {
-    var layouts = [
-        {},
-    ];
-
     var video = this.state.playVideo ? <VideoPlayer /> : <VideoImage image={videoImage} clicked={this.handleClick}/>
 
-    if (isMobile) {
-      return (
-        <GridLayout
-          className="layout"
-          cols={12}
-          rowHeight={30}
-          width={this.state.width}
-          >
-          <div key="1" data-grid={{h: 200,w: 200, x: 1, y:1}}>
-          <Subtitle title="visitor" />
-          <VideoImage image={videoImage} />
-          <WhitePaper image={whitepaper} otherLangLinks={otherLangLinks} />
-          </div>
-        </GridLayout>
-      );
-    }
-
     return (
-      <RespLayout
-        layouts={layouts}
-        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-        rowHeight={30}
-        width={this.state.width}
-        compactType=''
-        isDraggable={false}
-        isResizable={false}
-        >
-        <div key='1' data-grid={{x: 2, y: 3, w: 8, h:2}}>
-          <Titled>This is the beginning of the end. Air pollution is going to be defeated. Period.</Titled>
+      <div className="container">
+        <section class="section">
+        <div className="columns is-variable is-centered mg-top">
+          <div className="column">
+            <Titled>This is the beginning <span class="shadow is-danger">of the end</span>. Air pollution is going to be defeated. Period.</Titled>
+          </div>
         </div>
-        <div key="2" data-grid={{x: 2, y: 8, w: 4, h: 9, static: true}}>
-          <StyledCard>
-            <RespLayout
-              layouts={layouts}
-              cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-              rowHeight={30}
-              width={this.state.width}
-              compactType=''
-              isDraggable={false}
-              isResizable={false}
-              >
-            <div key="a" data-grid={{x:2, y:0, w:12, h: 1}}>
-              <StyledSubtitle>And this is how we are going to do it</StyledSubtitle>
-            </div>
-            <div key="b" data-grid={{x:4, y:2, w:12, h: 5}} >
-            <WhitePaper
-              url="https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/PureAir+Coin+Whitepaper+v.0.0.1.pdf"
-              image={whitepaper}
-              description="Whitepaper - English version"
-              otherLangLinks={otherLangLinks}
-              requestUrl="void"
-            />
-        </div>
-          </RespLayout>
-          </StyledCard>
-        </div>
-        <div key="3" data-grid={{x: 6, y: 8, w: 4, h: 9, static: true}}>
-          {video}
-        </div>
+      </section>
+      <section class="section">
+            <div className="columns is-variable">
+              <div className="column is-halfs">
+                <StyledCard>
+                  <div className="columns">
+                    <div className="column">
+                    <StyledSubtitle>And this is how we are going to do it</StyledSubtitle>
+                  <div className="columns">
+                    <div className="column is-half">
+                      <WhitePaper
+                        url="https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/PureAir+Coin+Whitepaper+v.0.0.1.pdf"
+                        image={fileImage}
+                        description="Whitepaper - English version"
+                        className="good-size is-centered"
+                      />
+                    </div>
+                    <div className="column mg-top">
+                    <div>
+                    {otherLangLinks.map((link) =>
+                      <a href={link.url} key={link.representation} className="shadow-link" rel="noopener noreferrer">
+                        <p>{link.language}</p>
+                      {link.language.indexOf('Russian') !== -1 &&
+                        <span class="tag is-primary display-on-top">Most Downloaded</span>
+                        }
+                      </a>
+                    )}
+                    </div>
+                    <StyledLink href={this.props.requestUrl} rel="noopener noreferrer">Request for translation</StyledLink>
+                    </div>
+                  </div>
+                </div></div>
+                </StyledCard>
+              </div>
 
-        <div key="4" data-grid={{x: 0, y: 20, w: 12, h:2, static: true}} className="footer">
-          <StyledCopyright />
-        </div>
-      </RespLayout>
+              <div className="column is-half">
+                {video}
+              </div>
+            </div>
+          </section>
+          <section class="section">
+
+          <div className="columns is-variable is-centered">
+            <div className="column is-centered copyright">
+              <StyledCopyright />
+            </div>
+          </div>
+        </section>
+      </div>
     );
   };
 

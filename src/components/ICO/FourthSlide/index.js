@@ -1,4 +1,4 @@
-// BUYING PROCESS
+// BUYING PROCESS -- copied from 
 import React from 'react';
 
 const FourthSlide = () => {

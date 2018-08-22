@@ -1,3 +1,17 @@
+@fontface  {
+  font-family: "Maison Mono";
+  src: url('./CutiveMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Mono";
+  src: url('./MonoSpatial.ttf');
+}
+
+body {
+  font-family: "Maison Mono", "Mono", monospace;
+}
+
 .fullWidth {
   width: 100%;
   min-width: 100%;

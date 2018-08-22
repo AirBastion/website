@@ -9,7 +9,7 @@ import Display from './components/ICO/Display';
 // import Workings from './components/Workings';
 // import Product from './components/Products';
 
-// Testing specifi routes
+// Testing specific routes
 import FirstSlide from './components/ICO/FirstSlide';
 import SecondSlide from './components/ICO/SecondSlide';
 import ThirdSlide from './components/ICO/ThirdSlide';
@@ -21,7 +21,7 @@ const Routes = (props) => (
     <Switch>
       <Route exact path='/cause' component={Main} />
       <Route exact path='/company' component={Main} />
-      <Route exact path='/ico' component={Display} />
+      <Route exact path='/ico' component={ThirdSlide} />
       <Route exact path='/workings' component={Main} />
       <Route path='*' component={Main} />
     </Switch>

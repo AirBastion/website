@@ -153,6 +153,10 @@ class SecondSlide extends React.Component {
           height: target.innerHeight
         })
     )
+
+    window.Intercom("update");
+
+
   }
 
   componentWillUnmount() {

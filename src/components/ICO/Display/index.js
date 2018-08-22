@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator } from 'mdbreact';
 import './CarouselStyles.css';
+import '../../../../node_modules/bulma/css/bulma.min.css';
+
 import injectSheet from 'react-jss';
 import sizeMe from 'react-sizeme';
-
 
 import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
@@ -15,14 +16,9 @@ const styles = {
   '@global' : {
     body: {
       background: 'black',
+      overflow: 'hidden !important'
     }
   },
-  fullWidth: {
-    width: '100%',
-    maxWidth: '100%',
-    height: '100%'
-  },
-
 }
 
 const slides = [
@@ -41,8 +37,6 @@ class Display extends Component {
     this.state = {
       activeItem: 1,
       maxLength: 10,
-      height: '1200px',
-      width: '1100px'
     };
   }
 
@@ -64,7 +58,6 @@ class Display extends Component {
   }
 
   prev() {
-    console.log(this.state.activeItem)
     const prevItem = this.state.activeItem - 1;
     if (prevItem < 1) {
       this.setState({ activeItem: this.state.maxLength });
@@ -98,15 +91,13 @@ class Display extends Component {
     const { classes } = this.props;
     const generated = this.generateSlides();
     return(
-      <div className="container fullWidth" >
-        <div className="row">
-          <div className="col-md-12">
-            <Carousel
-              activeItem={this.state.activeItem}
-              next={this.next}
-              className="z-depth-1"
-              interval={false}
-              >
+      <div className="container  is-clipped" >
+]       <Carousel
+          activeItem={this.state.activeItem}
+          next={this.next}
+          className="z-depth-1"
+          interval={false}
+          >
               <CarouselInner>
                 <CarouselItem itemId="1">
                   <div className="fullPage video1 d-block w-100">
@@ -136,8 +127,6 @@ class Display extends Component {
                 <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
               </CarouselIndicators>
             </Carousel>
-          </div>
-        </div>
       </div>
     );
   }

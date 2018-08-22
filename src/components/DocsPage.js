@@ -85,8 +85,7 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
   static get defaultProps() {
     return {
       className: "layout",
-      cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
-      rowHeight: 30
+
     };
   }
 
@@ -170,45 +169,52 @@ class ResponsiveLocalStorageLayout extends React.PureComponent {
     var {showModal, title, docPath } = this.state;
     return (
         <React.Fragment>
-            <ResponsiveReactGridLayout
-              className={classes.overlay, classes.black}
-              cols={{ lg: 18, md: 16, sm: 14, xs: 10, xxs: 8 }}
-              breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-              rowHeight={30}
-              layouts={this.state.layouts}
-            >
-
-              <div key="4" className={classes.card}  data-grid={{ w: 4, h: 6, x: 2, y: 6, static: true }}>
+        <section>
+          <div className="columns is-multiline is-variable">
+            <div className="column is-one-quarter side">
+              <div key="4" className={classes.card}>
                 <a href="#" onClick={(e, id) => this.handleClick(e, 'contracts')}>
                   <span className={classes.childCard}>CONTRACTS</span>
                 </a>
               </div>
-              <div key="5" className={classes.card}  data-grid={{ w: 4, h: 6, x: 7, y: 6, static: true }}>
+            </div>
+            <div className="column is-one-quarter">
+              <div key="5" className={classes.card} >
                 <a href="#" onClick={(e, id) => this.handleClick(e, 'who')}>
                   <span className={classes.childCard}>WHO WE ARE</span>
                 </a>
               </div>
-              <div key="6" className={classes.card}  data-grid={{ w: 4, h: 6, x: 12, y: 6, static: true }}>
+            </div>
+            <div className="column is-one-quarter side">
+              <div key="6" className={classes.card} >
                 <a href="#" onClick={(e, id) => this.handleClick(e, 'role')}>
                   <span className={classes.childCard}>YOUR ROLE</span>
                 </a>
               </div>
-              <div key="1" className={classes.card} data-grid={{ w: 4, h: 6, x: 2, y: 4, static: true }}>
+            </div>
+            <div className="column  is-one-quarter">
+              <div key="1" className={classes.card}>
                 <a href="#" onClick={(e, id) => this.handleClick(e, 'mission')}>
                   <span className={classes.childCard}>OUR MISSION</span>
                 </a>
               </div>
-              <div key="2" className={classes.card} data-grid={{ w:4, h: 6, x: 7, y: 4, static: true }}>
+            </div>
+            <div className="column  is-one-quarter">
+              <div key="2" className={classes.card}>
                 <a href="#" onClick={(e, id) => this.handleClick(e, 'values')}>
                   <span className={classes.childCard}>VALUES</span>
                 </a>
               </div>
-              <div key="3" className={classes.card}  data-grid={{ w: 4, h: 6, x: 12, y: 4, static: true }}>
+            </div>
+            <div className="column  is-one-quarter">
+              <div key="3" className={classes.card}>
                 <a href="#" onClick={(e, id) => this.handleClick(e, 'risks')}>
                   <span className={classes.childCard}>RISKS</span>
                 </a>
               </div>
-            </ResponsiveReactGridLayout>
+            </div>
+          </div>
+        </section>
             {showModal &&
               <Modal onCloseRequest={() => this.handleToggleModal()} title={title} docPath={docPath}>
               </Modal>}

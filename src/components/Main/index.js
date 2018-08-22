@@ -26,7 +26,6 @@ class Main extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-
   componentDidUpdate(nextProps, { fadeOut }) {
     if (fadeOut) {
       setTimeout( () => {
