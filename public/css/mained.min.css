@@ -318,7 +318,7 @@ form {
 
 footer ul li button {
   color: inherit;
-  padding: 15px;
+  padding: 0 15px;
   font-weight: 500;
   font-size: 12px;
   text-transform: uppercase;
@@ -329,6 +329,11 @@ footer ul li button {
   border: 0;
   background: 0;
   box-shadow: none
+}
+
+footer {
+  padding: 1em 0 0 0;
+  margin-bottom: 0;
 }
 
 button {

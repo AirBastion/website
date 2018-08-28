@@ -4,6 +4,7 @@ import {
   HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Subtitle, Legend, LineSeries
 } from 'react-jsx-highcharts';
 
+
 const plotOptions = {
   series: {
     pointStart: 2010
@@ -11,7 +12,7 @@ const plotOptions = {
 };
 
 const ChartExample = () => (
-  <div className="app">
+  <div className='app'>
     <HighchartsChart plotOptions={plotOptions}>
       <Chart />
 

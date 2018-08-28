@@ -65,22 +65,22 @@ const Title = ({className, children}) => {
   )
 ;}
 
-// const Footer = styled.a`
-//   color: #4cadc9;
-//   text-decoration: none;
-//   transition: all 0.2s;
-//
-//   &:hover {
-//   border-bottom: 1px dotted;
-//   }
-//   &:before {
-//   content: "[| ";
-//   color: #eee;
-//   }
-//   &:after {
-//   content: " |]";
-//
-// `;
+const Footer = styled.a`
+  color: #4cadc9;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    border-bottom: 1px dotted;
+  }
+  &:before {
+    content: "[| ";
+    color: #eee;
+  }
+  &:after {
+    content: " |]";
+  }
+`;
 
 const StyledTitle = styled(Title) `
   color: white;
@@ -209,14 +209,15 @@ class FirstSlide extends React.PureComponent {
 
     return (
       <div className="container">
-        <section class="section">
+        <section className="section">
         <div className="columns is-variable is-centered mg-top">
           <div className="column">
-            <Titled>This is the beginning <span class="shadow is-danger">of the end</span>. Air pollution is going to be defeated. Period.</Titled>
+            <Titled>This is the beginning <span className="shadow is-danger">of the end</span>. Air pollution is going to be defeated. Period.</Titled>
           </div>
         </div>
       </section>
-      <section class="section">
+
+      <section className="section">
             <div className="columns is-variable">
               <div className="column is-halfs">
                 <StyledCard>
@@ -232,18 +233,18 @@ class FirstSlide extends React.PureComponent {
                         className="good-size is-centered"
                       />
                     </div>
-                    <div className="column mg-top">
-                    <div>
+                    <div className="column mg-top pg-top">
                     {otherLangLinks.map((link) =>
-                      <a href={link.url} key={link.representation} className="shadow-link" rel="noopener noreferrer">
-                        <p>{link.language}</p>
+                      <p><a href={link.url} key={link.representation} className="shadow-link" rel="noopener noreferrer">
+                        {link.language}
                       {link.language.indexOf('Russian') !== -1 &&
-                        <span class="tag is-primary display-on-top">Most Downloaded</span>
+                        <span className="tag is-primary display-on-top">Most Downloaded</span>
                         }
-                      </a>
+                      </a></p>
                     )}
+                    <div>
+                      <StyledLink href={this.props.requestUrl} rel="noopener noreferrer">Request for translation</StyledLink>
                     </div>
-                    <StyledLink href={this.props.requestUrl} rel="noopener noreferrer">Request for translation</StyledLink>
                     </div>
                   </div>
                 </div></div>
@@ -255,7 +256,7 @@ class FirstSlide extends React.PureComponent {
               </div>
             </div>
           </section>
-          <section class="section">
+        <section className="section">
 
           <div className="columns is-variable is-centered">
             <div className="column is-centered copyright">

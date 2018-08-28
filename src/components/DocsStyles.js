@@ -5,10 +5,6 @@ export default {
   '@global': {
     'body': {
       overflow: 'hidden',
-      bacgroundColor: 'blue',
-      minHeigth: '1400px',
-      height: '1400px',
-
     },
   },
 
@@ -35,7 +31,6 @@ export default {
     backgroundColor: 'white',
     color: 'black',
     fontSize: '3rem',
-    padding: '2%',
     fontFamily: 'Impact',
     display: 'flex',
     flexDirection: 'column',

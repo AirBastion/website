@@ -1,5 +1,7 @@
-// BUYING PROCESS -- copied from 
+// BUYING PROCESS -- copied from
 import React from 'react';
+import styled from 'styled-components';
+
 
 const FourthSlide = () => {
   return (

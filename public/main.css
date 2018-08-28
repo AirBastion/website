@@ -369,7 +369,10 @@ footer {
   color: var(--oc-gray-5);
   font-size: .8rem;
   text-align: center;
-  padding: 50px 0
+  padding: 1em 0 0 0;
+}
+footer > ul {
+  margin-top: 1em !important;
 }
 
 footer a:hover {
@@ -1256,14 +1259,14 @@ transition: all .35s ease-in;
   align-items: center;
 }
 
-.root {
-  min-height: 1080px;
+#root {
+  min-height: 100%;;
+  overflow: hidden;
 }
 
 .copyright {
   position: absolute;
   text-align: center;
-  left: 50em;
   font-weight: 600;
   color: white;
   bottom: 2rem;

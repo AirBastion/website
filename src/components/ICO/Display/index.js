@@ -37,15 +37,21 @@ class Display extends Component {
     this.state = {
       activeItem: 1,
       maxLength: 10,
+      height: 0
     };
   }
 
   componentWillMount() {
-    //window.addEventListener('resize', ge)
+    window.addEventListener('resize', this.updateHeight)
+    this.setState({height: window.innerHeight + 'px'});
   }
 
   componentWillUnmount () {
-    //window.removeEventListener('resize', )
+    window.removeEventListener('resize', this.updateHeight)
+  }
+
+  updateHeight = () => {
+    this.setState({ height: window.innerHeight})
   }
 
   next() {
@@ -91,42 +97,8 @@ class Display extends Component {
     const { classes } = this.props;
     const generated = this.generateSlides();
     return(
-      <div className="container  is-clipped" >
-]       <Carousel
-          activeItem={this.state.activeItem}
-          next={this.next}
-          className="z-depth-1"
-          interval={false}
-          >
-              <CarouselInner>
-                <CarouselItem itemId="1">
-                  <div className="fullPage video1 d-block w-100">
-                    <FirstSlide />
-                  </div>
-                </CarouselItem>
-
-                <CarouselItem itemId="2">
-                  <div className="fullPage video1 d-block w-100">
-                    <SecondSlide isMobile={false} />
-                  </div>
-                </CarouselItem>
-
-                <CarouselItem itemId="3">
-                  <div className="fullPage video1 d-block w-100">
-                    <ThirdSlide />
-                  </div>
-              </CarouselItem>
-              </CarouselInner>
-
-              <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
-              <CarouselControl direction="next" role="button" onClick={() => { this.next(); }} />
-
-              <CarouselIndicators>
-                <CarouselIndicator active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
-                <CarouselIndicator active={activeItem=== 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
-                <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
-              </CarouselIndicators>
-            </Carousel>
+      <div className="container is-clipped" style={{minHeight: this.state.height}} >
+        <SecondSlide />
       </div>
     );
   }
