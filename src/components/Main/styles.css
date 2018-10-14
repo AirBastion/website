@@ -5,11 +5,11 @@ body #Menu {
 }
 
 #Menu .center a {
-  color: #fff !important
+  color: #fff !important;
 }
 
-.footer {
-
+#Logo .subtitle {
+  opacity: 1;
 }
 
 .bold {
@@ -17,22 +17,19 @@ body #Menu {
 }
 
 .donations {
-
 }
 
 .displace {
-
 }
 
 button:hover {
   transform: translateY(-3px);
 }
 
-
 ul {
   list-style: none;
-  white-space:nowrap;
-  list-style-type:none;
+  white-space: nowrap;
+  list-style-type: none;
   float: left;
   padding: 2% 0 1% 0;
 }
@@ -44,5 +41,5 @@ ul > li {
 }
 
 .footer {
-  min-height: 2em;
+  height: 60px;
 }

@@ -3,9 +3,9 @@ import image from './cool-background.png';
 export default {
   // Prevent page scrolling when modal is open
   '@global': {
-    'body': {
-      overflow: 'hidden',
-    },
+    body: {
+      overflow: 'hidden'
+    }
   },
 
   // Modal wrapper
@@ -24,7 +24,7 @@ export default {
     opacity: 1,
     animation: 'show .5s ease',
     overflowX: 'hidden',
-    overflowY: 'auto',
+    overflowY: 'auto'
   },
 
   card: {
@@ -45,9 +45,7 @@ export default {
     flexBasis: 'auto'
   },
   black: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
     // backgroundImage: 'url("img/cool-background.png")'
-
   }
-
-}
+};

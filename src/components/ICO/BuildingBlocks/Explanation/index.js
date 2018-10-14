@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-
 const StyledExplanation = styled.div``;
 const StyledTitle = styled.h1``;
 const StyledBody = styled.p`
   text-align: left;
   font-size: 14px;
+  padding-top: 16px;
   font-family: 'Roboto';
 `;
-
-
-
 
 const Wrapper = styled.section`
   padding: 4em;
@@ -25,15 +22,14 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-
-const Explanation = (props) => {
+const Explanation = props => {
   return (
     <Wrapper>
       <Title>{props.title}</Title>
       <StyledBody>{props.body}</StyledBody>
     </Wrapper>
   );
-}
+};
 
 // Explanation.proptypes = {
 //   title: PropTypes.string,

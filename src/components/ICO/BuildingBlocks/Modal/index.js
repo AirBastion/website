@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import isNil from 'lodash/fp/isNil';
 import styles from './ModalStyles';
-import PDFViewer from './PDFViewer';
+import PDFViewer from '../PDFViewer';
 import sizeMe from 'react-sizeme';
 
 const heightStyle = {
   default: {
     height: '1400px'
   }
-}
+};
 
 class Modal extends Component {
   constructor(props) {
@@ -18,8 +18,8 @@ class Modal extends Component {
 
     this.state = {
       image: null,
-      height: '1400',
-    }
+      height: '1400'
+    };
   }
 
   componentDidMount(size) {
@@ -32,20 +32,22 @@ class Modal extends Component {
     document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
-  handleKeyUp = (e) => {
+  handleKeyUp = e => {
     const { onCloseRequest } = this.props;
     const keys = {
       27: () => {
         e.preventDefault();
         onCloseRequest();
         window.removeEventListener('keyup', this.handleKeyUp, false);
-      },
+      }
     };
 
-    if (keys[e.keyCode]) { keys[e.keyCode](); }
-  }
+    if (keys[e.keyCode]) {
+      keys[e.keyCode]();
+    }
+  };
 
-  handleOutsideClick = (e) => {
+  handleOutsideClick = e => {
     const { onCloseRequest } = this.props;
 
     if (!isNil(this.modal)) {
@@ -54,29 +56,27 @@ class Modal extends Component {
         document.removeEventListener('click', this.handleOutsideClick, false);
       }
     }
-  }
+  };
 
-  onUpdateHeight = (size) => {
+  onUpdateHeight = size => {
     //this.setState({ height: this.state.height + size.height })
-  }
+  };
 
-  render () {
-    const {
-      onCloseRequest,
-      docPath,
-      title,
-      classes,
-    } = this.props;
-
+  render() {
+    const { onCloseRequest, docPath, title, classes } = this.props;
 
     return (
-      <div className={classes.modalOverlay} >
+      <div className={classes.modalOverlay}>
         <div
           className={classes.modal}
           ref={node => (this.modal = node)}
           height={this.state.height}
         >
-            <PDFViewer filePath={docPath} title={title} updateHeight={this.onUpdateHeight} />
+          <PDFViewer
+            filePath={docPath}
+            title={title}
+            updateHeight={this.onUpdateHeight}
+          />
         </div>
 
         <button
@@ -96,7 +96,7 @@ Modal.propTypes = {
     PropTypes.node
   ]),
   sheet: PropTypes.object,
-  classes: PropTypes.object,
+  classes: PropTypes.object
 };
 
 export default sizeMe({ monitorHeight: true })(injectSheet(styles)(Modal));

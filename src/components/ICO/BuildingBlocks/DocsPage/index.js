@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import { WidthProvider, Responsive } from "react-grid-layout";
+import { WidthProvider, Responsive } from 'react-grid-layout';
 import injectSheet, { ThemeProvider } from 'react-jss';
 import styled from 'styled-components';
 // archives
@@ -14,11 +14,11 @@ import Contracts from './Archives/Contracts.pdf';
 // import Risks from './Archives/Risks.pdf';
 
 import styles from './DocsStyles';
-import Modal from './Modal';
-import PDFViewer from './PDFViewer';
-import Copyright from './Copyright';
+import Modal from '../Modal';
+import PDFViewer from '../PDFViewer';
+import Copyright from '../Copyright';
 
-import './boxesStyles.css';
+import './styles.css';
 
 var docs = {
   missionPath: Mission,
@@ -26,19 +26,17 @@ var docs = {
   risksPath: What,
   contractsPath: Contracts,
   valuesPath: Values,
-  rolesPath: Role,
+  rolesPath: Role
 };
 
-const Title = ({className, children}) => {
+const Title = ({ className, children }) => {
   if (className) {
-    return (<h1 className={className}>{children}</h1>)
+    return <h1 className={className}>{children}</h1>;
   }
-  return (
-    <h1>{children}</h1>
-  )
-;}
+  return <h1>{children}</h1>;
+};
 
-const StyledTitle = styled(Title) `
+const StyledTitle = styled(Title)`
   color: white;
   font-size: 3.3em;
   text-align: center;
@@ -46,9 +44,8 @@ const StyledTitle = styled(Title) `
   font-weight: 600;
 `;
 
-
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 /* Functional components */
@@ -63,7 +60,6 @@ function capitalizeFirstLetter(string) {
 //   )
 // }
 
-
 class BoxesSlide extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -76,13 +72,13 @@ class BoxesSlide extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('component received props')
+    console.log('component received props');
     console.log(nextProps);
   }
 
-  handleToggleModal = (event) => {
+  handleToggleModal = event => {
     this.setState({ showModal: !this.state.showModal });
-  }
+  };
 
   handleClick = (event, id) => {
     switch (id) {
@@ -92,37 +88,37 @@ class BoxesSlide extends React.PureComponent {
             docPath: docs.contractsPath,
             title: capitalizeFirstLetter(id),
             showModal: true
-          }
+          };
         });
         break;
       case 'who':
-        id = capitalizeFirstLetter(id) + " We Are";
+        id = capitalizeFirstLetter(id) + ' We Are';
         this.setState((prevState, props) => {
           return {
             docPath: docs.whoPath,
             title: id,
             showModal: true
-          }
+          };
         });
         break;
       case 'role':
-        id = "Your " + capitalizeFirstLetter(id);
+        id = 'Your ' + capitalizeFirstLetter(id);
         this.setState((prevState, props) => {
           return {
             docPath: docs.rolesPath,
             title: id,
             showModal: true
-          }
+          };
         });
         break;
       case 'mission':
-        id = "Our " + capitalizeFirstLetter(id);
+        id = 'Our ' + capitalizeFirstLetter(id);
         this.setState((prevState, props) => {
           return {
             docPath: docs.missionPath,
             title: id,
             showModal: true
-          }
+          };
         });
         break;
       case 'values':
@@ -131,7 +127,7 @@ class BoxesSlide extends React.PureComponent {
             docPath: docs.valuesPath,
             title: capitalizeFirstLetter(id),
             showModal: true
-          }
+          };
         });
         break;
       case 'risks':
@@ -140,105 +136,135 @@ class BoxesSlide extends React.PureComponent {
             docPath: docs.risksPath,
             title: capitalizeFirstLetter(id),
             showModal: true
-          }
+          };
         });
         break;
       default:
-        return "Sorry! Docs haven't been able to load"
+        return "Sorry! Docs haven't been able to load";
     }
 
     //this.setState(!this.state.showModal);
-  }
+  };
 
   render() {
     const { classes } = this.props;
-    var {showModal, title, docPath } = this.state;
+    var { showModal, title, docPath } = this.state;
     return (
-        <React.Fragment>
-          <section className="section">
-            <div className="container">
-              <div className="columns is-variable is-centered mg-top">
-                <div className="column">
-                  <StyledTitle> Everything you need to know in just one single place</StyledTitle>
-                </div>
+      <React.Fragment>
+        <section className="section">
+          <div className="container">
+            <div className="columns is-variable is-centered mg-top">
+              <div className="column">
+                <StyledTitle>
+                  {' '}
+                  Everything you need to know in just one single place
+                </StyledTitle>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
         <section className="section">
-            <div className="columns is-multiline is-variable">
+          <div className="columns is-multiline is-variable">
             <div className="column is-one-third">
               <div key="4" className="card card--modifier">
                 <div className="card-content">
-                <a href="#" className="card--link" onClick={(e, id) => this.handleClick(e, 'contracts')}>
-                  <span className="card--child">CONTRACTS</span>
-                </a>
-              </div>
-              </div>
-            </div>
-            <div className="column is-one-third">
-              <div key="5" className="card card--modifier" >
-                <div className="card-content">
-                <a href="#" className="card--link" onClick={(e, id) => this.handleClick(e, 'who')}>
-                  <span className="card--child">WHO WE ARE</span>
-                </a>
-              </div>
+                  <a
+                    href="#"
+                    className="card--link"
+                    onClick={(e, id) => this.handleClick(e, 'contracts')}
+                  >
+                    <span className="card--child">CONTRACTS</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="column is-one-third">
-              <div key="6" className="card card--modifier" >
+              <div key="5" className="card card--modifier">
                 <div className="card-content">
-                <a href="#" className="card--link" onClick={(e, id) => this.handleClick(e, 'role')}>
-                  <span className="card--child">YOUR ROLE</span>
-                </a>
+                  <a
+                    href="#"
+                    className="card--link"
+                    onClick={(e, id) => this.handleClick(e, 'who')}
+                  >
+                    <span className="card--child">WHO WE ARE</span>
+                  </a>
+                </div>
               </div>
+            </div>
+            <div className="column is-one-third">
+              <div key="6" className="card card--modifier">
+                <div className="card-content">
+                  <a
+                    href="#"
+                    className="card--link"
+                    onClick={(e, id) => this.handleClick(e, 'role')}
+                  >
+                    <span className="card--child">YOUR ROLE</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="column is-one-third side">
               <div key="1" className="card card--modifier">
                 <div className="card-content">
-                <a href="#" className="card--link" onClick={(e, id) => this.handleClick(e, 'mission')}>
-                  <span className="card--child">OUR MISSION</span>
-                </a>
-              </div>
+                  <a
+                    href="#"
+                    className="card--link"
+                    onClick={(e, id) => this.handleClick(e, 'mission')}
+                  >
+                    <span className="card--child">OUR MISSION</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="column is-one-third">
               <div key="2" className="card card--modifier">
                 <div className="card-content">
-
-                <a href="#" className="card--link" onClick={(e, id) => this.handleClick(e, 'values')}>
-                  <span className="card--child">VALUES</span>
-                </a>
-              </div>
+                  <a
+                    href="#"
+                    className="card--link"
+                    onClick={(e, id) => this.handleClick(e, 'values')}
+                  >
+                    <span className="card--child">VALUES</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="column  is-one-third">
               <div key="3" className="card card--modifier">
                 <div className="card-content">
-                <a href="#" className="card--link" onClick={(e, id) => this.handleClick(e, 'risks')}>
-                  <span className="card--child">RISKS</span>
-                </a>
-              </div>
+                  <a
+                    href="#"
+                    className="card--link"
+                    onClick={(e, id) => this.handleClick(e, 'risks')}
+                  >
+                    <span className="card--child">RISKS</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
-            {showModal &&
-              <Modal onCloseRequest={() => this.handleToggleModal()} title={title} docPath={docPath}>
-              </Modal>}
+        {showModal && (
+          <Modal
+            onCloseRequest={() => this.handleToggleModal()}
+            title={title}
+            docPath={docPath}
+          />
+        )}
 
-          <section className="section">
-            <div className="container">
-              <div className="columns is-variable is-centered mg-top">
-                <div className="column">
-                  <Copyright />
-                </div>
+        <section className="section no-padding">
+          <div className="container">
+            <div className="columns is-variable is-centered mg-top">
+              <div className="column">
+                <Copyright />
               </div>
             </div>
-          </section>
-        </React.Fragment>
-      );
+          </div>
+        </section>
+      </React.Fragment>
+    );
   }
 }
 
@@ -246,13 +272,13 @@ BoxesSlide.proptypes = {
   classes: PropTypes.object,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-}
+    PropTypes.node
+  ])
+};
 
 const theme = {
   //: Background
-}
+};
 
 const Boxes = injectSheet(styles)(BoxesSlide);
 

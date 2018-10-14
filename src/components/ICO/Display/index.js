@@ -1,33 +1,43 @@
 import React, { Component } from 'react';
-import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator } from 'mdbreact';
-import './CarouselStyles.css';
-import '../../../../node_modules/bulma/css/bulma.min.css';
-
+import {
+  Carousel,
+  CarouselControl,
+  CarouselInner,
+  CarouselItem,
+  CarouselIndicators,
+  CarouselIndicator
+} from 'mdbreact';
+import mixpanel from 'mixpanel-browser';
+import MixpanelProvider from 'react-mixpanel';
+import classnames from 'classnames';
 import injectSheet from 'react-jss';
 import sizeMe from 'react-sizeme';
+
+import './CarouselStyles.css';
+import '../../../../node_modules/bulma/css/bulma.min.css';
+import '../../../../node_modules/bulma-extensions/bulma-carousel/dist/css/bulma-carousel.min.css';
+import './main.css';
 
 import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
 import ThirdSlide from '../ThirdSlide';
 import FourthSlide from '../FourthSlide';
 
-
 const styles = {
-  '@global' : {
+  '@global': {
     body: {
       background: 'black',
       overflow: 'hidden !important'
     }
-  },
-}
+  }
+};
 
 const slides = [
-  {"id": "1", "component": <FirstSlide />},
-  {"id": "2", "component": <SecondSlide isMobile={false} />},
-  {"id": "3", "component": <ThirdSlide />},
-  {"id": "4", "component": <FourthSlide />}
+  { id: '1', component: <FirstSlide /> },
+  { id: '2', component: <SecondSlide isMobile={false} /> },
+  { id: '3', component: <ThirdSlide /> },
+  { id: '4', component: <FourthSlide /> }
 ];
-
 
 class Display extends Component {
   constructor(props) {
@@ -42,21 +52,22 @@ class Display extends Component {
   }
 
   componentWillMount() {
-    window.addEventListener('resize', this.updateHeight)
-    this.setState({height: window.innerHeight + 'px'});
+    mixpanel.init('YOURTOKENHEREMATE');
+    window.addEventListener('resize', this.updateHeight);
+    this.setState({ height: window.innerHeight + 'px' });
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.updateHeight)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateHeight);
   }
 
   updateHeight = () => {
-    this.setState({ height: window.innerHeight})
-  }
+    this.setState({ height: window.innerHeight });
+  };
 
   next() {
     const nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.maxLength) {
+    if (nextItem > this.state.maxLength) {
       this.setState({ activeItem: 1 });
     } else {
       this.setState({ activeItem: nextItem });
@@ -81,28 +92,48 @@ class Display extends Component {
   }
 
   generateSlides = () => {
-    var ob = slides.map(slide => {
-      <CarouselItem itemId={slide.id}>
-        <div className="fullPage video1 d-block w-100">
-          {slide.component}
+    var ob = slides.map((index, slide) => {
+      <div
+        key={index}
+        className={classnames({
+          'carousel-item': true,
+          'has-background': true,
+          'is-active': index == 0 ? true : false
+        })}
+      >
+        {slide.components}
+      </div>;
+    });
+
+    return (
+      <div className="carousel carousel-animated carousel-animate-slide">
+        <div className="carousel-container">{ob}</div>
+        <div className="carousel-navigation is-overlay">
+          <div className="carousel-nav-left">
+            <i className="fa fa-chevron-left" aria-hidden="true" />
+          </div>
+          <div className="carousel-nav-right">
+            <i className="fa fa-chevron-right" aria-hidden="true" />
+          </div>
         </div>
-      </CarouselItem>
-    })
+      </div>
+    );
+  };
 
-    return ob;
-  }
-
-  render(){
+  render() {
     const { activeItem } = this.state;
     const { classes } = this.props;
     const generated = this.generateSlides();
-    return(
-      <div className="container is-clipped" style={{minHeight: this.state.height}} >
-        <SecondSlide />
+    return (
+      <div
+        className="container is-clipped"
+        style={{ minHeight: this.state.height }}
+      >
+        <ThirdSlide />
       </div>
     );
   }
 }
 
 // Former CarouselPage
-export default sizeMe({monitorHeight: true})(injectSheet(styles)(Display));
+export default sizeMe({ monitorHeight: true })(injectSheet(styles)(Display));

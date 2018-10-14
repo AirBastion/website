@@ -1260,14 +1260,12 @@ transition: all .35s ease-in;
 }
 
 #root {
-  min-height: 100%;;
+  display: block;
+  min-height: calc(100% + 150px);
   overflow: hidden;
 }
 
 .copyright {
-  position: absolute;
-  text-align: center;
   font-weight: 600;
   color: white;
-  bottom: 2rem;
 }

@@ -1,11 +1,8 @@
 import React from 'react';
-import BoxesSlide from '../../DocsPage';
-
+import BoxesSlide from '../BuildingBlocks/DocsPage';
 
 const ThirdSlide = () => {
-  return (
-    <BoxesSlide />
-  )
-}
+  return <BoxesSlide />;
+};
 
 export default ThirdSlide;
