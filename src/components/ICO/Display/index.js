@@ -125,12 +125,14 @@ class Display extends Component {
     const { classes } = this.props;
     const generated = this.generateSlides();
     return (
-      <div
-        className="container is-clipped"
-        style={{ minHeight: this.state.height }}
-      >
-        <ThirdSlide />
-      </div>
+      <React.Fragment>
+        <div
+          className="container is-clipped"
+          style={{ minHeight: this.state.height }}
+        >
+          <ThirdSlide />
+        </div>
+      </React.Fragment>
     );
   }
 }

@@ -1,150 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-  	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51900241-15"></script>
 
-    <link rel="stylesheet" href="./main.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51900241-15"></script>
 
-    <script src="http//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
-    <script src="./js/base.js"></script>
-    <script src="./js/jquery-3.2.1.min.js"></script>
-    <script src="./js/slick.min.js"></script>
-    <script src="./js/moment.js"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+  <link rel="stylesheet" href="./main.css">
 
-      function gtag() {
-        dataLayer.push(arguments);
+  <script src="http//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+  <script src="./js/base.js"></script>
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/slick.min.js"></script>
+  <script src="./js/moment.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-51900241-15');
+  </script>
+  <title> Air Bastion </title>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <canvas class="header__background" style="position: absolute; min-width: 100%; min-height: 100%;"></canvas>
+  <div id="root">
+  </div>
+
+  <script>
+    $('#dropdownMenuLink').on(function (e) {
+      preventDefault();
+    });
+
+    function hide(elem) {
+      elem.addClass('hide');
+    }
+
+    function copyWallet(elem, copyTag) {
+      var copied;
+
+      try {
+        copied = document.execCommand('copy');
+      } catch (ex) {
+        copied = false;
       }
-      gtag('js', new Date());
 
-      gtag('config', 'UA-51900241-15');
-    </script>
-    <title> Air Bastion </title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <canvas class="header__background" style="position: absolute; min-width: 100%; min-height: 100%;"></canvas>
-    <div id="root">
-    </div>
+      if (copied) {
+        copyTag.removeClass('hide')
+        window.setTimeout(function () {
+          hide(copyTag);
+        }, 800);
 
-    <script>
-      $('#dropdownMenuLink').on(function(e) {
-        preventDefault();
-      });
+      }
+    }
 
-      function hide(elem) {
-        elem.addClass('hide');
+    $('#eth').click(function () {
+      var copied;
+
+      try {
+        copied = document.execCommand('copy');
+      } catch (ex) {
+        copied = false;
       }
 
-    	function copyWallet(elem, copyTag) {
-    		var copied;
+      var tag = $('#copied-text-eth')
 
-    		try {
-    			copied = document.execCommand('copy');
-    		} catch (ex) {
-    			copied = false;
-    		}
+      if (copied) {
+        tag.removeClass('hide')
+        window.setTimeout(function () {
+          hide(tag);
+        }, 800);
 
-    		if (copied) {
-    			copyTag.removeClass('hide')
-    			window.setTimeout(function() {
-    				hide(copyTag);
-    			}, 800);
+      }
+    });
 
-    		}
-    	}
+    $('#btc').click(function () {
+      var tag = $('#copied-text-btc')
+      copyWallet($(this).text(), tag);
+    });
+  </script>
 
-      	$('#eth').click(function() {
-      		var copied;
+  <script type="text/javascript">
+    var background = Math.floor((Math.random() * 6) + 1);
 
-      		try {
-      			copied = document.execCommand('copy');
-      		} catch (ex) {
-      			copied = false;
-      		}
-
-      		var tag = $('#copied-text-eth')
-
-      		if (copied) {
-      			tag.removeClass('hide')
-      			window.setTimeout(function() {
-      				hide(tag);
-      			}, 800);
-
-      		}
-      	});
-
-      	$('#btc').click(function() {
-      		var tag = $('#copied-text-btc')
-      		copyWallet($(this).text(), tag);
-      	});
-    </script>
-
-    <script type="text/javascript">
-      var background = Math.floor((Math.random() * 6) + 1);
-
-      function appendScripts(fileLocation, place) {
-        if (place === 'head') {
-          var addParticles = document.createElement('script'); addParticles.type = 'text/javascript';
-          addParticles.src = fileLocation;
-          document.getElementsByTagName('head')[0].appendChild(addParticles);
-        }
-
+    function appendScripts(fileLocation, place) {
+      if (place === 'head') {
         var addParticles = document.createElement('script'); addParticles.type = 'text/javascript';
         addParticles.src = fileLocation;
-        document.getElementsByTagName('body')[0].appendChild(addParticles);
+        document.getElementsByTagName('head')[0].appendChild(addParticles);
       }
 
-      function getRandomBackground(bkg) {
-        console.log('called')
-        switch (bkg) {
-          case 1:
-            appendScripts("https://npmcdn.com/particlesjs@2.2.2/dist/particles.min.js", 'head');
-            appendScripts('./js/backgrounds/particle/particles.js', 'body');
-            appendScripts("https://use.fontawesome.com/releases/v5.1.0/js/all.js", "head");
-            var addBulma = document.createElement('link'); addBulma.href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
-            document.getElementsByTagName('head')[0].appendChild(addBulma);
+      var addParticles = document.createElement('script'); addParticles.type = 'text/javascript';
+      addParticles.src = fileLocation;
+      document.getElementsByTagName('body')[0].appendChild(addParticles);
+    }
 
-            break;
-          case 2:
-            appendScripts("https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js", 'body');
-            appendScripts("https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js", "body");
-            appendScripts("https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js", "body");
-            appendScripts("./js/background/constellation/index.js", "body");
-            break;
-          case 3:
-            break
-          default:
-            break;
-        }
+    function getRandomBackground(bkg) {
+      console.log('called')
+      switch (bkg) {
+        case 1:
+          appendScripts("https://npmcdn.com/particlesjs@2.2.2/dist/particles.min.js", 'head');
+          appendScripts('./js/backgrounds/particle/particles.js', 'body');
+          appendScripts("https://use.fontawesome.com/releases/v5.1.0/js/all.js", "head");
+          var addBulma = document.createElement('link'); addBulma.href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
+          document.getElementsByTagName('head')[0].appendChild(addBulma);
+
+          break;
+        case 2:
+          appendScripts("https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js", 'body');
+          appendScripts("https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js", "body");
+          appendScripts("https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js", "body");
+          appendScripts("./js/background/constellation/index.js", "body");
+          break;
+        case 3:
+          break
+        default:
+          break;
       }
+    }
 
-      if (window.location.href.indexOf('ico') > -1){
-        getRandomBackground(1);
+    if (window.location.href.indexOf('ico') > -1) {
+      getRandomBackground(1);
 
-        (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ioae21aq';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+      appendScripts('./js/intercom.js', 'body');
+      appendScripts('./js/intercom-code.js', 'body');
 
-      }
+    }
 
-      // if (window.location.href.indexOf('/') > -1) {
-      //   var addBootstrap = document.createElement('link'); addBootstrap.rel = 'stylesheet';
-      //   addBootstrap.href = './css/bootstrap.min.css';
-      //   document.getElementsByTagName('head')[0].appendChild(addBootstrap);
-      // }
-    </script>
+  // if (window.location.href.indexOf('/') > -1) {
+  // var addBootstrap = document.createElement('link'); addBootstrap.rel = 'stylesheet';
+  // addBootstrap.href = './css/bootstrap.min.css';
+  // document.getElementsByTagName('head')[0].appendChild(addBootstrap);
+  // }
+  </script>
 
-  </body>
+</body>
+
 </html>
