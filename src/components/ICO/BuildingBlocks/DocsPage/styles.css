@@ -1,0 +1,101 @@
+.card-content {
+  width: inherit;
+}
+
+.card--modifier {
+  background-color: white;
+  color: black;
+  font-size: 3rem;
+  padding: 2%;
+  font-family: Impact;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-height: 5em;
+  box-shadow: 0 25px 40px -20px #2e97ff;
+  cursor: pointer;
+}
+
+.card--modifier:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 50px -20px #2e97ff;
+  animation: incomingPulse 1.7s infinite;
+}
+
+.card--modifier:click {
+  box-shadow: 0 0 1px -10px #2e97ff;
+  transition: all 0.2s;
+}
+
+.card--child {
+  align-items: center;
+  flex-basis: auto;
+}
+
+.card--link {
+  display: inline-block;
+  position: relative;
+  color: #333333;
+  text-decoration: none;
+  padding: 0.2em 0.05em;
+  border-bottom: 2px solid #333333;
+}
+
+.card--link:hover {
+  color: #efefef;
+}
+
+.card--link:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+  transition: all 0.1s cubic-bezier(0, 0.59, 1, 0.26);
+}
+
+.card--link:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+}
+
+@-webkit-keyframes incomingPulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(28, 180, 105, 0.7);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 35 px rgba(28, 180, 105, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(28, 180, 105, 0);
+  }
+}
+
+@keyframes incomingPulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(28, 180, 105, 0.7);
+    box-shadow: 0 0 0 0 rgba(28, 180, 105, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 26px rgba(28, 180, 105, 0);
+    box-shadow: 0 0 0 35px rgba(28, 180, 105, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(28, 180, 105, 0);
+    box-shadow: 0 0 0 0 rgba(28, 180, 105, 0);
+  }
+}

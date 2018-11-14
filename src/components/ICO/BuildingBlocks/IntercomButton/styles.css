@@ -1,0 +1,8 @@
+.intercom-button {
+  position: relative;
+  display: inline-block;
+  padding-left: 28px;
+  background: url('./chat-icon.svg') 0 50% no-repeat;
+  color: #cc003e;
+  font-size: 14px;
+}

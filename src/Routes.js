@@ -1,22 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Enter from './components/Enter'
-import Login from './components/Login'
-import NotFound from './components/NotFound'
+import Main from "./components/Main";
+import Display from "./components/ICO/Display";
 
-const Routes = (props) => (
+// import Cause from './components/Cause';
+// import Company from './components/Company';
+// import Workings from './components/Workings';
+// import Product from './components/Products';
+
+// Testing specific routes
+import FirstSlide from "./components/ICO/FirstSlide";
+import SecondSlide from "./components/ICO/SecondSlide";
+import ThirdSlide from "./components/ICO/ThirdSlide";
+import FourthSlide from "./components/ICO/FourthSlide";
+
+const Routes = props => (
   <Router {...props}>
     <Switch>
-      <Route exact path='/cause' component={Enter} />
-      <Route exact path='/company' component={Enter} />
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/password-recovery' component={Enter} />
-      <Route exact path='/workings' component={Enter} />
-      <Route path='/' component={Enter} />
-      <Route path='*' component={NotFound} />
+      <Route exact path="/cause" component={Main} />
+      <Route exact path="/company" component={Main} />
+      <Route exact path="/ico" component={Display} />
+      <Route exact path="/workings" component={Main} />
+      <Route path="*" component={Main} />
     </Switch>
   </Router>
-)
+);
 
-export default Routes
+export default Routes;

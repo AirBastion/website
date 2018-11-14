@@ -369,7 +369,10 @@ footer {
   color: var(--oc-gray-5);
   font-size: .8rem;
   text-align: center;
-  padding: 50px 0
+  padding: 1em 0 0 0;
+}
+footer > ul {
+  margin-top: 1em !important;
 }
 
 footer a:hover {
@@ -424,15 +427,15 @@ footer a:hover {
 
 .Content.full {
   width: 100%;
-  min-height: 100vh
+  min-height: 1080px
 }
 
 .Content.medium {
-  min-height: 650px
+  min-height: 1050px
 }
 
 .Content.small {
-  min-height: 500px
+  min-height: 1050px
 }
 
 .Content.border {
@@ -467,7 +470,7 @@ footer a:hover {
 }
 
 .Content.bg-image {
-  --tint: rgba(0, 0, 0, .65);
+  --tint: rgba(0, 0, 0, .05);
   background-image: linear-gradient(var(--tint), var(--tint)), url(https://apex-inc.imgix.net/images/backgrounds/2.jpg?q=50&w=1500);
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -1044,12 +1047,6 @@ body.over-dark #Social .icon svg {
   z-index: 2
 }
 
-body.over-dark #Menu {
-  background: transparent;
-  box-shadow: none;
-  --color: var(--bg-color)
-}
-
 #Menu .left {
   left: 0
 }
@@ -1182,4 +1179,21 @@ body.over-dark #Menu {
 
 .nav {
   padding-right:1rem;
+}
+
+.Example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root {
+  display: block;
+  min-height: calc(100% + 150px);
+  overflow: hidden;
+}
+
+.copyright {
+  font-weight: 600;
+  color: white;
 }

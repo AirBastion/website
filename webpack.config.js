@@ -52,6 +52,9 @@ module.exports = {
             limit: 25000
           }
         }
+      },
+      {
+        noParse: /\.pdf$/,
       }
     ]
   },

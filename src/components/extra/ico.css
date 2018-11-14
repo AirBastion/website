@@ -9512,7 +9512,7 @@ h2.title {
 }
 
 .white {
-  color: #fff!important
+  color: #fff !important
 }
 
 .wrap {
@@ -10736,4 +10736,37 @@ ul#countdown {
   .displace {
     margin-left: 1%
   }
+}
+
+.black {
+  background-color: black !important;
+}
+
+a:hover {
+  color: #efefef;
+}
+
+a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+  transition: all 0.1s cubic-bezier(0, 0.59, 1, 0.26);
+}
+
+a:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
 }
