@@ -1,6 +1,6 @@
-Product specs:
+# Product specs
 
-Things to know
+## Things to know
 We use Bulma as the css framework.
 
 There are 6 slides + 1 long page. The order is all horizontal pages go first and then we have the long page as the final one.
@@ -19,7 +19,7 @@ We will be prioritizing speed over optimization and order in this project. The m
 
 There is a need to change the background. So every time you come in a different background will get assigned to you at random. There is an initial coding of that feature but it’s not working as of now. Will supply the different backgrounds myself and you can see the ones we have already in `public/js/backgrounds/`
 
-Priority order:
+## Priority order:
 
 1. Carousel (this is expected to be done in max. 1 full day of work)
 2. Finishing Slide 1-4
