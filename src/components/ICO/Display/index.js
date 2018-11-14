@@ -74,22 +74,22 @@ class Display extends Component {
     }
   }
 
-  prev() {
+  prev = () => {
     const prevItem = this.state.activeItem - 1;
     if (prevItem < 1) {
       this.setState({ activeItem: this.state.maxLength });
     } else {
       this.setState({ activeItem: prevItem });
     }
-  }
+  };
 
-  goToIndex(item) {
+  goToIndex = item => {
     if (this.state.activeItem !== item) {
       this.setState({
         activeItem: item
       });
     }
-  }
+  };
 
   generateSlides = () => {
     var ob = slides.map((index, slide) => {
