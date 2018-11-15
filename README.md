@@ -27,11 +27,16 @@ There is a need to change the background. So every time you come in a different 
 3.
 4. Main component should be fullscreen with exact size of the screen no matter the resolution. On scroll, the footer should uncover.
 
-For the design of the 7th Slide we will be following this design and then will change to have our logo and other artwork.
-https://www.dropbox.com/sh/jt7d3yuiule9y89/AAD3WTWyU0YzwNbnBIIUbtRwa?dl=0
+### Component 4
+
+### Component 5
 
 ### Component 6
 
 This component is quite an easy one. There is block which occupies 3/4ths of the page. It's located on the left side and contains links to reference or old material.
 
 Each link in this array of links needs to have a calendar date displayed on the right and a calendar icon from font8 or similar positioned on the right.
+
+### Component 7
+
+For the design of the 7th Slide we will be following (this design)[https://www.dropbox.com/sh/jt7d3yuiule9y89/AAD3WTWyU0YzwNbnBIIUbtRwa?dl=0] and then will change to have our logo and other artwork as well as our colors in there.
