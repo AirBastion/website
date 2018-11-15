@@ -12,11 +12,13 @@ import MixpanelProvider from 'react-mixpanel';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
 import sizeMe from 'react-sizeme';
+import AwesomeSlider from 'react-awesome-slider';
 
 import './CarouselStyles.css';
 import '../../../../node_modules/bulma/css/bulma.min.css';
 import '../../../../node_modules/bulma-extensions/bulma-carousel/dist/css/bulma-carousel.min.css';
 import './main.css';
+import 'react-awesome-slider/dist/styles.css';
 
 import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
@@ -30,6 +32,12 @@ const styles = {
       overflow: 'hidden !important'
     }
   }
+};
+
+var slider = {
+  width: '100%',
+  height: window.outerHeight + 100,
+  background: 'black'
 };
 
 const slides = [
@@ -125,14 +133,24 @@ class Display extends Component {
     const { classes } = this.props;
     const generated = this.generateSlides();
     return (
-      <React.Fragment>
-        <div
-          className="container is-clipped"
-          style={{ minHeight: this.state.height }}
-        >
-          <ThirdSlide />
-        </div>
-      </React.Fragment>
+      <div
+        style={slider}
+      >
+        <AwesomeSlider>
+          <div className='slider'>
+            <FirstSlide />
+          </div>
+          <div className='slider'>
+            <SecondSlide />
+          </div>
+          <div className='slider'>
+            <ThirdSlide />
+          </div>
+          <div className='slider'>
+            <FourthSlide />
+          </div>
+        </AwesomeSlider>
+      </div>
     );
   }
 }
