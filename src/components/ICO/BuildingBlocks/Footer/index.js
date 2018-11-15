@@ -4,14 +4,10 @@ import './styles.css';
 
 const Footer = props => {
   return (
-    <div className="footer line-on-top">
+    <div className="footer">
       <div className="container">
-        <div className="columns">
-          <div className="column">
-            <p>©2017–2018 AirBastion® All rights reserved.</p>
-            <a href="">♡ Proudly Made in London, UK</a>
-          </div>
-          <div className="columns">
+        <div className="rows">
+          <div className="row">
             <p>
               The Smart Contract System concept, the underlying software
               application and software platform (i.e. the Ethereum blockchain),
@@ -26,6 +22,10 @@ const Footer = props => {
               Such risks may further materialize as unanticipated variations or
               combinations of the risks set out in the white paper.
             </p>
+          </div>
+          <div className="row copyright">
+            <p>©2017–2018 AirBastion® All rights reserved.</p>
+            <a href="">♡ Proudly Made in London, UK</a>
           </div>
         </div>
       </div>

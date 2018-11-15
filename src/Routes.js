@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Main from './components/Main';
-import Display from './components/Ico/Display/index';
+import Display from './components/ICO/Display/index';
 
 // import Cause from './components/Cause';
 // import Company from './components/Company';
@@ -10,10 +10,10 @@ import Display from './components/Ico/Display/index';
 // import Product from './components/Products';
 
 // Testing specific routes
-import FirstSlide from './components/Ico/FirstSlide';
-import SecondSlide from './components/Ico/SecondSlide';
-import ThirdSlide from './components/Ico/ThirdSlide';
-import FourthSlide from './components/Ico/FourthSlide';
+import FirstSlide from './components/ICO/FirstSlide';
+import SecondSlide from './components/ICO/SecondSlide';
+import ThirdSlide from './components/ICO/ThirdSlide';
+import FourthSlide from './components/ICO/FourthSlide';
 
 const Routes = props => (
   <Router {...props}>
@@ -23,7 +23,7 @@ const Routes = props => (
       {/* <Route exact path="/ico" component={Display} /> */}
       <Route exact path="/ico" component={FirstSlide} />
       <Route exact path="/workings" component={Main} />
-      <Route path="*" component={Main} />
+      <Route path="*" component={Display} />
     </Switch>
   </Router>
 );
