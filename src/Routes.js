@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Main from './components/Main';
-import Display from './components/Ico/Display';
+import Display from './components/Ico/Display/index';
 
 // import Cause from './components/Cause';
 // import Company from './components/Company';
@@ -21,6 +21,7 @@ const Routes = props => (
       <Route exact path="/cause" component={Main} />
       <Route exact path="/company" component={Main} />
       {/* <Route exact path="/ico" component={Display} /> */}
+      <Route exact path="/ico" component={FirstSlide} />
       <Route exact path="/workings" component={Main} />
       <Route path="*" component={Main} />
     </Switch>
