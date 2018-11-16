@@ -12,7 +12,6 @@ const FourthSlide = () => {
       <Message data="" />
       <Message data="" />
       <Message data="" />
-      <hr />
       <Footer />
     </React.Fragment>
   );

@@ -17,8 +17,8 @@ import AwesomeSlider from 'react-awesome-slider';
 import './CarouselStyles.css';
 import '../../../../node_modules/bulma/css/bulma.min.css';
 import '../../../../node_modules/bulma-extensions/bulma-carousel/dist/css/bulma-carousel.min.css';
-import './main.css';
 import 'react-awesome-slider/dist/styles.css';
+import './main.css';
 
 import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
@@ -36,7 +36,7 @@ const styles = {
 
 var slider = {
   width: '100%',
-  height: window.outerHeight + 100,
+  height: window.innerHeight,
   background: 'black'
 };
 
