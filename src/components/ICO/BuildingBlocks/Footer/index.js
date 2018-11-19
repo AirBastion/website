@@ -24,7 +24,7 @@ const Footer = props => {
             </p>
           </div>
           <div className="row copyright">
-            <p>©2017–2018 AirBastion® All rights reserved.</p>
+            <p>©2018 AirBastion® All rights reserved.</p>
             <a href="">♡ Proudly Made in London, UK</a>
           </div>
         </div>
