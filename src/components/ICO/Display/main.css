@@ -26,6 +26,19 @@ h1 {
   justify-content: center;
 }
 
+.aws-sld__content {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.aws-sld {
+  height:100%
+}
+
+.aws-sld__wrapper {
+  height:100%
+}
+
 .aws-sld__controls__arrow-left::before {
   background-color  : #00ffff !important;
 }
@@ -43,7 +56,7 @@ h1 {
 }
 
 .aws-sld__bullets .aws-sld__bullets--active {
-  background: white;
+  background: #00ffff;
   border: 2px solid blue;
 }
 .aws-sld__bullets button {
