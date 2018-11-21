@@ -16,7 +16,9 @@ const Titled = styled.h1`
 
 class SecondSlide extends React.Component {
   componentDidMount() {
-    if (!!window.Intercom) { window.Intercom('update'); }
+    if (window.Intercom) {
+      window.Intercom('update');
+    }
   }
 
   render() {

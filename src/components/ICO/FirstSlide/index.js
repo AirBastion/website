@@ -123,7 +123,7 @@ const Titled = styled.h1`
   line-height: 1.4em;
 `;
 
-const StyledTitle = styled(Title) `
+const StyledTitle = styled(Title)`
   font-size: 3.3em;
   text-align: center;
   line-height: 1.4em;
@@ -145,7 +145,7 @@ const Card = ({ className, children }) => {
   return <div className={className}>{children}</div>;
 };
 
-const StyledCard = styled(Card) `
+const StyledCard = styled(Card)`
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -195,7 +195,7 @@ const VideoPlayer = () => {
   return <Youtube videoId="PogEqZqktwI" opts={opts} />;
 };
 
-const StyledCopyright = styled(Copyright) `
+const StyledCopyright = styled(Copyright)`
   text-align: center;
 `;
 
@@ -227,7 +227,7 @@ class FirstSlide extends React.PureComponent {
     );
 
     // handles intercom init
-    if (!!window.Intercom) {
+    if (window.Intercom) {
       window.Intercom('boot', {
         app_id: 'ioae21aq'
       });
@@ -251,8 +251,8 @@ class FirstSlide extends React.PureComponent {
     var video = this.state.playVideo ? (
       <VideoPlayer />
     ) : (
-        <VideoImage image={videoImage} clicked={this.handleClick} />
-      );
+      <VideoImage image={videoImage} clicked={this.handleClick} />
+    );
 
     return (
       <div className="container">
