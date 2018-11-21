@@ -101,12 +101,13 @@ class Display extends Component {
       <div
         key={index}
         className={classnames({
+          slider: true,
           'carousel-item': true,
           'has-background': true,
           'is-active': index == 0 ? true : false
         })}
       >
-        {slide.components}
+        {slide}
       </div>;
     });
 
@@ -129,24 +130,8 @@ class Display extends Component {
     const { activeItem } = this.state;
     const { classes } = this.props;
     const generated = this.generateSlides();
-    return (
-      <div style={slider}>
-        <AwesomeSlider>
-          <div className="slider">
-            <FirstSlide />
-          </div>
-          <div className="slider">
-            <SecondSlide />
-          </div>
-          <div className="slider">
-            <ThirdSlide />
-          </div>
-          <div className="slider">
-            <FourthSlide />
-          </div>
-        </AwesomeSlider>
-      </div>
-    );
+    console.log(generated);
+    return <AwesomeSlider>{generated}</AwesomeSlider>;
   }
 }
 

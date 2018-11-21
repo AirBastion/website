@@ -16,7 +16,7 @@ import whitepaper from '../../whitepaper.png';
 import fileImage from '../../file_search.svg';
 //import videoPlayer from '../../videoPlayer.png';
 import videoImage from '../../videoImage.png';
-//imf import here
+//img import here
 import mixpanel from 'mixpanel-browser';
 
 // general styling
