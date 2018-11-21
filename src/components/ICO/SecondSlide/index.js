@@ -39,6 +39,7 @@ class SecondSlide extends React.Component {
               <div className="column">
                 <Chart />
               </div>
+              <br/>
               <div className="column">
                 <div className="columns">
                   <div className="column">
@@ -48,6 +49,7 @@ class SecondSlide extends React.Component {
                     />
                   </div>
                 </div>
+                <br/>
                 <div className="columns">
                   <div className="column">
                     <Explanation
@@ -67,6 +69,7 @@ class SecondSlide extends React.Component {
             </div>
           </div>
         </section>
+        <br/>
       </React.Fragment>
     );
   }
