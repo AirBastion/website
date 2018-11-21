@@ -17,18 +17,22 @@ h1 {
   }
 }
 .slider {
-  width: 100%;
+  width:85%;
   height: 100%;
   position: absolute;
   top: 0;
-  background: black;
+  background:black;
   align-items: center;
   justify-content: center;
+  left:0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .aws-sld__content {
   overflow-y: scroll;
   overflow-x: hidden;
+  background: black;
 }
 
 .aws-sld {
@@ -63,7 +67,7 @@ h1 {
   background: white;
 }
 .aws-sld__bullets {
-  position: absolute;
-  bottom: 150px;
+  position: fixed;
+  bottom: 0;
   z-index: 999;
 }

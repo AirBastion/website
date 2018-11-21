@@ -173,7 +173,7 @@ const StyledCard = styled(Card)`
 const VideoImage = (props, styles) => {
   return (
     <a href="#" onClick={props.clicked} className={styles}>
-      <img
+      <img 
         src={props.image}
         className={styles}
         alt="Video of the explanation of Airbastion and Pure Air Industries"
@@ -270,9 +270,13 @@ class FirstSlide extends React.PureComponent {
 
         <section className="section">
           <div className="columns is-variable">
+            <section className="vedioStyle">
             <div className="column is-mobile is-half is-hidden-desktop has-text-centered">
               {video}
             </div>
+            </section>
+            <br/>
+            <section>
             <div className="column is-half">
               <StyledCard>
                 <div className="columns is-desktop">
@@ -329,10 +333,13 @@ class FirstSlide extends React.PureComponent {
                 </div>
               </StyledCard>
             </div>
-
+            </section> 
+            <br/> 
+            <section className="vedioStyle">         
             <div className="column is-half is-hidden-touch has-text-centered">
               {video}
             </div>
+            </section>       
           </div>
         </section>
         <section className="section no-padding">
@@ -342,6 +349,7 @@ class FirstSlide extends React.PureComponent {
             </div>
           </div>
         </section>
+        <br/>
       </div>
     );
   };

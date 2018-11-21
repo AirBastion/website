@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Main from './components/Main';
-import Display from './components/Ico/Display/index';
+import Display from './components/ICO/Display/index';
 
 // import Cause from './components/Cause';
 // import Company from './components/Company';
