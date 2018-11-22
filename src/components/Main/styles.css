@@ -43,3 +43,12 @@ ul > li {
 .footer {
   height: 60px;
 }
+
+@media screen and (max-width: 770px){
+  .footer{
+    padding-bottom: 85vh !important;
+  }
+  .footer  .footer_slider{
+    position: relative ;
+  }
+}

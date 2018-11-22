@@ -65,17 +65,17 @@ a:hover {
 }
 
 .pg-top {
-  padding-top: 1.8em;
+  /* padding-top: 1.8em; */
 }
 
-img {
+/* img {
   width: 500px;
 }
 @media screen and (max-width: 767px) {
   img {
     width: 200px;
   }
-}
+} */
 
 @media screen and (min-width: 767px) {
   img {
@@ -105,5 +105,48 @@ img {
 
   .hGBihm {
     width: 10em;
+  }
+}
+
+.mainContainer {
+  display:flex;
+}
+img {
+  width:300px;
+}
+.midDiv {
+  display: flex;
+}
+.parastyle {
+  line-height: 1.0;
+  color: var(--fg-color-light);
+  font-size: 12px;
+}
+.midImg img { 
+  width: 200px;
+}
+.midImg p {
+  font-size: 13px;
+}
+.videoSection {
+  padding-top: 70px;
+}
+
+.midContainer{
+  margin: 0 10px 0 10px;
+}
+
+@media screen and (max-width: 770px) {
+  .videoSection {
+    padding-top: 40px;
+  }
+  .midContainer{
+    padding-top: 40px;
+  }
+  .mainContainer{
+    display: block;
+  }
+  img{
+    width: 100%;
   }
 }

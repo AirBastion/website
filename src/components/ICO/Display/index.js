@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import injectSheet from 'react-jss';
 import sizeMe from 'react-sizeme';
 import AwesomeSlider from 'react-awesome-slider';
+import StyledCopyright from '../BuildingBlocks/Copyright';
+
 
 import 'react-awesome-slider/dist/styles.css';
 import './main.css';
@@ -57,16 +59,25 @@ class Display extends Component {
     this.setState({ height: window.innerHeight });
   };
 
+
   generateSlides = () => {
     var ob = slides.map(slide => (
       <div key={slide.id.toString()} className="slider">
         {slide.component}
+        <section className="section no-padding footer_slider">
+          <div className="columns is-variable is-centered">
+            <div className="column is-centered copyright">
+              <StyledCopyright />
+            </div>
+          </div>
+        </section>
       </div>
     ));
 
     return (
-      <div style={slider}>
+      <div style={slider} className="height_100vh">
         <AwesomeSlider>{ob}</AwesomeSlider>
+
       </div>
     );
   };

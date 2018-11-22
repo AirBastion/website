@@ -32,7 +32,7 @@ const StyledLink = styled.a`
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   background: #fff;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.025em;
@@ -266,18 +266,18 @@ class FirstSlide extends React.PureComponent {
           </div>
         </section>
 
-        <section className="section">
-          <div className="columns is-centered">
-            <div className="column is-mobile is-half is-hidden">{video}</div>
-            <div className="column is-half">
+        <section className="section center">
+          <div className="mainContainer columns is-centered">
+            <div className="videoSection column is-mobile is-half is-hidden">{video}</div>
+            <div className="midContainer column is-half">
               <StyledCard>
                 <div className="columns is-desktop">
                   <div className="column center-on-sm">
                     <StyledSubtitle className="is-size-4-mobile">
                       And this is how we are going to do it
                     </StyledSubtitle>
-                    <div className="columns">
-                      <div className="column is-half">
+                    <div className="midDiv columns">
+                      <div className="midImg column is-half">
                         <WhitePaper
                           url="https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/PureAir+Coin+Whitepaper+v.0.0.1.pdf"
                           image={fileImage}
@@ -295,7 +295,7 @@ class FirstSlide extends React.PureComponent {
                         })}
                       >
                         {otherLangLinks.map(link => (
-                          <p>
+                          <p className="parastyle">
                             <a
                               href={link.url}
                               key={link.representation}
@@ -326,15 +326,8 @@ class FirstSlide extends React.PureComponent {
               </StyledCard>
             </div>
 
-            <div className="column is-half is-hidden-touch has-text-centered">
+            <div className="videoSection column is-half is-hidden-touch has-text-centered">
               {video}
-            </div>
-          </div>
-        </section>
-        <section className="section no-padding">
-          <div className="columns is-variable is-centered">
-            <div className="column is-centered copyright">
-              <StyledCopyright />
             </div>
           </div>
         </section>

@@ -35,12 +35,12 @@ class SecondSlide extends React.Component {
 
         <div className="section">
           <div className="container">
-            <div className="columns">
-              <div className="column">
+            <div className="mainDiv columns">
+              <div className="chartDiv column">
                 <Chart />
               </div>
               <br/>
-              <div className="column">
+              <div className="columnDiv column">
                 <div className="columns">
                   <div className="column">
                     <Explanation
@@ -62,13 +62,6 @@ class SecondSlide extends React.Component {
             </div>
           </div>
         </div>
-        <section className="section no-padding">
-          <div className="columns is-variable is-centered">
-            <div className="column is-centered copyright">
-              <StyledCopyright />
-            </div>
-          </div>
-        </section>
         <br/>
       </React.Fragment>
     );
