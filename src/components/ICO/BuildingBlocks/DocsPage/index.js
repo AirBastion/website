@@ -263,7 +263,7 @@ class BoxesSlide extends React.PureComponent {
             </div>
           </div>
         </section>
-        <br/>
+        <br />
       </React.Fragment>
     );
   }
@@ -274,7 +274,8 @@ BoxesSlide.proptypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ])
+  ]),
+  isMobile: PropTypes.bool.isRequired
 };
 
 const theme = {
@@ -282,11 +283,5 @@ const theme = {
 };
 
 const Boxes = injectSheet(styles)(BoxesSlide);
-
-// const Boxess = () => (
-//   <ThemeProvider theme={theme}>
-//     <BoxesSlide />
-//   </ThemeProvider>
-// )
 
 export default Boxes;

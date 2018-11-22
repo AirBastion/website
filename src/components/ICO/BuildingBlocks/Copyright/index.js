@@ -22,8 +22,11 @@ const Copyright = props => {
   );
 };
 
+// Those proptypes represent urls || usually you would check this compare to an object.
 Copyright.propTypes = {
-  disclaimer: PropTypes.string
+  disclaimer: PropTypes.string,
+  terms: PropTypes.string,
+  sale: PropTypes.string
 };
 
 export default Copyright;

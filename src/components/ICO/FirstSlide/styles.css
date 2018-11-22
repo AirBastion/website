@@ -68,21 +68,6 @@ a:hover {
   padding-top: 1.8em;
 }
 
-.vedioStyle {
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 500px;
-}
-@media screen and (max-width: 767px) {
-  .vedioStyle {
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 200px;
-  }
-}
-
 img {
   width: 500px;
 }

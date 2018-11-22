@@ -16,7 +16,7 @@ import whitepaper from '../../whitepaper.png';
 import fileImage from '../../file_search.svg';
 //import videoPlayer from '../../videoPlayer.png';
 import videoImage from '../../videoImage.png';
-//img import here
+//imf import here
 import mixpanel from 'mixpanel-browser';
 
 // general styling
@@ -173,7 +173,7 @@ const StyledCard = styled(Card)`
 const VideoImage = (props, styles) => {
   return (
     <a href="#" onClick={props.clicked} className={styles}>
-      <img 
+      <img
         src={props.image}
         className={styles}
         alt="Video of the explanation of Airbastion and Pure Air Industries"
@@ -227,11 +227,9 @@ class FirstSlide extends React.PureComponent {
     );
 
     // handles intercom init
-    if (window.Intercom) {
-      window.Intercom('boot', {
-        app_id: 'ioae21aq'
-      });
-    }
+    window.Intercom('boot', {
+      app_id: 'ioae21aq'
+    });
   }
 
   componentWillUnmount() {
@@ -269,14 +267,8 @@ class FirstSlide extends React.PureComponent {
         </section>
 
         <section className="section">
-          <div className="columns is-variable">
-            <section className="vedioStyle">
-            <div className="column is-mobile is-half is-hidden-desktop has-text-centered">
-              {video}
-            </div>
-            </section>
-            <br/>
-            <section>
+          <div className="columns is-centered">
+            <div className="column is-mobile is-half is-hidden">{video}</div>
             <div className="column is-half">
               <StyledCard>
                 <div className="columns is-desktop">
@@ -333,13 +325,10 @@ class FirstSlide extends React.PureComponent {
                 </div>
               </StyledCard>
             </div>
-            </section> 
-            <br/> 
-            <section className="vedioStyle">         
+
             <div className="column is-half is-hidden-touch has-text-centered">
               {video}
             </div>
-            </section>       
           </div>
         </section>
         <section className="section no-padding">
@@ -349,7 +338,6 @@ class FirstSlide extends React.PureComponent {
             </div>
           </div>
         </section>
-        <br/>
       </div>
     );
   };

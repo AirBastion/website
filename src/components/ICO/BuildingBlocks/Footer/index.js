@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import './styles.css';
 
 const Footer = props => {
   return (
-    <div className="footer">
+    <div
+      className={classnames({
+        footer: true,
+        'line-on-top': true ? props.lineOnTop : false
+      })}
+    >
       <div className="container">
         <div className="rows">
           <div className="row">
@@ -31,6 +37,10 @@ const Footer = props => {
       </div>
     </div>
   );
+};
+
+Footer.propTypes = {
+  lineOnTop: PropTypes.bool
 };
 
 export default Footer;
