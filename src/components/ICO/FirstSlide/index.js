@@ -268,7 +268,7 @@ class FirstSlide extends React.PureComponent {
 
         <section className="section">
           <div className="columns is-centered">
-            <div className="column is-mobile is-half is-hidden">{video}</div>
+            <div className="column is-half is-hidden-desktop	">{video}</div>
             <div className="column is-half">
               <StyledCard>
                 <div className="columns is-desktop">
