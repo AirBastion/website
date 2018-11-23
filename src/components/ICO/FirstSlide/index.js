@@ -12,7 +12,7 @@ import whitepaper from '../../whitepaper.png';
 import fileImage from '../../file_search.svg';
 import videoImage from '../../videoImage.png';
 import mixpanel from 'mixpanel-browser';
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
 
 // general styling
 import './styles.css';
@@ -262,7 +262,7 @@ class FirstSlide extends React.PureComponent {
 
         <section className="section center">
           <div className="columns is-desktop is-centered is-vcentered">
-            <div className=" column is-3 has-text-centered is-centered is-hidden">{video}</div>
+            <div className=" column is-3 has-text-centered is-centered is-hidden-desktop">{video}</div>
             <div className=" column is-8 has-text-centered">
               <StyledCard>
                 <div className="columns is-fullwidth is-desktop">

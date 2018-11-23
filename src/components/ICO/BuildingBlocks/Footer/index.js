@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './styles.css';
+import 'bulma/css/bulma.css';
+
 
 const Footer = props => {
   return (
     <div
       className={classnames({
-        footer: true,
+        //footer: true,
         'line-on-top': true ? props.lineOnTop : false
       })}
     >
-      <div className="container">
-        <div className="rows">
-          <div className="row">
+      <div className="section">
+        <div className="columns is-multiline ">
+          <div className="column is-full ">
             <p>
               The Smart Contract System concept, the underlying software
               application and software platform (i.e. the Ethereum blockchain),
@@ -29,7 +31,7 @@ const Footer = props => {
               combinations of the risks set out in the white paper.
             </p>
           </div>
-          <div className="row copyright">
+          <div className="column is-full has-text-centered">
             <p>©2018 AirBastion® All rights reserved.</p>
             <a href="">♡ Proudly Made in London, UK</a>
           </div>

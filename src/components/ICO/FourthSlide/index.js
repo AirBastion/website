@@ -8,10 +8,8 @@ import Footer from '../BuildingBlocks/Footer';
 const FourthSlide = () => {
   return (
     <React.Fragment>
-      <Header />
-      <Message data="" />
-      <Message data="" />
-      <Message data="" />
+      {/* <Header />
+      <Message data="" /> */}
       <Footer />
     </React.Fragment>
   );

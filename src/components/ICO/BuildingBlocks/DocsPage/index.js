@@ -20,6 +20,8 @@ import Copyright from '../Copyright';
 
 import './styles.css';
 
+import 'bulma/css/bulma.css';
+
 var docs = {
   missionPath: Mission,
   whoPath: Relationship,
@@ -152,21 +154,18 @@ class BoxesSlide extends React.PureComponent {
     return (
       <React.Fragment>
         <section className="section">
-          <div className="container">
             <div className="columns is-variable is-centered mg-top">
               <div className="column">
                 <StyledTitle>
-                  {' '}
                   Everything you need to know in just one single place
                 </StyledTitle>
               </div>
             </div>
-          </div>
         </section>
 
         <section className="section">
-          <div className="columns is-multiline is-variable">
-            <div className="cardStyle column is-one-third">
+          <div className="columns is-multiline is-desktop is-centered is-vcentered">
+            <div className="column is-4">
               <div key="4" className="card card--modifier">
                 <div className="card-content">
                   <a
@@ -179,7 +178,7 @@ class BoxesSlide extends React.PureComponent {
                 </div>
               </div>
             </div>
-            <div className="cardStyle column is-one-third">
+            <div className="column is-4">
               <div key="5" className="card card--modifier">
                 <div className="card-content">
                   <a
@@ -192,7 +191,7 @@ class BoxesSlide extends React.PureComponent {
                 </div>
               </div>
             </div>
-            <div className="cardStyle column is-one-third">
+            <div className="column is-4">
               <div key="6" className="card card--modifier">
                 <div className="card-content">
                   <a
@@ -205,7 +204,8 @@ class BoxesSlide extends React.PureComponent {
                 </div>
               </div>
             </div>
-            <div className="cardStyle column is-one-third side">
+
+            <div className="column is-4 side">
               <div key="1" className="card card--modifier">
                 <div className="card-content">
                   <a
@@ -218,7 +218,7 @@ class BoxesSlide extends React.PureComponent {
                 </div>
               </div>
             </div>
-            <div className="cardStyle column is-one-third">
+            <div className="column is-4">
               <div key="2" className="card card--modifier">
                 <div className="card-content">
                   <a
@@ -231,7 +231,7 @@ class BoxesSlide extends React.PureComponent {
                 </div>
               </div>
             </div>
-            <div className="cardStyle column  is-one-third">
+            <div className="column is-4">
               <div key="3" className="card card--modifier">
                 <div className="card-content">
                   <a

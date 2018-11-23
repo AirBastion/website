@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Explanation from '../BuildingBlocks/Explanation';
-import StyledCopyright from '../BuildingBlocks/Copyright';
 import Chart from '../BuildingBlocks/Chart';
 import './index.css';
+import 'bulma/css/bulma.css';
 
 const Titled = styled.h1`
   font-size: 3.3em;
@@ -22,7 +22,6 @@ class SecondSlide extends React.Component {
   }
 
   render() {
-    const { isMobile } = this.props;
     return (
       <React.Fragment>
         <section className="section">
@@ -34,24 +33,22 @@ class SecondSlide extends React.Component {
         </section>
 
         <div className="section">
-          <div className="container">
-            <div className="mainDiv columns">
-              <div className="chartDiv column">
+            <div className="columns is-desktop is-centered is-vcentered">
+              <div className="column is-6">
                 <Chart />
               </div>
               <br/>
-              <div className="columnDiv column">
-                <div className="columns">
-                  <div className="column">
+              <div className="column is-6">
+                <div className="columns is-desktop is-centered is-vcentered">
+                  <div className="column is-full">
                     <Explanation
                       title="What is a continuous token model?"
                       body="A continuous token model for an ICO is just an ICO that runs until all the tokens for sale have been purchased. If EOS ico came to your mind, good! this is pretty much the same model."
                     />
                   </div>
                 </div>
-                <br/>
-                <div className="columns">
-                  <div className="column">
+                <div className="columns is-desktop is-centered is-vcentered">
+                  <div className="column is-full">
                     <Explanation
                       title="Why a continuous token model?"
                       body="Because of the nature of our business we truly believe people should be able to donate at any point in time and not be pressurised. In the same way, this allows for people who lack the technical abilities to buy those tokens today to have a chance to buy AIRCs for something they care about at some point in the future."
@@ -60,7 +57,6 @@ class SecondSlide extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
         </div>
         <br/>
       </React.Fragment>
