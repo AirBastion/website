@@ -113,7 +113,7 @@ a:hover {
 }
 
 .mainContainer {
-  display:flex;
+  display: flex;
 }
 img {
   width:100%;
@@ -122,11 +122,11 @@ img {
   display: flex;
 }
 .parastyle {
-  line-height: 1.0;
+  line-height: 1;
   color: var(--fg-color-light);
   font-size: 12px;
 }
-.midImg img { 
+.midImg img {
   width: 200px;
 }
 .midImg p {
@@ -136,7 +136,7 @@ img {
   /* padding-top: 70px; */
 }
 
-.midContainer{
+.midContainer {
   margin: 0 10px 0 10px;
 }
 
@@ -144,13 +144,18 @@ img {
   .videoSection {
     padding-top: 40px;
   }
-  .midContainer{
+  .midContainer {
     padding-top: 40px;
   }
-  .mainContainer{
+  .mainContainer {
     display: block;
   }
-  img{
+  img {
     width: 100%;
   }
 }
+.no-display {
+  display: hidden;
+}
+
+

@@ -7,7 +7,6 @@ import sizeMe from 'react-sizeme';
 import AwesomeSlider from 'react-awesome-slider';
 import StyledCopyright from '../BuildingBlocks/Copyright';
 
-
 import 'react-awesome-slider/dist/styles.css';
 import './main.css';
 
@@ -59,7 +58,6 @@ class Display extends Component {
     this.setState({ height: window.innerHeight });
   };
 
-
   generateSlides = () => {
     var ob = slides.map(slide => (
       <div key={slide.id.toString()} className="slider">
@@ -77,14 +75,12 @@ class Display extends Component {
     return (
       <div className="height_100vh">
         <AwesomeSlider>{ob}</AwesomeSlider>
-
       </div>
     );
   };
 
   render() {
     const generated = this.generateSlides();
-    console.log(generated);
     return [generated];
   }
 }

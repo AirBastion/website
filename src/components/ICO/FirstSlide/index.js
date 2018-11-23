@@ -1,22 +1,16 @@
 // Intro Slides
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import GridLayout from 'react-grid-layout';
-import { WidthProvider, Responsive } from 'react-grid-layout';
-import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Youtube from 'react-youtube';
 import classnames from 'classnames';
 
-import ModalModule from '../BuildingBlocks/ModalModule';
 import WhitePaper from '../BuildingBlocks/Whitepaper';
 import Copyright from '../BuildingBlocks/Copyright';
-//img import here
+
 import whitepaper from '../../whitepaper.png';
 import fileImage from '../../file_search.svg';
-//import videoPlayer from '../../videoPlayer.png';
 import videoImage from '../../videoImage.png';
-//imf import here
 import mixpanel from 'mixpanel-browser';
 import 'bulma/css/bulma.css'
 
@@ -57,7 +51,6 @@ const StyledLink = styled.a`
   }
 `;
 
-const RespLayout = WidthProvider(Responsive);
 const requestUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLScHjR9SA6wZCWDOMnY0wYhBZS3R6hAJ2YEmNEfQrpsGeq1O5g/viewform?usp=sf_link';
 const otherLangLinks = [
@@ -341,6 +334,8 @@ class FirstSlide extends React.PureComponent {
   }
 }
 
-// check if mobile and if it is present one after the other
+FirstSlide.propTypes = {
+  isMobile: PropTypes.bool
+};
 
 export default FirstSlide;

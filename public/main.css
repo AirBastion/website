@@ -475,7 +475,7 @@ right:10px;
   background-image: linear-gradient(var(--tint), var(--tint)), url(https://apex-inc.imgix.net/images/backgrounds/2.jpg?q=50&w=1500);
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: cover
+  min-height: 101vh;
 }
 
 .Container {
