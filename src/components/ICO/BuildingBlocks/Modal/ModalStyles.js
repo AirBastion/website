@@ -10,7 +10,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    top: '-500px',
+    top: '-250px',
     right: 0,
     left: 0,
     bottom: 0,
@@ -18,7 +18,9 @@ export default {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     zIndex: '9999',
     opacity: 1,
-    animation: 'show .5s ease'
+    animation: 'show .5s ease',
+    overflow: 'hidden',
+    overflowY: 'auto'
   },
 
   // Fade in open animation

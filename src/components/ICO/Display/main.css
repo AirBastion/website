@@ -101,7 +101,7 @@ h1 {
 .aws-sld__bullets {
   position: block;
   bottom: 80px;
-  z-index: 999;
+  z-index: 2;
   opacity: 1;
 }
 .aws-sld__bullets:hover {

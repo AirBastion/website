@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactDOM}  from 'react';
 import PropTypes from 'prop-types';
 import { WidthProvider, Responsive } from 'react-grid-layout';
 import injectSheet, { ThemeProvider } from 'react-jss';
@@ -80,6 +80,7 @@ class BoxesSlide extends React.PureComponent {
 
   handleToggleModal = event => {
     this.setState({ showModal: !this.state.showModal });
+    document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
   };
 
   handleClick = (event, id) => {
@@ -92,6 +93,7 @@ class BoxesSlide extends React.PureComponent {
             showModal: true
           };
         });
+        document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
         break;
       case 'who':
         id = capitalizeFirstLetter(id) + ' We Are';
@@ -102,6 +104,7 @@ class BoxesSlide extends React.PureComponent {
             showModal: true
           };
         });
+        document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
         break;
       case 'role':
         id = 'Your ' + capitalizeFirstLetter(id);
@@ -112,6 +115,7 @@ class BoxesSlide extends React.PureComponent {
             showModal: true
           };
         });
+        document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
         break;
       case 'mission':
         id = 'Our ' + capitalizeFirstLetter(id);
@@ -122,6 +126,7 @@ class BoxesSlide extends React.PureComponent {
             showModal: true
           };
         });
+        document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
         break;
       case 'values':
         this.setState((prevState, props) => {
@@ -131,6 +136,7 @@ class BoxesSlide extends React.PureComponent {
             showModal: true
           };
         });
+        document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
         break;
       case 'risks':
         this.setState((prevState, props) => {
@@ -140,6 +146,7 @@ class BoxesSlide extends React.PureComponent {
             showModal: true
           };
         });
+        document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
         break;
       default:
         return "Sorry! Docs haven't been able to load";
