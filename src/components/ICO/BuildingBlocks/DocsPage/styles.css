@@ -20,9 +20,18 @@
 }
 
 .cardStyle {
-  margin-bottom: 5px !important;
+  /* margin-bottom: 5px !important; */
+  display: inline-block;
+  width: 31%;
+  margin: 0 15px 15px 0;
 }
 
+@media screen and (max-width: 767px) {
+  .cardStyle {
+  display: block;
+  width: 100%;
+  }
+}
 .card--modifier:hover {
   transform: translateY(-5px);
   box-shadow: 0 30px 50px -20px #2e97ff;

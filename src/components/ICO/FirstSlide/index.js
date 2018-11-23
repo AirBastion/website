@@ -1,22 +1,16 @@
 // Intro Slides
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import GridLayout from 'react-grid-layout';
-import { WidthProvider, Responsive } from 'react-grid-layout';
-import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Youtube from 'react-youtube';
 import classnames from 'classnames';
 
-import ModalModule from '../BuildingBlocks/ModalModule';
 import WhitePaper from '../BuildingBlocks/Whitepaper';
 import Copyright from '../BuildingBlocks/Copyright';
-//img import here
+
 import whitepaper from '../../whitepaper.png';
 import fileImage from '../../file_search.svg';
-//import videoPlayer from '../../videoPlayer.png';
 import videoImage from '../../videoImage.png';
-//imf import here
 import mixpanel from 'mixpanel-browser';
 
 // general styling
@@ -32,7 +26,7 @@ const StyledLink = styled.a`
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   background: #fff;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.025em;
@@ -56,7 +50,6 @@ const StyledLink = styled.a`
   }
 `;
 
-const RespLayout = WidthProvider(Responsive);
 const requestUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLScHjR9SA6wZCWDOMnY0wYhBZS3R6hAJ2YEmNEfQrpsGeq1O5g/viewform?usp=sf_link';
 const otherLangLinks = [
@@ -266,18 +259,35 @@ class FirstSlide extends React.PureComponent {
           </div>
         </section>
 
-        <section className="section">
-          <div className="columns is-centered">
-            <div className="column is-half is-hidden-desktop	">{video}</div>
-            <div className="column is-half">
+        <section className="section center">
+          <div
+            className={classnames({
+              mainContainer: true,
+              columns: true,
+              'is-centered': true
+            })}
+          >
+            <div
+              className={classnames({
+                videoSection: true,
+                column: true,
+                'is-mobile': true,
+                'is-half': true,
+                'is-hidden-desktop': true,
+                'no-display': true ? isMobile : false
+              })}
+            >
+              {video}
+            </div>
+            <div className="midContainer column is-half">
               <StyledCard>
                 <div className="columns is-desktop">
                   <div className="column center-on-sm">
                     <StyledSubtitle className="is-size-4-mobile">
                       And this is how we are going to do it
                     </StyledSubtitle>
-                    <div className="columns">
-                      <div className="column is-half">
+                    <div className="midDiv columns">
+                      <div className="midImg column is-half">
                         <WhitePaper
                           url="https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/PureAir+Coin+Whitepaper+v.0.0.1.pdf"
                           image={fileImage}
@@ -295,7 +305,7 @@ class FirstSlide extends React.PureComponent {
                         })}
                       >
                         {otherLangLinks.map(link => (
-                          <p>
+                          <p className="parastyle">
                             <a
                               href={link.url}
                               key={link.representation}
@@ -326,15 +336,8 @@ class FirstSlide extends React.PureComponent {
               </StyledCard>
             </div>
 
-            <div className="column is-half is-hidden-touch has-text-centered">
+            <div className="videoSection column is-half is-hidden-touch has-text-centered">
               {video}
-            </div>
-          </div>
-        </section>
-        <section className="section no-padding">
-          <div className="columns is-variable is-centered">
-            <div className="column is-centered copyright">
-              <StyledCopyright />
             </div>
           </div>
         </section>
@@ -348,6 +351,8 @@ class FirstSlide extends React.PureComponent {
   }
 }
 
-// check if mobile and if it is present one after the other
+FirstSlide.propTypes = {
+  isMobile: PropTypes.bool
+};
 
 export default FirstSlide;

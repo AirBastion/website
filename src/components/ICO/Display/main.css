@@ -5,10 +5,37 @@
 
 h1 {
   font-family: 'Amz';
+  margin-top: 17px;
 }
 
 .no-padding {
   padding: 0;
+}
+
+.footer_slider {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* background-color: black; */
+}
+.height_100vh {
+  height: 100vh !important;
+}
+
+@media screen and (max-width: 770px) {
+  .height_100vh {
+    height: 100vh !important;
+  }
+  .center {
+    text-align: center;
+  }
+  .aws-sld__bullets {
+    bottom: 70px !important;
+  }
+  .footer_slider {
+    position: relative;
+  }
 }
 
 @media screen and (min-width: 770px) {
@@ -36,7 +63,7 @@ h1 {
 }
 
 .aws-sld {
-  height: 100%;
+  height: calc(100%);
 }
 
 .aws-sld__wrapper {
@@ -73,6 +100,10 @@ h1 {
 
 .aws-sld__bullets {
   position: block;
-  bottom: 0;
+  bottom: 80px;
   z-index: 999;
+  opacity: 1;
+}
+.aws-sld__bullets:hover {
+  opacity: 1;
 }

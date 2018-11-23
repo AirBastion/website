@@ -1,9 +1,7 @@
 export default {
   // Prevent page scrolling when modal is open
   '@global': {
-    'body': {
-
-    },
+    body: {}
   },
 
   // Modal wrapper
@@ -12,7 +10,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    top: 0,
+    top: '-500px',
     right: 0,
     left: 0,
     bottom: 0,
@@ -20,34 +18,27 @@ export default {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     zIndex: '9999',
     opacity: 1,
-    animation: 'show .5s ease',
-    overflowX: 'hidden',
-    overflowY: 'auto',
+    animation: 'show .5s ease'
   },
 
   // Fade in open animation
   '@keyframes show': {
     '0%': {
       display: 'none',
-      opacity: 0,
+      opacity: 0
     },
     '1%': {
       display: 'flex',
-      opacity: 0,
+      opacity: 0
     },
     '100%': {
-      opacity: 1,
-    },
+      opacity: 1
+    }
   },
 
   // Modal itself
   modal: {
-    width: '80% !important',
-    height: '40rem',
-    boxShadow: [0, 0, '0.625rem', 'rgba(0, 0, 0, 0.2)'],
-    '@media (min-width: 576px)': {
-      width: '32rem',
-    },
+    height: '40rem'
   },
 
   // Close button
@@ -71,24 +62,24 @@ export default {
       left: '0.25rem',
       width: '2rem',
       height: '0.1rem',
-      backgroundColor: '#888',
+      backgroundColor: '#888'
     },
 
     '&:before': {
-      transform: 'rotate(45deg)',
+      transform: 'rotate(45deg)'
     },
 
     '&:after': {
-      transform: 'rotate(-45deg)',
+      transform: 'rotate(-45deg)'
     },
 
     '&:hover:before, &:hover:after': {
-      backgroundColor: '#444',
-    },
+      backgroundColor: '#444'
+    }
   },
 
   leftSide: {
-    padding: '2% !important',
+    padding: '2% !important'
   },
   rightSide: {
     color: '#3B5957',
@@ -107,13 +98,13 @@ export default {
     padding: '0'
   },
   applyStyleButton: {
-    marginRight: '10px',
+    marginRight: '10px'
   },
   buttonGroupRight: {
     float: 'right',
     marginLeft: '5px',
     right: '0',
-    bottom: '0',
+    bottom: '0'
   },
   imageContainer: {
     margin: '0',
@@ -127,10 +118,9 @@ export default {
     margin: '0 150px',
     display: 'flex',
     alignItems: 'center',
-    marginTop: '50%',
+    marginTop: '50%'
   },
   loadingTag: {
     marginTop: '3px'
   }
-
 };

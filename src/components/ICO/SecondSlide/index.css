@@ -2,5 +2,32 @@
   min-height: 0;
 }
 .cjrgPL {
-  padding: 2em;
+  padding: 1em;
+}
+
+.mainDiv {
+  display: flex;
+}
+.chartDiv {
+  width: 50%;
+}
+
+.columnDiv {
+  width: 50%;
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 770px){
+  .mainDiv {
+    display: block;
+  }
+  .chartDiv {
+    width: 100%;
+  }
+  
+  .columnDiv {
+    width: 100%;
+    margin-left: 0;
+    
+  }
 }

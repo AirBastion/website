@@ -254,7 +254,7 @@ class BoxesSlide extends React.PureComponent {
           />
         )}
 
-        <section className="section no-padding">
+        {/* <section className="section no-padding">
           <div className="container">
             <div className="columns is-variable is-centered mg-top">
               <div className="column">
@@ -262,7 +262,7 @@ class BoxesSlide extends React.PureComponent {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <br />
       </React.Fragment>
     );
