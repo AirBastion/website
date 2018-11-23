@@ -75,7 +75,7 @@ class Display extends Component {
     ));
 
     return (
-      <div style={slider} className="height_100vh">
+      <div className="height_100vh">
         <AwesomeSlider>{ob}</AwesomeSlider>
 
       </div>

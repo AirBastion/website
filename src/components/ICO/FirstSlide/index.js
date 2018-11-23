@@ -18,6 +18,7 @@ import fileImage from '../../file_search.svg';
 import videoImage from '../../videoImage.png';
 //imf import here
 import mixpanel from 'mixpanel-browser';
+import 'bulma/css/bulma.css'
 
 // general styling
 import './styles.css';
@@ -253,9 +254,9 @@ class FirstSlide extends React.PureComponent {
     );
 
     return (
-      <div className="container">
+      <div className="">
         <section className="section">
-          <div className="columns is-variable is-centered mg-top">
+          <div className="columns is-variable is-centered">
             <div className="column">
               <Titled className="is-size-1-mobile">
                 This is the beginning{' '}
@@ -267,16 +268,16 @@ class FirstSlide extends React.PureComponent {
         </section>
 
         <section className="section center">
-          <div className="mainContainer columns is-centered">
-            <div className="videoSection column is-mobile is-half is-hidden">{video}</div>
-            <div className="midContainer column is-half">
+          <div className="columns is-desktop is-centered is-vcentered">
+            <div className=" column is-3 has-text-centered is-centered is-hidden">{video}</div>
+            <div className=" column is-8 has-text-centered">
               <StyledCard>
-                <div className="columns is-desktop">
-                  <div className="column center-on-sm">
+                <div className="columns is-fullwidth is-desktop">
+                  <div className="column is-full has-text-centered">
                     <StyledSubtitle className="is-size-4-mobile">
                       And this is how we are going to do it
                     </StyledSubtitle>
-                    <div className="midDiv columns">
+                    <div className="columns">
                       <div className="midImg column is-half">
                         <WhitePaper
                           url="https://s3-us-west-2.amazonaws.com/www.pureairindustries.com/PureAir+Coin+Whitepaper+v.0.0.1.pdf"
@@ -325,8 +326,7 @@ class FirstSlide extends React.PureComponent {
                 </div>
               </StyledCard>
             </div>
-
-            <div className="videoSection column is-half is-hidden-touch has-text-centered">
+            <div className=" column is-4 has-text-centered is-centered">
               {video}
             </div>
           </div>

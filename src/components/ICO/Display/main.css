@@ -47,15 +47,15 @@ h1 {
 }
 .slider {
   width: 85%;
-  height: 100%;
+  /* height: 100%;
   position: absolute;
   top: 0;
   background: black;
   align-items: center;
   justify-content: center;
   left: 0;
-  right: 0;
-  margin: 0 auto;
+  right: 0; */
+  margin: auto;
 }
 
 .aws-sld__content {
@@ -65,7 +65,7 @@ h1 {
 }
 
 .aws-sld {
-  height: calc(100%);
+  height: 100%;
 }
 
 .aws-sld__wrapper {
