@@ -107,3 +107,10 @@ h1 {
 .aws-sld__bullets:hover {
   opacity: 1;
 }
+
+.aws-sld__box{
+  overflow-y: auto;
+}
+.aws-sld__box{
+  overflow-y: auto;
+}

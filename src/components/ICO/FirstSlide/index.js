@@ -110,7 +110,7 @@ const Footer = styled.a`
   }
 `;
 
-const Titled = styled.h1`
+const Titled = styled.h2`
   font-size: 3.3em;
   text-align: center;
   color: palevioletred;
@@ -263,7 +263,7 @@ class FirstSlide extends React.PureComponent {
         <section className="section center">
           <div className="columns is-desktop is-centered is-vcentered">
             <div className=" column is-3 has-text-centered is-centered is-hidden-desktop">{video}</div>
-            <div className=" column is-8 has-text-centered">
+            <div className=" column is-7 has-text-centered">
               <StyledCard>
                 <div className="columns is-fullwidth is-desktop">
                   <div className="column is-full has-text-centered">
@@ -319,7 +319,7 @@ class FirstSlide extends React.PureComponent {
                 </div>
               </StyledCard>
             </div>
-            <div className=" column is-4 has-text-centered is-centered">
+            <div className=" column is-5 has-text-centered is-centered">
               {video}
             </div>
           </div>

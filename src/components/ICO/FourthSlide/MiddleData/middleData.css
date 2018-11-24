@@ -1,0 +1,91 @@
+.step_style{
+    font-weight: 900 !important;
+    font-size: 60px;
+    opacity: .1;
+}
+.paddingMiddleData{
+    padding: 30px 50px;
+}
+.bg_color_white{
+    background-color: #fff;
+}
+.linksPadding{
+    padding: 0 0.75rem;
+}
+.icon{
+    width: 20px;
+    margin-left: 4px; 
+}
+.input_div_box{
+    display: flex;
+    width: 100%;
+    border: 1px solid #ebebeb;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.input-eth{
+    padding: 12px;
+    border: none;
+    align-items: center;
+    display: flex;
+    position: relative;
+    font-size: 16px !important;
+    width: 80%;
+    background-color: #fff;
+    color: #fbc000;
+}
+.button-div{
+    background-color: #fbc000;
+    width: 20%;
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+}
+.button-eth{
+    border: none;
+    align-items: center;
+    position: relative;
+    font-size: 16px !important;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.button:hover{
+    box-shadow: 0 2px 10px rgba(255,190,0,0.4);
+}
+
+.animate-bottom{
+    position:relative;
+    animation:animatebottom 0.7s;
+}
+@keyframes animatebottom{
+    from{bottom:-150px;opacity:0} to{bottom:0;opacity:1}
+}
+.margin_top_0{
+    margin-top: 0;
+}
+.img_Icon{
+    width: 80%;
+    height: auto;
+}
+.img_loader{
+    width: 100px;
+    height: 100px;
+}
+a{
+    text-decoration: none !important;
+}
+.step_4_box{
+    width: 100%;
+    min-height: 350px;
+    margin: auto;
+    margin-top: 0;
+    text-align: center;
+    border: 1px solid #f1f2f3;
+    border-radius: 5px; 
+}
+.step_4_box:hover{
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+}

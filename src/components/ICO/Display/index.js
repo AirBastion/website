@@ -58,6 +58,10 @@ class Display extends Component {
     this.setState({ height: window.innerHeight });
   };
 
+  onTransitionStart=(e)=>{
+    console.log("e ===> ",e)
+  }
+  
   generateSlides = () => {
     var ob = slides.map(slide => (
       <div key={slide.id.toString()} className="slider">
@@ -74,7 +78,7 @@ class Display extends Component {
 
     return (
       <div className="height_100vh">
-        <AwesomeSlider>{ob}</AwesomeSlider>
+        <AwesomeSlider onTransitionStart={this.onTransitionStart}>{ob}</AwesomeSlider>
       </div>
     );
   };

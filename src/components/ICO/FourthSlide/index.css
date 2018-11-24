@@ -1,0 +1,42 @@
+.divLine{
+    margin: 0 30px;
+    border-top: 1px solid #ebebeb; 
+    position: relative;
+}
+.mainDiv{
+    padding-bottom: 10px;
+    background-color: #fff;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.questionButtonDiv{
+    position: fixed;
+    bottom: 30px;
+    right: 10%;
+    z-index: 4;
+    
+}
+.questionButtonImg{
+    height: 100%;
+    width: 100%;
+}
+
+.animate-bottom{
+    position:relative;
+    animation:animatebottom 1.15s;
+}
+@keyframes animatebottom{
+    from{bottom:-150px;opacity:0} to{bottom:0;opacity:1}
+}
+.animate-bottom-reverse{
+    position:relative;
+    animation:animatebottomReverse 1.15s;
+}
+@keyframes animatebottomReverse{
+     from{bottom:0;opacity:1} to{bottom:-150px;opacity:0} 
+}

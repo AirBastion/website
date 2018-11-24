@@ -40,7 +40,7 @@ const Title = ({ className, children }) => {
 
 const StyledTitle = styled(Title)`
   color: white;
-  font-size: 3.3em;
+  font-size: 2.3em;
   text-align: center;
   line-height: 1.4em;
   font-weight: 600;

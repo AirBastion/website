@@ -8,7 +8,7 @@ import './index.css';
 import 'bulma/css/bulma.css';
 
 const Titled = styled.h1`
-  font-size: 3.3em;
+  font-size: 2.3em;
   text-align: center;
   color: palevioletred;
   line-height: 1.4em;
@@ -25,7 +25,7 @@ class SecondSlide extends React.Component {
     return (
       <React.Fragment>
         <section className="section">
-          <div className="columns is-variable is-centered mg-top">
+          <div className="columns is-variable is-centered">
             <div className="column">
               <Titled>Our ICO will use a Continuous Token Model</Titled>
             </div>
@@ -33,13 +33,13 @@ class SecondSlide extends React.Component {
         </section>
 
         <div className="section">
-            <div className="columns is-desktop is-centered is-vcentered">
-              <div className="column is-6">
+            <div className="columns is-desktop is-centered">
+              <div className="column is-7">
                 <Chart />
               </div>
               <br/>
-              <div className="column is-6">
-                <div className="columns is-desktop is-centered is-vcentered">
+              <div className="column is-5">
+                <div className="columns is-desktop is-centered">
                   <div className="column is-full">
                     <Explanation
                       title="What is a continuous token model?"
@@ -47,7 +47,7 @@ class SecondSlide extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="columns is-desktop is-centered is-vcentered">
+                <div className="columns is-desktop is-centered ">
                   <div className="column is-full">
                     <Explanation
                       title="Why a continuous token model?"

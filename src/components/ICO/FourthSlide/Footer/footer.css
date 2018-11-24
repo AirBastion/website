@@ -1,0 +1,19 @@
+.text_to_left{
+    font-size: 10px !important;
+    text-align: center;
+    margin: 0;
+}
+.text_to_right{
+    font-size: 10px !important;
+    text-align: left;
+    margin: 0;
+}
+.paddingMiddleData{
+    padding: 30px 50px;
+}
+.color_blue{
+    color: #31b8f5
+}
+.color_grey{
+    color: #b5b9bf;
+}
