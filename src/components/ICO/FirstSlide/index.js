@@ -150,6 +150,7 @@ const StyledCard = styled(Card)`
   cursor: pointer;
   text-align: left;
   color: #f7f7ff;
+  padding: 1em;
 
   @media (max-width: 769px) {
     text-align: text-center;
@@ -263,7 +264,7 @@ class FirstSlide extends React.PureComponent {
         <section className="section center">
           <div className="columns is-desktop is-centered is-vcentered">
             <div className=" column is-3 has-text-centered is-centered is-hidden-desktop">{video}</div>
-            <div className=" column is-7 has-text-centered">
+            <div className=" column is-5 has-text-centered">
               <StyledCard>
                 <div className="columns is-fullwidth is-desktop">
                   <div className="column is-full has-text-centered">
@@ -319,6 +320,7 @@ class FirstSlide extends React.PureComponent {
                 </div>
               </StyledCard>
             </div>
+            <div className="column is-1 is-hidden-mobile" />
             <div className=" column is-5 has-text-centered is-centered">
               {video}
             </div>

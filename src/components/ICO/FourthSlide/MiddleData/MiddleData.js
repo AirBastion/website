@@ -50,9 +50,9 @@ class MiddleData extends Component {
     }
 
     render(){
-        let { step, title, para, note, links, showCode, code, showImage, image, hasSpinner, c, id } = this.props;
+        let { step, title, para, note, links, showCode, code, showImage, image, hasSpinner, c, id, setRefs } = this.props;
         return (
-            <div ref={(ref)=>this.viewRef = ref} className="columns is-desktop paddingMiddleData is-vcentered bg_color_white">
+            <div  className="columns is-desktop paddingMiddleData is-vcentered bg_color_white">
                 <div className="column is-5  ">
                     <div className="columns is-multiline is-desktop has-text-left is-vcentered has-text-centered-mobile">
                         <div className="column is-full ">
@@ -95,7 +95,7 @@ class MiddleData extends Component {
                 {
                     showCode ?
                         <div className="column is-6 ">
-                            <div id={'animate-'+id} className="columns is-multiline is-desktop has-text-left is-vcentered animate-bottom">
+                            <div id={'animate-'+id} ref={(ref)=> id === 1 ? setRefs(id, ref): null} className="columns is-multiline is-desktop has-text-left is-vcentered">
                                 <div className="column is-full has-text-left has-text-centered-mobile">
                                     <h1 className="is-size-4 has-text-weight-bold is-uppercase">
                                         <img className="icon" src={require("./assets/eth_icon.png")} alt="icon" />
@@ -121,7 +121,7 @@ class MiddleData extends Component {
                 {
                     showImage ?
                         <div className="column is-6 has-text-centered-mobile ">
-                            <div id={'animate-'+id} className="columns is-multiline is-desktop has-text-left is-vcentered animate-bottom">
+                            <div id={'animate-'+id} ref={(ref)=> id === 2 || id === 3 ? setRefs(id, ref): null} className="columns is-multiline is-desktop has-text-left is-vcentered opacity_0">
                                 <div className="column is-full has-text-left has-text-centered-mobile">
                                     <img className="img_Icon" src={image} alt="icon" />
                                 </div>
@@ -133,7 +133,7 @@ class MiddleData extends Component {
                 {
                     hasSpinner ?
                         <div className="column is-6 ">
-                            <div id={'animate-'+id} className="columns is-multiline is-desktop has-text-left has-text-centered-mobile is-vcentered animate-bottom">
+                            <div id={'animate-'+id} ref={(ref)=> id === 4 ? setRefs(id, ref): null} className="columns is-multiline is-desktop has-text-left has-text-centered-mobile is-vcentered opacity_0">
                                 <div className="column is-full has-text-left has-text-centered-mobile">
                                     <div className="step_4_box ">
                                         <img className="img_loader" src={require('./assets/spinner.gif')} alt="icon" />

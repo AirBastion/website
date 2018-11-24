@@ -35,23 +35,13 @@ const step3Links=[
 class FourthSlide extends Component{
   constructor(){
     super();
-    this.step1Ref = null;
-    this.step2Ref = null;
-    this.step2Ref = null;
-    this.step2Ref = null;
-  }
-  componentDidMount(){
-  
-  }
 
-  scrolling =(e)=>{
-    console.log("scrolling!!");
   }
 
   render(){
     return (
       <React.Fragment>
-        <div className="mainDiv" onScroll={this.scrolling}>
+        <div className="mainDiv" >
          
           <Header />
           <MiddleData
@@ -62,6 +52,7 @@ class FourthSlide extends Component{
             code="0x34967C335d86EFc3043Fb75F807A0780Ffb6905A"
             links={step1Links}
             id={1}
+            setRefs={this.props.setRefs}
           />
           <div className="divLine" />
           <MiddleData
@@ -72,6 +63,7 @@ class FourthSlide extends Component{
             showImage={true}
             image={require('./MiddleData/assets/wallets-icon.png')}
             id={2}
+            setRefs={this.props.setRefs}
           />
            <div className="divLine" />
           <MiddleData
@@ -84,6 +76,7 @@ class FourthSlide extends Component{
             c={3}
             image={require('./MiddleData/assets/transfer-icon.png')}
             id={3}
+            setRefs={this.props.setRefs}
           />
           <div className="divLine" />
           <MiddleData
@@ -94,6 +87,7 @@ class FourthSlide extends Component{
             c={4}
             hasSpinner={true}
             id={4}
+            setRefs={this.props.setRefs}
           />
           <div className="divLine" />
           <Footer />

@@ -74,7 +74,6 @@ class BoxesSlide extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('component received props');
     console.log(nextProps);
   }
 
