@@ -10,14 +10,13 @@
     overflow: hidden;
     text-align: center;
     margin: auto;
-    margin-bottom: 30px;
     position: relative;
 }
 
 .questionButtonDiv{
     position: fixed;
     bottom: 30px;
-    right: 10%;
+    right: 30px;
     z-index: 4;
     
 }

@@ -13,7 +13,7 @@ import './main.css';
 import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
 import ThirdSlide from '../ThirdSlide';
-import FourthSlide from '../FourthSlide';
+import SeventhSlide from '../SeventhSlide';
 
 const styles = {
   '@global': {
@@ -138,38 +138,59 @@ class Display extends Component {
       this.step4Ref.style.opacity = '0';
     }
   }
+
+  onTransitionEnd =(e)=>{
+    let {currentIndex} = e;
+    console.log("current Index===> ", currentIndex);
+    if(currentIndex === 3){
+      document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
+      document.getElementsByClassName("aws-sld__next")[0].style.display = 'none';
+    }
+    else{
+      document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
+      document.getElementsByClassName("aws-sld__next")[0].style.display = 'flex';
+    }
+  }
+
+  _renderSlides =(slide)=>{
+    if(slide.id !== '7'){
+      return (
+        <div key={slide.id.toString()} className="slider" id={"slide-" + slide.id}>
+          <div className="container">
+            {slide.component}
+            <section className="section no-padding footer_slider">
+              <div className="columns is-variable is-centered">
+                <div className="column is-centered copyright">
+                  <StyledCopyright />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      );
+    }
+    else{
+      return (
+        <div key={slide.id.toString()} className="slider_100" id={"slide-" + slide.id}>
+          {slide.component}
+        </div>
+      );
+    }
+  }
   
   generateSlides = () => {
     const slides = [
       { id: '1', component: <FirstSlide isMobile={false}  /> },
       { id: '2', component: <SecondSlide isMobile={false} /> },
       { id: '3', component: <ThirdSlide isMobile={false} /> },
-      { id: '4', component: <FourthSlide setRefs={this.setRefs} /> }
+      { id: '7', component: <SeventhSlide setRefs={this.setRefs} /> }
     ];
 
     return (
       <div className="height_100vh" onScroll={this.scrolling}>
-        <AwesomeSlider id="awesomeSlider" >
+        <AwesomeSlider id="awesomeSlider" onTransitionEnd={this.onTransitionEnd}>
           {
-            slides.map(slide => (
-              <div key={slide.id.toString()} className="slider" id={"slide-"+slide.id}>
-              <div className="container">
-                {slide.component}
-                  {
-                    slide.id !== '4' ?
-                      <section className="section no-padding footer_slider">
-                        <div className="columns is-variable is-centered">
-                          <div className="column is-centered copyright">
-                            <StyledCopyright />
-                          </div>
-                        </div>
-                      </section>
-                      :
-                      null
-                  }
-                </div>
-              </div>
-            ))
+            slides.map(this._renderSlides)
           }
         </AwesomeSlider>
       </div>

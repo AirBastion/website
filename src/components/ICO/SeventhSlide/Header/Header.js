@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import './header.css'
+import Particles from 'react-particles-js';
 
 
 class Header extends Component {
@@ -59,8 +60,29 @@ class Header extends Component {
 
     render(){
         return (
-            <div className="columns is-multiline bg_purple">
+            <div className="columns is-multiline bg_gradient_purple">
                 <div className="column is-full ">
+                    <Particles
+                        canvasClassName="particle_js_canvas"
+                        params={{
+                            "particles": {
+                                "number": {
+                                    "value": 100
+                                },
+                                "size": {
+                                    "value": 2
+                                }
+                            },
+                            "interactivity": {
+                                "events": {
+                                    "onhover": {
+                                        "enable": true,
+                                        "mode": "grab"
+                                    }
+                                }
+                            }
+                        }}>
+                    </Particles>
                     {this._renderNavBar()}
                     {this._renderHeaderLowerContent()}
                     {this._renderArrow()}

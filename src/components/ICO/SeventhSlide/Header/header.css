@@ -5,6 +5,17 @@
 .bg_purple{
     background-color: #142539; 
 }
+.bg_gradient_purple{
+    background-image: linear-gradient(#142539, #793c97);
+}
+.particle_js_canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh !important;
+}
 .header_lower_padding{
     padding: 20px 10px
 }
