@@ -41,7 +41,7 @@ class SeventhSlide extends Component{
   render(){
     return (
       <React.Fragment>
-        <div className="mainDiv" >
+        <div className="mainDiv" setRefs={(ref)=>this.props.setRefs(0,ref)} id="slide-7">
          
           <Header />
           <MiddleData

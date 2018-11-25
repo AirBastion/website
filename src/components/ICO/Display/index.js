@@ -14,6 +14,9 @@ import FirstSlide from '../FirstSlide';
 import SecondSlide from '../SecondSlide';
 import ThirdSlide from '../ThirdSlide';
 import SeventhSlide from '../SeventhSlide';
+import FourthSlide from '../FourthSlide';
+import FifthSlide from '../FifthSlide';
+import SixthSlide from '../SixthSlide';
 
 const styles = {
   '@global': {
@@ -30,6 +33,7 @@ var slider = {
 
 
 
+
 class Display extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +42,9 @@ class Display extends Component {
       height: 0,
       currentStep: 0,
     };
+    this.isAtTop = true;
+    this.scrollTopDisplay = null;
+    this.slide7Ref = null;
     this.step1Ref = null;
     this.step2Ref = null;
     this.step3Ref = null;
@@ -75,6 +82,9 @@ class Display extends Component {
     if(id === 4 || id === '4'){
       this.step4Ref = ref
     }
+    if(id === 0 || id === '0'){
+      this.slide7Ref = ref
+    }
   }
   isInViewport = (elem) =>  {
     let bounding = elem.getBoundingClientRect();
@@ -92,7 +102,6 @@ class Display extends Component {
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
     const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
-    // http://stackoverflow.com/questions/325933/determine-whether-two-date-ranges-overlap
     const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
 
@@ -105,6 +114,19 @@ class Display extends Component {
 
   scrolling =(e)=>{
     //console.log("scrolling", e);
+    console.log('e.target ==> ',e.target );
+    let scrollTop = e.target.scrollTop;
+    if (scrollTop >= this.scrollTopDisplay) {
+      //scrolling down
+    }
+    else {
+      //scrolling up
+      if (scrollTop === 0) {
+        console.log('top reached yeah !!')
+      }
+    }
+    this.scrollTopDisplay = scrollTop;
+
     if(this.step1Ref && this.isAnyPartOfElementInViewport(this.step1Ref)){
       this.step1Ref.style.animation = 'fadeInUp 1.15s';
       this.step1Ref.style.opacity = '1';
@@ -142,7 +164,7 @@ class Display extends Component {
   onTransitionEnd =(e)=>{
     let {currentIndex} = e;
     console.log("current Index===> ", currentIndex);
-    if(currentIndex === 3){
+    if(currentIndex === 6){
       document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
       document.getElementsByClassName("aws-sld__next")[0].style.display = 'none';
     }
@@ -183,6 +205,9 @@ class Display extends Component {
       { id: '1', component: <FirstSlide isMobile={false}  /> },
       { id: '2', component: <SecondSlide isMobile={false} /> },
       { id: '3', component: <ThirdSlide isMobile={false} /> },
+      { id: '4', component: <FourthSlide isMobile={false} /> },
+      { id: '5', component: <FifthSlide isMobile={false} /> },
+      { id: '6', component: <SixthSlide isMobile={false} /> },
       { id: '7', component: <SeventhSlide setRefs={this.setRefs} /> }
     ];
 

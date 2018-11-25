@@ -52,18 +52,18 @@ class MiddleData extends Component {
     render(){
         let { step, title, para, note, links, showCode, code, showImage, image, hasSpinner, c, id, setRefs } = this.props;
         return (
-            <div  className="columns is-desktop paddingMiddleData is-vcentered bg_color_white">
+            <div  className="columns is-desktop paddingMiddleData is-vcentered bg_color_white ">
                 <div className="column is-5  ">
                     <div className="columns is-multiline is-desktop has-text-left is-vcentered has-text-centered-mobile">
                         <div className="column is-full ">
-                            <h1 className="step_style">
+                            <p className="step_style ">
                                 {step}
-                            </h1>
+                            </p>
                         </div>
                         <div className="column is-full has-text-left has-text-centered-mobile">
-                            <h1 className="is-size-3 has-text-weight-bold ">
+                            <p className="is-size-3 has-text-weight-bold ">
                                 {title}
-                            </h1>
+                            </p>
                         </div>
                         <div className="column is-full has-text-left has-text-centered-mobile">
                         {

@@ -2,15 +2,49 @@ import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import './header.css'
 import Particles from 'react-particles-js';
+import Drawer from 'react-motion-drawer';
 
 
 class Header extends Component {
+    constructor(){
+        super();
+        this.state={
+            isDraweOpen: false,
+        }
+    }
+
+    drawerToggle=(e)=>{
+        console.log("e ==> ",e);
+        this.setState({isDraweOpen: e});
+    }
+
+    _renderDrawer=()=>{
+        let {isDraweOpen} = this.state;
+        return (
+
+            <Drawer open={isDraweOpen} onChange={this.drawerToggle} className="bg_color_white is-hidden-desktop">
+                <div className="is-hidden-desktop bg_color_white has-text-centered">
+                    <div className="column is-full has-text-centered">
+                        <a className="button is-warning has-text-white is-size-5 is-uppercase has-text-weight-bold"
+                            href="https://t.me/syncfab"
+                            target="_blank"
+                        >
+                            Have a Question ?
+                        </a>
+                    </div>
+
+
+                </div>
+            </Drawer>
+
+        );
+    }
 
     _renderNavBar=()=>{
         return(
             <div className="columns bg_color_white_8 is-vcentered is-mobile" >
                 <div className="column is-3 is-hidden-desktop">
-                    <a role="button" className="navbar-burger" 
+                    <a role="button" className="navbar-burger"  onClick={()=>this.setState({isDraweOpen: true})}
                         aria-label="menu" 
                         aria-expanded="false">
                         <span aria-hidden="true"></span>
@@ -24,7 +58,10 @@ class Header extends Component {
                 <div className="column is-2 is-hidden-mobile">
                 </div>
                 <div className="column is-6 has-text-right is-vcentered is-hidden-mobile">
-                    <a className="button is-warning has-text-white is-size-5 is-uppercase has-text-weight-bold">Have a Question ?</a>
+                    <a className="button is-warning has-text-white is-size-5 is-uppercase has-text-weight-bold"
+                         href="https://t.me/syncfab"
+                         target="_blank"
+                    >Have a Question ?</a>
                 </div>
             </div>
         );
@@ -86,6 +123,7 @@ class Header extends Component {
                     {this._renderNavBar()}
                     {this._renderHeaderLowerContent()}
                     {this._renderArrow()}
+                    {this._renderDrawer()}
                 </div>
             </div>
           );

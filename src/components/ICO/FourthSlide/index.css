@@ -1,0 +1,36 @@
+.pieContainer{
+    height: 45vh !important;
+    width: 100% !important;
+    margin: auto;
+}
+
+.legendsContainer{
+    background-color: #fff;
+    padding: 2% 8%;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+}
+.legendLabelDiv{
+    width: 100%;
+    margin-bottom: 5px; 
+}
+.legends{
+    font-size: 0.8em;
+    color: black;
+}
+
+@media screen and (max-width: 770px){
+    .pieContainer{
+        height: 30vh !important;
+        width: 100% !important;
+        margin: auto;
+    }
+}
+@media screen and (max-width: 480px){
+    .pieContainer{
+        height: 150px !important;
+        width: 100% !important;
+        margin: auto;
+    }
+}
