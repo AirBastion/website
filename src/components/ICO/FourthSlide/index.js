@@ -1,38 +1,92 @@
 import React, { Component } from 'react';
 import './index.css';
 import 'bulma/css/bulma.css';
-//import 'react-vis';
-import { VictoryPie } from 'victory';
+import PieChart from './PieChart/PieChart';
 
 
 
-var tokenAlloc = {
-    label: 'Token Allocation',
-    values: [
-        { x: "Pre-ICO", y: 15 },
-        { x: "ICO", y: 50 },
-        { x: "Team", y: 20, },
-        { x: "Legal & advisory", y: 2.5 },
-        { x: "Bounty", y: 2.5 },
-        { x: "Reserve Pool", y: 10 }
-    ]
-};
-
-var fundsAlloc = [
-    { x: "Operations", y: 10 },
-    { x: "Platform development", y: 20, },
-    { x: "Marketing", y: 20, },
-    { x: "Legal", y: 5, },
-    { x: "Production", y: 45 }
+var tokenAlloc = [
+    { label: "Pre-ICO", count: 15 },
+    { label: "ICO", count: 50 },
+    { label: "Team", count: 20, },
+    { label: "Legal & advisory", count: 2.5 },
+    { label: "Bounty", count: 2.5 },
+    { label: "Reserve Pool", count: 10 }
 ];
 
-var isMobile = window.innerWidth < 481;
-var isTab = window.innerWidth > 480 && window.innerWidth < 771;
+var fundsAlloc = [
+    { label: "Operations", count: 10 },
+    { label: "Platform development", count: 20, },
+    { label: "Marketing", count: 20, },
+    { label: "Legal", count: 5, },
+    { label: "Production", count: 45 }
+];
+
+var pieDimensions = {
+    mobile: {
+        height: 260,
+        width: 260,
+        legendSpacing: 2,
+        legendRectSize: 14,
+        donutWidth: 55
+    },
+    tab: {
+        height: 300,
+        width: 300,
+        legendSpacing: 2,
+        legendRectSize: 14,
+        donutWidth: 60
+    },
+    desktop: {
+        height: 320,
+        width: 320,
+        legendSpacing: 3,
+        legendRectSize: 16,
+        donutWidth: 65
+    },
+    lDesktop: {
+        height: 360,
+        width: 360,
+        legendSpacing: 4,
+        legendRectSize: 20,
+        donutWidth: 75
+    },
+    xlDesktop: {
+        height: 460,
+        width: 460,
+        legendSpacing: 5,
+        legendRectSize: 22,
+        donutWidth: 85
+    }
+}
 
 class FourthSlide extends Component {
     constructor() {
         super();
 
+    }
+    getPieDimensions = () => {
+        var isMobile = window.innerWidth < 481;
+        var isTab = window.innerWidth > 480 && window.innerWidth < 771;
+        var isdesktop = window.innerWidth > 770 && window.innerWidth < 1337;
+        var isldesktop = window.innerWidth > 1336 && window.innerWidth < 1501;
+        var isxldesktop = window.innerWidth > 1500;
+        console.log("isMobile ==> ",isMobile,window.innerWidth)
+        if(isMobile){
+            return pieDimensions.mobile;
+        }
+        if(isTab){
+            return pieDimensions.tab;
+        }
+        if(isdesktop){
+            return pieDimensions.desktop;
+        }
+        if(isldesktop){
+            return pieDimensions.lDesktop;
+        }
+        if(isxldesktop){
+            return pieDimensions.xlDesktop;
+        }
     }
     _renderLedgends = (item,index) => {
         return(
@@ -45,8 +99,8 @@ class FourthSlide extends Component {
     }
 
     render() {
-        // { angle: 1, color: '#89DAC1', name: 'green', opacity: 0.2 },
-        let fontsize = isMobile ? 9 : 14;
+        let pieDimensions = this.getPieDimensions();
+        console.log("pieDimensions==> ",pieDimensions, window.innerWidth );
         return (
             <section className="section">
                 <div className="columns is-multiline is-desktop is-centered is-vcentered has-text-centered">
@@ -58,27 +112,15 @@ class FourthSlide extends Component {
                             </h1>
                             </div>
                             <div className="column is-full has-text-centered is-centered">
-                                <div className="pieContainer">
-                                    <VictoryPie
-                                        height={300}
-                                        width={300}
-                                        //padAngle={1}
-                                        colorScale={['red', 'silver', 'blue', 'orange', 'chocolate', 'purple', 'crimson', 'lightgreen']}
-                                        animate={true}
-                                        data={tokenAlloc.values}
-                                        style={{
-                                            labels: { fill: "white", fontSize: fontsize, fontWeight: "bold" },
-                                            data: { fillOpacity: 0.9, stroke: "black", strokeWidth: 1 },
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            <div className="column is-full has-text-centered is-centered">
-                                <div className="legendsContainer">
-                                    {
-                                        tokenAlloc.values.map(this._renderLedgends)
-                                    }
-                                </div>
+                                <PieChart 
+                                    name="token"
+                                    pieData = {tokenAlloc}
+                                    height = {pieDimensions.height} //360
+                                    width = {pieDimensions.width} //360
+                                    legendSpacing = {pieDimensions.legendSpacing} // 4
+                                    legendRectSize = {pieDimensions.legendRectSize} // 20
+                                    donutWidth={ pieDimensions.donutWidth } //75
+                                />
                             </div>
                         </div>
                     </div>
@@ -90,27 +132,15 @@ class FourthSlide extends Component {
                             </h1>
                             </div>
                             <div className="column is-full has-text-centered is-centered">
-                                <div className="pieContainer">
-                                    <VictoryPie
-                                        height={300}
-                                        width={300}
-                                        //padAngle={1}
-                                        colorScale={['red', 'silver', 'blue', 'orange', 'chocolate', 'purple', 'crimson', 'lightgreen']}
-                                        animate={true}
-                                        data={fundsAlloc}
-                                        style={{
-                                            labels: { fill: "white", fontSize: fontsize, fontWeight: "bold" },
-                                            data: { fillOpacity: 0.9, stroke: "black", strokeWidth: 1 },
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            <div className="column is-full has-text-centered is-centered">
-                                <div className="legendsContainer">
-                                    {
-                                        fundsAlloc.map(this._renderLedgends)
-                                    }
-                                </div>
+                                <PieChart 
+                                    name="funds"
+                                    pieData = {fundsAlloc}
+                                    height = {pieDimensions.height} //360
+                                    width = {pieDimensions.width} //360
+                                    legendSpacing = {pieDimensions.legendSpacing} // 4
+                                    legendRectSize = {pieDimensions.legendRectSize} // 20
+                                    donutWidth={ pieDimensions.donutWidth } //75
+                                />
                             </div>
                         </div>
                     </div>

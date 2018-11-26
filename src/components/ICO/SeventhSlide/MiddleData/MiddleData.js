@@ -97,10 +97,10 @@ class MiddleData extends Component {
                         <div className="column is-6 ">
                             <div id={'animate-'+id} ref={(ref)=> id === 1 ? setRefs(id, ref): null} className="columns is-multiline is-desktop has-text-left is-vcentered">
                                 <div className="column is-full has-text-left has-text-centered-mobile">
-                                    <h1 className="is-size-4 has-text-weight-bold is-uppercase">
+                                    <p className="is-size-4 has-text-weight-bold is-uppercase">
                                         <img className="icon" src={require("./assets/eth_icon.png")} alt="icon" />
                                         ETHEREUM WALLET ADDRESS
-                                    </h1>
+                                    </p>
                                 </div>
                                 <div className="column is-full has-text-left has-text-centered-mobile">
                                     <div className="input_div_box">

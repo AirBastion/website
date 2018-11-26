@@ -114,7 +114,7 @@ class Display extends Component {
 
   scrolling =(e)=>{
     //console.log("scrolling", e);
-    console.log('e.target ==> ',e.target );
+   // console.log('e.target ==> ',e.target );
     let scrollTop = e.target.scrollTop;
     if (scrollTop >= this.scrollTopDisplay) {
       //scrolling down
