@@ -104,7 +104,7 @@ class FourthSlide extends Component {
         return (
             <section className="section">
                 <div className="columns is-multiline is-desktop is-centered is-vcentered has-text-centered">
-                    <div className="column is-6">
+                    <div className="column">
                         <div className="columns is-multiline is-desktop is-centered is-vcentered">
                             <div className="column is-full has-text-centered">
                                 <h1 className="is-size-3 has-text-weight-bold has-text-white">
@@ -124,7 +124,7 @@ class FourthSlide extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="column is-6">
+                    <div className="column">
                         <div className="columns is-multiline is-desktop is-centered is-vcentered">
                             <div className="column is-full has-text-centered">
                                 <h1 className="is-size-3 has-text-weight-bold has-text-white">
