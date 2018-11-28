@@ -263,8 +263,8 @@ class FirstSlide extends React.PureComponent {
 
         <section className="section center">
           <div className="columns is-desktop is-centered is-vcentered">
-            <div className=" column is-3 has-text-centered is-centered is-hidden-desktop">{video}</div>
-            <div className=" column is-5 has-text-centered">
+            <div className=" column has-text-centered is-centered is-hidden-desktop">{video}</div>
+            <div className=" column has-text-centered">
               <StyledCard>
                 <div className="columns is-fullwidth is-desktop">
                   <div className="column is-full has-text-centered">
@@ -320,8 +320,7 @@ class FirstSlide extends React.PureComponent {
                 </div>
               </StyledCard>
             </div>
-            <div className="column is-1 is-hidden-mobile" />
-            <div className=" column is-5 has-text-centered is-centered">
+            <div className="column has-text-centered is-centered">
               {video}
             </div>
           </div>
