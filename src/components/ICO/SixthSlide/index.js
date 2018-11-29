@@ -25,31 +25,87 @@ class SixthSlide extends Component {
             </div>
           </div>
         </section>
-
         <div className="section">
-          <div className="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-            <div className="column is-10">
-              <div className="columns">
-                <div className="column is-5 box">
-                  First Title <br />
-                  Second Title <br />
-                  Third Title <br />
-                  <div className="column is-4 box">
-                    First Title <br />
-                    Second Title <br />
-                    Third Title <br />
-                  </div>
+          <div className="container">
+            <div className="columns">
+              <div className="column is-4">
+                <div className="columns">
+                  <div className="column box is-10">First Title</div>
                 </div>
-                <div className="column is-6">
-                  <div className="columns">
-                    <div className="column box">Date Input</div>
-                    <div className="column box">Date Picker</div>
-                  </div>
+                <div className="columns">
+                  <div className="column box is-10">First Title</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">First Title</div>
+                </div>
+              </div>
+
+              <div className="column is-2">
+                <div className="columns">
+                  <div className="column box is-10">Date Input</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">Date Input</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">Date Input</div>
+                </div>
+              </div>
+              <div className="column is-2">
+                <div className="columns">
+                  <img style={{width: '40px', height: '40px'}} src={require("./calendar.png")} /><br/><br/>
+                </div>
+                <div className="columns">
+                  <img style={{width: '40px', height: '40px'}} src={require("./calendar.png")} /><br/><br/>
+                </div>
+                <div className="columns">
+                  <img style={{width: '40px', height: '40px'}} src={require("./calendar.png")} />
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         </div>
+
+        {/* <div className="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-4">
+                <div className="columns">
+                  <div className="column box is-10">First Title</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">First Title</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">First Title</div>
+                </div>
+              </div>
+
+              <div className="column is-2">
+                <div className="columns">
+                  <div className="column box is-10">Date Input</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">Date Input</div>
+                </div>
+                <div className="columns">
+                  <div className="column box is-10">Date Input</div>
+                </div>
+              </div>
+              <div className="column is-2">
+                <div className="columns">
+                  <img style={{width: '40px', height: '40px'}} src={require("./calendar.png")} />
+                </div>
+                <div className="columns">
+                  <img style={{width: '40px', height: '40px'}} src={require("./calendar.png")} />
+                </div>
+                <div className="columns">
+                  <img style={{width: '40px', height: '40px'}} src={require("./calendar.png")} />
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>*/}
       </React.Fragment>
     );
   }
