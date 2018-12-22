@@ -28,16 +28,18 @@ class FifthSlide extends Component{
 
   render(){
       const sampleData = [
-        { x: 1, y: 1 },
-        { x: 1.5, y: 1.2 },
-        { x: 2, y: 1.4 },
-        { x: 2.5, y: 1.6 },
-        { x: 3, y: 1.8 },
-        { x: 3.5, y: 2 },
-        { x: 4, y: 2.1 },
-        { x: 4.5, y: 2.2 },
-        { x: 5, y: 2.2 },
-        { x: 5.5, y: 2.3 },
+        { x: 0, y: 1 },
+        { x: 3.5, y: 1 },
+        { x: 4.49, y: 1.30 },
+        { x: 5.55, y: 1.6 },
+        { x: 6.25, y: 2.1 },
+        { x: 6.8, y: 2.6 },
+        { x: 7.4, y: 3.2 },
+        { x: 8.2, y: 4.1 },
+        { x: 8.6, y: 4.6 },
+        { x: 8.9, y: 5 },
+        { x: 10.3, y: 5.7 },
+        { x: 13, y: 5.9 },
       ]
     return (
         <section className="section">
@@ -48,17 +50,17 @@ class FifthSlide extends Component{
                     </h1>
                 </div> */}
                 <div className="column is-full has-text-centered">
-                    <VictoryChart >
+                    <VictoryChart domain={{x:[0,13], y:[0,9]}}>
                         <VictoryLine
                             height={this.state.height}
                             //groupComponent={<VictoryClipContainer clipPadding={{ top: 5, right: 10 }} />}
-                            style={{ data: { stroke: "#c43a31", strokeWidth: 5, strokeLinecap: "round" } }}
+                            style={{ data: { stroke: "#5f53be", strokeWidth: 1 } }}
                             data={sampleData}
                             interpolation="natural"
                         />
                         <VictoryScatter
-                            style={{ data: { fill: "#c43a31" } }}
-                            size={7}
+                            style={{ data: { fill: "#fcfcfc" } }}
+                            size={2}
                             data={sampleData}
                         />
                     </VictoryChart>
