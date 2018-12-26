@@ -1,0 +1,50 @@
+.carousal {
+    position: absolute;
+    width: 100%;
+    bottom: 15%;
+    height: 8%;
+    z-index: 5;
+    text-align:center;
+    padding-right: 0;
+    font-size: 45px;
+}
+#project-list {
+    display: inline-flex;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    vertical-align: sub;
+}
+
+.list-items{
+    display: inline-block;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    cursor: pointer;
+    position: relative;
+    padding: 0; 
+    width: 45px;
+    height: 75px;
+    background:transparent;
+}
+.list-items-horizontal{
+    width: 75px;
+    height: 45px;
+    margin-bottom: 0;
+    pointer-events: none;
+    transform: rotate(90deg);
+    transition: all .3s;
+}
+
+.list-items:hover{
+    display: inline-block;
+    transition: all .3s;
+    cursor: pointer;
+    position: relative;
+    color: #44cdb4;
+    padding: 0; 
+    width: 55px;
+    height: 75px;
+    background:transparent;
+}

@@ -6,6 +6,7 @@ import injectSheet from 'react-jss';
 import sizeMe from 'react-sizeme';
 import AwesomeSlider from 'react-awesome-slider';
 import StyledCopyright from '../BuildingBlocks/Copyright';
+import Carousal from '../Carousal/index';
 
 import 'react-awesome-slider/dist/styles.css';
 import './main.css';
@@ -59,6 +60,7 @@ class Display extends Component {
 
   componentDidMount(){
    // this.scrolling();
+  document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
   }
 
   componentWillUnmount() {
@@ -164,14 +166,17 @@ class Display extends Component {
   onTransitionEnd =(e)=>{
     let {currentIndex} = e;
     console.log("current Index===> ", currentIndex);
-    if(currentIndex === 6){
-      document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
-      document.getElementsByClassName("aws-sld__next")[0].style.display = 'none';
-    }
-    else{
-      document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
-      document.getElementsByClassName("aws-sld__next")[0].style.display = 'flex';
-    }
+    // if(currentIndex === 6){
+    //   document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
+    //   document.getElementsByClassName("aws-sld__next")[0].style.display = 'none';
+    // }
+    // else{
+    //   document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
+    //   document.getElementsByClassName("aws-sld__next")[0].style.display = 'flex';
+    // }
+    this.setState({
+      selectIndex: currentIndex
+    })
   }
 
   _renderSlides =(slide)=>{
@@ -199,6 +204,13 @@ class Display extends Component {
       );
     }
   }
+
+  carousalClick=(clickedIndex)=>{
+    console.log("clicked-->",clickedIndex);
+    this.setState({
+      selectIndex: clickedIndex
+    })
+  }
   
   generateSlides = () => {
     const slides = [
@@ -213,11 +225,13 @@ class Display extends Component {
 
     return (
       <div className="height_100vh" onScroll={this.scrolling}>
-        <AwesomeSlider id="awesomeSlider" onTransitionEnd={this.onTransitionEnd}>
+        <AwesomeSlider selected={this.state.selectIndex} id="awesomeSlider" onTransitionEnd={this.onTransitionEnd}
+        >
           {
             slides.map(this._renderSlides)
           }
         </AwesomeSlider>
+        <Carousal slides={slides} selectIndex={this.state.selectIndex} carousalClick= {this.carousalClick} />
       </div>
     );
   };
