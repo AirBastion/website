@@ -79,7 +79,7 @@ class BoxesSlide extends React.PureComponent {
 
   handleToggleModal = event => {
     this.setState({ showModal: !this.state.showModal });
-    document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
+    // document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
   };
 
   handleClick = (event, id) => {

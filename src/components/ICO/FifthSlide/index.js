@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './index.css';
 import 'bulma/css/bulma.css';
-import { VictoryChart, VictoryLine, VictoryScatter } from 'victory'
+import { VictoryGroup, VictoryLine, VictoryScatter, VictoryTooltip } from 'victory'
+import SixthSlide from './../SixthSlide/index'
 
 class FifthSlide extends Component{
   constructor(){
@@ -49,7 +50,7 @@ class FifthSlide extends Component{
         sampleData[10],
         
       ]
-
+      
     return (
         <section className="section">
             <div className="columns is-multiline is-desktop is-centered is-vcentered has-text-centered">
@@ -59,7 +60,7 @@ class FifthSlide extends Component{
                     </h1>
                 </div> */}
                 <div className="column is-full has-text-centered">
-                    <VictoryChart domain={{x:[0,13], y:[0,9]}}>
+                    <VictoryGroup domain={{x:[0,13], y:[0,9]}} >
                         <VictoryLine
                             height={this.state.height}
                             //groupComponent={<VictoryClipContainer clipPadding={{ top: 5, right: 10 }} />}
@@ -73,11 +74,29 @@ class FifthSlide extends Component{
                             data={sampleData}
                         />
                         <VictoryScatter
-                            style={{ data: { fill: "#fcfcfc" } }}
-                            size={3}
+                            style={{ data: { fill: "#fcfcfc" , stroke: "#5f53be", strokeWidth: 1.5} }}
+                            size={4}
                             data={testData}
+                            events={[
+                                {
+                                  target: "data",
+                                  eventHandlers: {
+                                    onClick: (evt, clickedProps) => {
+                                      const clickedIndex = clickedProps.index;
+                                      return [
+                                        {
+                                          eventKey: 'all',
+                                          mutation: (props) => {
+                                            return props.index === clickedIndex ? null : {style: {fill: "orange", width: 20}};
+                                          }
+                                        }
+                                      ];
+                                    }
+                                  }
+                                }
+                              ]}            
                         />
-                    </VictoryChart>
+                    </VictoryGroup>
                 </div>
             </div>
         </section>
