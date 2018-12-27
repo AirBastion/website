@@ -7,9 +7,6 @@
     z-index: 5;
     text-align:center;
     padding: 0.5rem 1rem;
-    flex-shrink: 1;
-    flex-grow: 1;
-    flex-basis: 0;
     font-size: 45px;
 }
 
@@ -18,8 +15,7 @@
     height: 100%;
     position: relative;
     text-align: center;
-    float: left;
-    left: 30%;
+    left: -11%;
 }
 
 .list-items {
