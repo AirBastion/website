@@ -32,9 +32,6 @@ var slider = {
   height: window.innerHeight
 };
 
-
-
-
 class Display extends Component {
   constructor(props) {
     super(props);
@@ -50,6 +47,7 @@ class Display extends Component {
     this.step2Ref = null;
     this.step3Ref = null;
     this.step4Ref = null;
+    this.isBarCarousal = true; // mark TRUE, to get the barred carousal display in place of bulletted carousal
   }
 
   componentWillMount() {
@@ -59,8 +57,19 @@ class Display extends Component {
   }
 
   componentDidMount(){
-   // this.scrolling();
-  document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
+   if(this.isBarCarousal) {
+    document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';  
+    this.carousalRender();
+   } else {
+    document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
+   }
+  }
+
+  // function to hide the slider arrows
+  carousalRender(){
+      document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';  
+      document.getElementsByClassName('aws-sld__next')[0].style.visibility = 'hidden';
+      document.getElementsByClassName("aws-sld__prev")[0].style.visibility = 'hidden';  
   }
 
   componentWillUnmount() {
@@ -98,7 +107,6 @@ class Display extends Component {
     );
   };
    isAnyPartOfElementInViewport =(el) =>  {
-
     const rect = el.getBoundingClientRect();
     // DOMRect { x: 8, y: 8, width: 100, height: 100, top: 8, right: 108, bottom: 108, left: 8 }
     const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
@@ -164,19 +172,19 @@ class Display extends Component {
   }
 
   onTransitionEnd =(e)=>{
-    let {currentIndex} = e;
-    console.log("current Index===> ", currentIndex);
-    // if(currentIndex === 6){
-    //   document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'none';
-    //   document.getElementsByClassName("aws-sld__next")[0].style.display = 'none';
-    // }
-    // else{
-    //   document.getElementsByClassName("aws-sld__bullets")[0].style.display = 'flex';
-    //   document.getElementsByClassName("aws-sld__next")[0].style.display = 'flex';
-    // }
-    this.setState({
-      selectIndex: currentIndex
-    })
+    let { currentIndex } = e;
+    if(currentIndex === 6){
+      document.getElementsByClassName("aws-sld__next")[0].style.display = 'none';
+      this.setState({
+        selectIndex: currentIndex
+      })
+    }
+    else if(currentIndex != 6){
+      document.getElementsByClassName("aws-sld__next")[0].style.display = 'flex';
+      this.setState({
+        selectIndex: currentIndex
+      })
+    }
   }
 
   _renderSlides =(slide)=>{
@@ -206,12 +214,12 @@ class Display extends Component {
   }
 
   carousalClick=(clickedIndex)=>{
-    console.log("clicked-->",clickedIndex);
     this.setState({
+      ...this.state,
       selectIndex: clickedIndex
     })
   }
-  
+
   generateSlides = () => {
     const slides = [
       { id: '1', component: <FirstSlide isMobile={false}  /> },
@@ -231,7 +239,12 @@ class Display extends Component {
             slides.map(this._renderSlides)
           }
         </AwesomeSlider>
-        <Carousal slides={slides} selectIndex={this.state.selectIndex} carousalClick= {this.carousalClick} />
+        {this.isBarCarousal ? (
+        <Carousal slides={slides}
+         selectedIndex={this.state.selectIndex}
+         carousalClick= {this.carousalClick} />
+        ) : null
+        }
       </div>
     );
   };

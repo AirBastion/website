@@ -1,12 +1,15 @@
 .carousal {
     position: absolute;
     width: 100%;
-    bottom: 15%;
+    bottom: 8%;
     height: 8%;
+    display: block;
     z-index: 5;
     text-align:center;
-    padding-right: 0;
-    padding-top: 23px;
+    padding: 0.5rem 1rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 0;
     font-size: 45px;
 }
 
@@ -14,9 +17,9 @@
     display: inline-flex;
     height: 100%;
     position: relative;
-    margin: auto;
     text-align: center;
-    padding-left: -11%;
+    float: left;
+    left: 30%;
 }
 
 .list-items {
@@ -31,10 +34,29 @@
     color: #ffffff;
 }
 
+.list-items-last {
+    display: inline-block;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    cursor: pointer;
+    position: relative;
+    width: 35px;
+    height: 75px;
+    background:transparent;
+    color: black;
+}
+
 .list-items span {
     position: absolute;
     top: -10px;
-    font-size: 23px;
+    font-size: 22px;
+    display: none;
+}
+
+.list-items-last span {
+    position: absolute;
+    top: -10px;
+    font-size: 22px;
     display: none;
 }
 
@@ -48,13 +70,33 @@
     margin: 0;
 }
 
+.list-items-horizontal-last {
+    height: 81px;
+    margin: 16px;
+    color: black;
+    pointer-events: none;
+    transform: rotate(90deg);
+    transition: all .3s;
+    margin: 0;
+}
+
 .list-items-horizontal span {
     transform: rotate(-90deg);
     display: inline-block;  
-    font-size: 25px;
+    font-size: 22px;
+}
+
+.list-items-horizontal-last span {
+    transform: rotate(-90deg);
+    display: inline-block;  
+    font-size: 22px;
 }
 
 .list-items:hover span {
+    display: inline-block; 
+}
+
+.list-items-last:hover span {
     display: inline-block; 
 }
 
@@ -69,3 +111,17 @@
     height: 75px;
     background:transparent;
 }
+
+.list-items-last:hover {
+    display: inline-block;
+    transition: all .3s;
+    cursor: pointer;
+    position: relative;
+    color: #44cdb4;
+    padding: 0; 
+    width: 55px;
+    height: 75px;
+    background:transparent;
+}
+
+
