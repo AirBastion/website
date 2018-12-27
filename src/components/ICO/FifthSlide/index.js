@@ -26,7 +26,10 @@ class FifthSlide extends Component{
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions);
   }
-
+  
+  onPressWaypoint(selectedIndex) {
+     console.log('selectedIndec: waypoint', selectedIndex);
+  }
   render(){
       const sampleData = [
         { x: 0, y: 1 },
@@ -51,6 +54,7 @@ class FifthSlide extends Component{
         
       ]
       
+  
     return (
         <section className="section">
             <div className="columns is-multiline is-desktop is-centered is-vcentered has-text-centered">
@@ -74,20 +78,21 @@ class FifthSlide extends Component{
                             data={sampleData}
                         />
                         <VictoryScatter
-                            style={{ data: { fill: "#fcfcfc" , stroke: "#5f53be", strokeWidth: 1.5} }}
+                            style={{ data: { fill: "#fcfcfc" , stroke: "#5f53be", strokeWidth: 1.5, cursor: 'hand'} }}
                             size={4}
                             data={testData}
                             events={[
                                 {
                                   target: "data",
                                   eventHandlers: {
-                                    onClick: (evt, clickedProps) => {
+                                    onMouseOver: (evt, clickedProps) => {
                                       const clickedIndex = clickedProps.index;
                                       return [
                                         {
                                           eventKey: 'all',
                                           mutation: (props) => {
-                                            return props.index === clickedIndex ? null : {style: {fill: "orange", width: 20}};
+                                        this.onPressWaypoint(clickedIndex);
+                                      return props.index === clickedIndex ? {style: {fill: "orange", width: 20}}: null  ;
                                           }
                                         }
                                       ];
