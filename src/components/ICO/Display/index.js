@@ -47,7 +47,7 @@ class Display extends Component {
     this.step2Ref = null;
     this.step3Ref = null;
     this.step4Ref = null;
-    this.isBarCarousal = true; // mark TRUE, to get the barred carousal display in place of bulletted carousal
+    this.isBarCarousal = true; // mark TRUE Or FALSE, to activate/deactivate the barred carousal navigation display
   }
 
   componentWillMount() {
