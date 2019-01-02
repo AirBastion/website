@@ -195,7 +195,7 @@ class Display extends Component {
             {slide.component}
             <section className="section no-padding footer_slider">
               <div className="columns is-variable is-centered">
-                <div className="column is-centered copyright">
+                <div className="column">
                   <StyledCopyright />
                 </div>
               </div>

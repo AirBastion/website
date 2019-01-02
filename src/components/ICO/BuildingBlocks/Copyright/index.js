@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Copyright = props => {
   return (
     <React.Fragment>
-      <p style={{ textAlign: 'center' }}>
+      <p className='copyright-footer' style={{ textAlign: 'center' }}>
         Copyright © Air Bastion 2018 ||{' '}
         <a alt="disclaimer" href={props.disclaimer} style={{ color: 'white' }}>
           Disclaimer

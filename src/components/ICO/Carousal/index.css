@@ -1,14 +1,14 @@
 .carousal {
     position: absolute;
-    width: 100%;
+    width: auto;
     bottom: -1%;
-    right: 14%;
+    right: 70%;
     height: auto;
     display: block;
     z-index: 5;
     text-align:center;
     padding: 0.5rem 1rem;
-    font-size: 38px;
+    font-size: 39.5px;
 }
 
 #project-list {
@@ -16,7 +16,7 @@
     height: 100%;
     position: relative;
     text-align: center;
-    left: -11%;
+    left: -16%;
 }
 
 .list-items {
@@ -24,6 +24,7 @@
     -webkit-transition: all .3s;
     transition: all .3s;
     cursor: pointer;
+    font-weight: lighter;
     position: relative;
     width: 35px;
     height: 75px;
@@ -36,6 +37,7 @@
     -webkit-transition: all .3s;
     transition: all .3s;
     cursor: pointer;
+    font-weight: lighter;
     position: relative;
     width: 35px;
     height: 75px;
@@ -46,14 +48,14 @@
 .list-items span {
     position: absolute;
     top: -10px;
-    font-size: 22px;
+    font-size: 18px;
     display: none;
 }
 
 .list-items-last span {
     position: absolute;
     top: -10px;
-    font-size: 22px;
+    font-size: 18px;
     display: none;
 }
 
@@ -63,6 +65,7 @@
     color: white;
     pointer-events: none;
     transform: rotate(90deg);
+    font-weight: lighter;
     transition: all .3s;
     margin: 0;
 }
@@ -73,6 +76,7 @@
     color: black;
     pointer-events: none;
     transform: rotate(90deg);
+    font-weight: lighter;
     transition: all .3s;
     margin: 0;
 }
@@ -80,13 +84,15 @@
 .list-items-horizontal span {
     transform: rotate(-90deg);
     display: inline-block;  
-    font-size: 22px;
+    font-weight: lighter;
+    font-size: 18px;
 }
 
 .list-items-horizontal-last span {
     transform: rotate(-90deg);
     display: inline-block;  
-    font-size: 22px;
+    font-size: 18px;
+    font-weight: lighter;
 }
 
 .list-items:hover span {
@@ -106,6 +112,7 @@
     padding: 0; 
     width: 55px;
     height: 75px;
+    font-weight: lighter;
     background:transparent;
 }
 
@@ -118,7 +125,21 @@
     padding: 0; 
     width: 55px;
     height: 75px;
+    font-weight: lighter;
     background:transparent;
+}
+@media(max-width:768px){
+    .carousal{
+    position: fixed;
+    width: auto;
+    bottom: -30px;
+    right: 29%;
+    }
+    .footer_slider{
+        position: fixed !important;
+        left: 10% !important;
+        bottom: 4% !important;
+    }
 }
 
 
