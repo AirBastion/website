@@ -7,7 +7,8 @@ class Carousal extends Component {
     this.lastSlide = false;
     }
   render() {
-      let {slides, carousalClick, selectedIndex} = this.props;
+      let {slides, carousalClick, selectedIndex = 0 } = this.props;
+      console.log("this.state.selectIndex-------",this.props.selectedIndex);
       let selectedDiv;
     this.lastSlide = (slides.length-1 === selectedIndex) ? true : false;
 

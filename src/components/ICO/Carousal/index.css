@@ -132,13 +132,15 @@
     .carousal{
     position: fixed;
     width: auto;
-    bottom: -30px;
+    bottom: -15px;
     right: 29%;
     }
     .footer_slider{
         position: fixed !important;
         left: 10% !important;
         bottom: 4% !important;
+        top: 83% !important;
+        padding: 0.7rem 1rem !important;
     }
 }
 
