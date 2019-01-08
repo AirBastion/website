@@ -52,7 +52,7 @@ class MiddleData extends Component {
     render(){
         let { step, title, para, note, links, showCode, code, showImage, image, hasSpinner, c, id, setRefs } = this.props;
         return (
-            <div  className="columns is-desktop paddingMiddleData is-vcentered bg_color_white ">
+            <div  className="columns is-desktop paddingMiddleData is-vcentered bg_color_white mobile-view">
                 <div className="column is-5  ">
                     <div className="columns is-multiline is-desktop has-text-left is-vcentered has-text-centered-mobile">
                         <div className="column is-full ">
@@ -94,7 +94,7 @@ class MiddleData extends Component {
                 <div className="column is-1"></div>
                 {
                     showCode ?
-                        <div className="column is-6 ">
+                        <div className="column is-6">
                             <div id={'animate-'+id} ref={(ref)=> id === 1 ? setRefs(id, ref): null} className="columns is-multiline is-desktop has-text-left is-vcentered">
                                 <div className="column is-full has-text-left has-text-centered-mobile">
                                     <p className="is-size-4 has-text-weight-bold is-uppercase">
