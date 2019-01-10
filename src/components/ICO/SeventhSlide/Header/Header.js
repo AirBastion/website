@@ -43,7 +43,7 @@ class Header extends Component {
     _renderNavBar=()=>{
         return(
             <div className="columns bg_color_white_8 is-vcentered is-mobile" >
-                <div className="column is-3 is-hidden-desktop is-hidden-tablet">
+                <div className="column is-3 is-hidden-desktop hidden-tablet">
                     <a role="button" className="navbar-burger"  onClick={()=>this.setState({isDraweOpen: true})}
                         aria-label="menu" 
                         aria-expanded="false">
